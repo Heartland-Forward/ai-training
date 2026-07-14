@@ -22,3 +22,5 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+# Playwright MCP artifacts
+.playwright-mcp/
