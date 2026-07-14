@@ -1,0 +1,207 @@
+/* Executive Summary Section */
+.summary-section {
+  background: var(--bg-surface-raised);
+  padding: 64px 0;
+}
+
+/*
+ * Dark mode: collapse to page bg. Summary cards still lift via
+ * --bg-surface so they read as panels above the canvas.
+ */
+[data-theme="dark"] .summary-section {
+  background: var(--bg-page);
+}
+
+.summary-section .container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 38px;
+}
+
+.summary-section .section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.summary-section .section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 13px;
+  color: var(--brand-navy-text);
+  letter-spacing: -0.02em;
+}
+
+.summary-section .section-header p {
+  font-size: 1rem;
+  color: var(--brand-emerald);
+  max-width: 640px;
+  margin: 0 auto;
+  text-wrap: balance;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 38px;
+}
+
+.summary-card {
+  background: var(--bg-surface);
+  padding: 26px;
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 2px 3px var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  contain: layout style paint;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-modal);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.summary-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 13px;
+  color: var(--text-primary);
+}
+
+.summary-score {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 13px;
+}
+
+.summary-card p {
+  color: var(--text-muted);
+  margin-bottom: 19px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.key-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-tag {
+  font-size: 0.7rem;
+  padding: 3px 6px;
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border-radius: 3px;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.metric-tag.clickable {
+  cursor: pointer;
+}
+
+.metric-tag.clickable:hover {
+  background: var(--bg-active);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.metric-tag.clickable:focus {
+  outline: 2px solid var(--brand-emerald);
+  outline-offset: 1px;
+}
+
+.metric-tag.positive::before {
+  content: '\2713';
+  margin-right: 5px;
+  font-weight: 700;
+  color: var(--status-success);
+}
+
+.metric-tag.negative::before {
+  content: '\2717';
+  margin-right: 5px;
+  font-weight: 700;
+  color: var(--status-error);
+}
+
+.metric-tag.warning::before {
+  content: '\26A0';
+  margin-right: 5px;
+  font-weight: 700;
+  color: var(--status-warning);
+}
+
+.metric-tag.neutral::before {
+  content: '\2014';
+  margin-right: 5px;
+  font-weight: 700;
+  color: var(--chart-benchmark);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .summary-section {
+    padding: 56px 0;
+  }
+
+  .summary-section .container {
+    padding: 0 24px;
+  }
+
+  .summary-section .section-header {
+    margin-bottom: 40px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .summary-section {
+    padding: 40px 0;
+  }
+
+  .summary-section .container {
+    padding: 0 16px;
+  }
+
+  .summary-section .section-header {
+    margin-bottom: 28px;
+  }
+
+  .summary-section .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .summary-section .section-header p {
+    font-size: 0.95rem;
+  }
+
+  .summary-card {
+    padding: 20px;
+  }
+
+  .summary-score {
+    font-size: 1.8rem;
+  }
+
+  .summary-card p {
+    margin-bottom: 16px;
+  }
+
+  .metric-tag {
+    font-size: 0.72rem;
+    padding: 5px 8px;
+    line-height: 1.45;
+  }
+}

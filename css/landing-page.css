@@ -1,0 +1,229 @@
+/* Landing Page Section */
+.landing-page-section {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--bg-surface-raised) 0%, var(--bg-hover) 100%);
+  text-align: center;
+  padding-top: max(20px, env(safe-area-inset-top));
+  padding-right: max(20px, env(safe-area-inset-right));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  padding-left: max(20px, env(safe-area-inset-left));
+  box-sizing: border-box;
+}
+
+/*
+ * Dark mode: collapse to page bg so the landing screen sits flush
+ * with the rest of the dashboard canvas. Without this, the slate
+ * gradient is one shade lighter than every other section and creates
+ * a visible seam at the section break.
+ */
+[data-theme="dark"] .landing-page-section {
+  background: var(--bg-page);
+}
+
+.landing-page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+
+.landing-page-logo {
+  margin-bottom: 40px;
+}
+
+.landing-page-logo img {
+  width: 220px;
+  height: auto;
+}
+
+.landing-page-title {
+  font-size: clamp(2.2rem, 5.4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 13px;
+  color: var(--brand-navy-text);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  max-width: 14ch;
+  text-wrap: balance;
+}
+
+.landing-page-subtitle {
+  font-size: 1.2rem;
+  color: var(--brand-emerald);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.landing-page-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 48px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.landing-page-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--bg-surface);
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-card-hover);
+  border: 1px solid var(--border-default);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-height: 100px;
+  width: 100%;
+}
+
+.landing-page-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-modal);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand-navy-text);
+  line-height: 1;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Scroll indicator at bottom */
+.scroll-indicator {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.scroll-arrow {
+  width: 19px;
+  height: 19px;
+  border: 2px solid var(--text-muted);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+  margin-top: 6px;
+  animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  40% {
+    transform: translateY(-8px) rotate(45deg);
+  }
+  60% {
+    transform: translateY(-4px) rotate(45deg);
+  }
+}
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+  .landing-page-section {
+    height: auto;
+    min-height: 100dvh;
+    padding-top: max(40px, env(safe-area-inset-top));
+    padding-right: max(20px, env(safe-area-inset-right));
+    padding-bottom: max(40px, env(safe-area-inset-bottom));
+    padding-left: max(20px, env(safe-area-inset-left));
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-page-section {
+    justify-content: center;
+    padding-top: max(28px, env(safe-area-inset-top));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+    padding-left: max(16px, env(safe-area-inset-left));
+  }
+
+  .landing-page-content {
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .landing-page-logo {
+    margin-bottom: 28px;
+  }
+
+  .landing-page-subtitle {
+    margin-bottom: 12px;
+  }
+
+  .landing-page-stats {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .landing-page-stat {
+    min-height: 88px;
+    padding: 14px 18px;
+  }
+
+  .stat-number {
+    font-size: clamp(1.25rem, 6vw, 1.6rem);
+  }
+
+  .stat-label {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-page-title {
+    font-size: 2rem;
+    max-width: 12ch;
+  }
+
+  .landing-page-logo {
+    margin-bottom: 24px;
+  }
+
+  .landing-page-stat {
+    padding: 12px 16px;
+    min-height: 80px;
+  }
+
+  .stat-number {
+    font-size: 1.15rem;
+  }
+
+  .stat-label {
+    font-size: 0.58rem;
+  }
+
+  .landing-page-logo img {
+    width: 160px;
+  }
+}
