@@ -171,6 +171,11 @@ body {
   color: #111827; /* text-gray-900 */
   margin: 0;
   padding: 0;
+  /* Flex column activates the existing main { flex: 1 } so the footer sits at
+     the viewport bottom on short pages rather than floating mid-page */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
