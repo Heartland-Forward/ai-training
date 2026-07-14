@@ -175,8 +175,10 @@ html, body {
 
 /* Structural Elements */
 body {
-  /* Token-controlled page background from tokens.css */
-  background-color: var(--bg-page);
+  /* The dashboard's canvas is a tinted band rather than flat grey. Same
+     135deg gradient and tokens its landing page uses. */
+  background: linear-gradient(135deg, var(--bg-surface-raised) 0%, var(--bg-hover) 100%);
+  background-attachment: fixed;
   color: #111827; /* text-gray-900 */
   margin: 0;
   padding: 0;
@@ -230,25 +232,28 @@ section.card-section {
   text-align: left;
 }
 
-/* Content sections are panels on the page canvas, using the dashboard's card
-   geometry from .summary-card / .chart-card: 26px padding, 10px radius, a real
-   border, and a shallow shadow rather than a heavy drop. */
+/* Content sections mirror the dashboard's .metrics-section: not a card, just
+   content on the page band. The weight lives in the header's rule, not in a
+   surface. Prose in the dashboard is never boxed. */
 .content-section {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: 10px;
-  padding: 26px;
-  box-shadow: 0 2px 3px var(--shadow-card);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 16px 38px;
+  margin-bottom: 48px;
 }
 
-/* Title sections are the dashboard's centered .section-header: navy headline,
-   emerald description, both centered and balanced. */
+/* Title sections are the dashboard's .pillar-header: LEFT aligned, not
+   centered. The centered variant is specific to the executive summary and is
+   not the system's default. */
 .title-section {
   background-color: transparent;
   box-shadow: none;
   border: none;
-  padding: 26px 38px;
-  text-align: center;
+  padding: 0 38px 32px 38px;
+  margin-bottom: 64px;
+  text-align: left;
 }
 
 .first-section {
@@ -275,17 +280,16 @@ section.card-section {
   margin-bottom: 13px;
 }
 
-/* The lead paragraph under a title is the dashboard's emerald section
-   description: centered, balanced, and held to a readable measure.
-   Selector is element-qualified so it outranks the generic
-   ".title-section p" colour rule further down this file. */
+/* The lead paragraph under a title is the dashboard's .pillar-header p:
+   small, held to a 480px measure, left aligned. Selector is
+   element-qualified so it outranks the generic ".title-section p" rule
+   further down this file. */
 section.title-section > p {
-  font-size: 1rem;
-  color: var(--brand-emerald);
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  text-wrap: balance;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #374151);
+  max-width: 480px;
+  margin: 0;
 }
 
 /* H2 - text-2xl font-bold mb-4 */
@@ -481,12 +485,18 @@ section.title-section > p {
    COLLAPSIBLE SECTIONS
    ============================================ */
 
+/* Mirrors the dashboard's .metrics-section-header. The 2px bottom rule is
+   where a section gets its visual weight in this system, which is why content
+   sections need no card around them. */
 .collapsible-header {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   user-select: none;
+  margin-bottom: 32px;
+  padding-bottom: 19px;
+  border-bottom: 2px solid var(--border-default);
   transition: color 0.2s;
 }
 
