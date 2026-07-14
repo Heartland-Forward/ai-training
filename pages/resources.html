@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/tokens.css">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/executive-summary.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/floating-nav.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -16,16 +17,25 @@
 </head>
 <body>
     <main>
-        <section class="title-section first-section">
-            <h1>AI Resources for K-12</h1>
-            <p>Curated list of AI tools with real K-12 education pricing. No slop, no wrappers. <em>Updated July 2026.</em></p>
-        </section>
+        <section class="pillar-section">
+            <div class="container">
+                <div class="pillar-header">
+                    <div class="pillar-header-content">
+                        <div class="pillar-header-top">
+                            <h2>AI Resources for K-12</h2>
+                        </div>
+                        <p>Curated list of AI tools with real K-12 education pricing. No slop, no wrappers. Verified July 2026.</p>
+                    </div>
+                </div>
 
-        <section class="content-section">
-            <h2 class="collapsible-header" data-target="tools-content">Tools</h2>
-            <div class="collapsible-content" id="tools-content">
-
-                <h3>Free Tools</h3>
+                <div class="metrics-section">
+                    <div class="metrics-section-header collapsible-header" data-target="tools-content">
+                        <h3>Free Tools</h3>
+                        <svg class="section-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="metrics-section-content collapsible-content prose-section" id="tools-content">
                 <table>
                     <colgroup>
                         <col style="width: 25%;">
@@ -104,8 +114,17 @@
                 </table>
                 <p class="text-small text-muted">Note: ChatGPT for Teachers is teacher-facing only. GitHub Copilot requires <a href="https://education.github.com/pack" target="_blank">Student Developer Pack</a> or <a href="https://education.github.com/teachers" target="_blank">GitHub Education</a> verification.</p>
                 <p class="text-small text-muted">Note: the two June 2027 dates above are not the same kind of deadline. Claude's "Sign up by June 30, 2027" is a signup deadline: your free year starts on the day you sign up, so a later signup still gets a full year from that date. ChatGPT's "through June 2027" is a fixed end date: free access stops on that date for everyone, regardless of when you joined.</p>
+                    </div>
+                </div>
 
-                <h3>Discounted Tools</h3>
+                <div class="metrics-section">
+                    <div class="metrics-section-header collapsible-header" data-target="discounted-content">
+                        <h3>Discounted Tools</h3>
+                        <svg class="section-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <div class="metrics-section-content collapsible-content prose-section" id="discounted-content">
                 <table>
                     <colgroup>
                         <col style="width: 25%;">
@@ -140,7 +159,8 @@
                         </tr>
                     </tbody>
                 </table>
-
+                    </div>
+                </div>
             </div>
         </section>
 <!--
