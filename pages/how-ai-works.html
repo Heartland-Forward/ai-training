@@ -478,6 +478,166 @@
             </div>
         </section>
 
+        <section id="skills" class="content-section">
+            <h2 class="collapsible-header" data-target="skills-content">Skills: Teach It Your Process Once</h2>
+            <div class="collapsible-content" id="skills-content">
+                <p>A Skill is a packaged set of instructions that turns the AI into a specialist for one specific task.
+                    You write it once, name it, and from then on it gets used automatically whenever you describe work
+                    that matches. No more digging up the same multi-paragraph prompt every time you sit down to do the
+                    thing you do every week.</p>
+
+                <p>Think of a Skill as a folder the AI can open when the situation calls for it. Inside is a
+                    <code>SKILL.md</code> file: a short header naming the Skill and describing when to use it, then a
+                    body of step-by-step instructions. The body is where you put the things you would tell a new
+                    colleague on their first day. What to pull out, how to lay it out, what to never do, and what to flag
+                    when it is not sure. If the task needs reference material (a template, a list of the deadlines you
+                    work against, the format your counselor expects), those files go in the same folder and the Skill
+                    points at them.
+                </p>
+
+                <p><strong>The part that surprises people:</strong> you do not have to tell it to use the Skill. Once the
+                    Skill is installed, the AI reads the description of every Skill you have and reaches for the matching
+                    one on its own. You describe the task the way you would say it out loud. "Here are my notes from the
+                    site visit at the hospital, write the follow-up" is enough. It sees that the employer follow-up Skill
+                    applies and runs it.</p>
+
+                <p><strong>Three Skills worth building for advisor work:</strong> the test for whether something deserves
+                    a Skill is simple. If you have explained the same process twice, the third time should be a Skill.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>What You Write Into It</th>
+                            <th>What Changes Day to Day</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Skill"><strong>Employer follow-up</strong></td>
+                            <td data-label="What You Write Into It">The structure you use after a site visit: thank them,
+                                name the specific thing they offered, propose the next concrete step, keep it under a
+                                screen. Plus a note on tone, since you are writing to a plant manager, not a parent.</td>
+                            <td data-label="What Changes Day to Day">You hand over your notes from the visit and get a
+                                sendable draft in your voice. The follow-up actually goes out the same week instead of
+                                sitting in your head until the relationship cools.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Skill"><strong>Family-facing rewrite</strong></td>
+                            <td data-label="What You Write Into It">The rules you already apply by instinct: no acronyms
+                                on first use, name the deadline and what happens if it is missed, plain language, short
+                                sentences, and what to do about a family that reads in Spanish.</td>
+                            <td data-label="What Changes Day to Day">Any notice, email, or FAFSA night handout gets the
+                                same treatment without you rebuilding the instructions each time. The output is
+                                consistent across the year, which is what families actually notice.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Skill"><strong>ICAP conversation prep</strong></td>
+                            <td data-label="What You Write Into It">What you want pulled from a student's file before a
+                                planning meeting: where they are against the plan, what changed since last time, the two
+                                or three questions worth asking, and an explicit instruction to flag anything it is
+                                inferring rather than reading.</td>
+                            <td data-label="What Changes Day to Day">The prep happens in the two minutes before the
+                                meeting instead of the twenty you do not have. You walk in with the questions already
+                                sharpened.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>You do not have to write it from scratch.</strong> Describe the workflow you have in mind and
+                    ask the AI to draft the <code>SKILL.md</code> for you. It will scaffold the description that triggers
+                    it and the instructions underneath, and you edit from there. The first draft is usually close enough
+                    that the job becomes correcting rather than composing.</p>
+
+                <p><strong>Where to find it:</strong></p>
+                <ul>
+                    <li><strong>Claude:</strong> Skills. Auto-invoked when your request matches the Skill's
+                        description.</li>
+                    <li><strong>ChatGPT:</strong> Skills. Also auto-invoked on a description match, or selected
+                        explicitly from the composer. The catch is not capability, it is access: they are workspace and
+                        admin-gated, and off by default in many workspaces.</li>
+                    <li><strong>Gemini:</strong> Gems. Manual only. You switch into a Gem before you prompt, so the Gem
+                        has to be a decision you make up front rather than something that fires when it fits.</li>
+                </ul>
+
+                <p><strong>The real split is gating, not capability.</strong> Claude and ChatGPT both pick the right
+                    Skill on their own from the description, so on that axis they are even and the difference is whether
+                    your workspace has Skills turned on at all. Gemini is the one that genuinely makes you change modes
+                    first, which matters more than it sounds: a specialist you have to remember to switch into is a
+                    specialist you will forget to use.</p>
+            </div>
+        </section>
+
+        <section id="connectors" class="content-section">
+            <h2 class="collapsible-header" data-target="connectors-content">Connectors: Ask About the Real Thing</h2>
+            <div class="collapsible-content" id="connectors-content">
+                <p>A connector gives the AI authenticated access to an app your work already lives in. Once one is set
+                    up, you can ask questions about the actual source material instead of pasting screenshots,
+                    re-uploading a file you already have, or describing something from memory and hoping you got it
+                    right.</p>
+
+                <p>Two of them cover most of an advisor's week.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Connector</th>
+                            <th>What It Reaches</th>
+                            <th>What It Unlocks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Connector"><strong>Google Drive</strong></td>
+                            <td data-label="What It Reaches">Docs, sheets, and slides across any Drive you can already
+                                see, including shared drives.</td>
+                            <td data-label="What It Unlocks">The folders you do not own. A shared counselor drive, a
+                                district folder, materials a partner organization hosts. Instead of clicking through it
+                                the night before to work out what changed, you ask.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Connector"><strong>Microsoft 365</strong></td>
+                            <td data-label="What It Reaches">Outlook mail and calendar, OneDrive, and SharePoint, from
+                                one setup.</td>
+                            <td data-label="What It Unlocks">The day you are actually having. "What is on my calendar
+                                tomorrow, and for each meeting, what was the last thing we said to each other" is one
+                                question instead of twenty minutes of inbox archaeology.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Read-only is a Claude promise, not an industry rule.</strong> Claude's connectors are
+                    read-only by design: it can see your inbox, your calendar, and your files, and it cannot send the
+                    mail, move the appointment, or edit the document. ChatGPT is different. Its Apps do have write
+                    actions, admin-gated and off by default rather than absent. So do not carry the read-only assumption
+                    from one tool to the other. Check what the connector you just turned on is actually allowed to do
+                    before you point it at anything that matters.</p>
+
+                <p><strong>If your district runs Microsoft, this decides the tool.</strong> Gemini has no Microsoft 365
+                    connector at all. Not a limited one: no Outlook, no OneDrive, no SharePoint. Claude and ChatGPT both
+                    reach Outlook and SharePoint. For an advisor whose mail, calendar, and every shared folder live in
+                    the Microsoft stack, that is not a feature-comparison footnote, it is most of the value of connectors
+                    disappearing. It is also the kind of thing you find out after you have committed, so find it out
+                    now.</p>
+
+                <p><strong>This is a district IT decision, not a personal one.</strong> Connectors touch school email and
+                    school files, which means they touch student records. Whether you are allowed to turn one on is often
+                    settled by district policy and your IT administrator, and on a school-managed device the setting may
+                    not be yours to change. Ask before you connect, not after. The answer may be yes, and it is a much
+                    better conversation to have in advance than to explain afterward.</p>
+
+                <p><strong>Where to find it:</strong></p>
+                <ul>
+                    <li><strong>Claude:</strong> Connectors.</li>
+                    <li><strong>ChatGPT:</strong> Apps, renamed from Connectors in December 2025. Documentation and
+                        walkthroughs written before then still call them Connectors, so search both names.</li>
+                    <li><strong>Gemini:</strong> Connected Apps, renamed from Extensions. No Microsoft 365 connector of
+                        any kind.</li>
+                </ul>
+            </div>
+        </section>
+
         <!-- <section id="agents" class="content-section">
             <h2 class="collapsible-header" data-target="agents-content">Agents: AI That Takes Action</h2>
             <div class="collapsible-content" id="agents-content">
