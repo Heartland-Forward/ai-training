@@ -623,11 +623,34 @@ This gives one source of truth for navy and emerald **without touching a single 
 sites**, and without breaking anything that references `--hf-navy` from an inline `style=` attribute.
 `--hf-grey`/`--hf-black`/`--hf-white` have no clean upstream equivalent — leave them as literals.
 
-**Also worth doing in the same pass (optional, low risk):** `style.css` hardcodes `#243269` directly
-in eight places (the `h1`–`h4` rules, `.doc-card-title`) rather than using `var(--hf-navy)`. Swapping
-those to `var(--brand-navy)` finishes the job. Not required for the port to be correct; it is the
-"replace literals with var()" step the reference-pr-report recommends, and it is the one piece of
-that report's advice that survives contact with the owner's rule.
+**CORRECTED after the port's final review. Do NOT execute the swap as this section originally
+described it: it named the wrong token and the wrong count.**
+
+The original text said `style.css` hardcodes `#243269` in **eight** places and recommended swapping
+them to `var(--brand-navy)`. Both halves were wrong.
+
+**Wrong count.** It is **five**, not eight: `style.css:244, 254, 264, 274` (the `h1`-`h4` rules) and
+`:547` (`.doc-card-title`, which is not an `h1`-`h4` rule). Pre-port it was six, including the
+`--hf-navy` declaration that the alias bridge above already re-pointed correctly.
+
+**Wrong token, and this is the part that matters.** `tokens.css:349-355` carries an explicit upstream
+warning that contradicts the original recommendation: where navy is used as **text**, consumers should
+use `--text-heading`, NOT `--brand-navy`. The two behave differently:
+
+- `--brand-navy` is pinned to `#243269` in BOTH themes (`tokens.css:70` light, `:356` dark). It is a
+  brand chrome colour, not a text colour.
+- `--text-heading` is `#243269` in light (`tokens.css:44`, byte-equal to the current literal, so zero
+  visual change) and `#f1f5f9` in dark (`:321`).
+
+Swapping heading text to `var(--brand-navy)` would therefore encode navy text on a `#1e1e1e`
+background for anyone who ever enables dark mode, while creating false confidence that the headings
+"track upstream". It would make the file worse, not better, in exactly the way that is hardest to
+notice.
+
+**Decision: leave the five literals alone for now.** They are inert today (the literal equals the
+token in light mode) and dark mode is unreachable. If someone later wants to finish the job, the
+correct swap is to `var(--text-heading)`, not `var(--brand-navy)`, and it should be done in the same
+change that adds a dark-mode toggle, so the result can actually be seen.
 
 ### 4.7 The dead auth block in the target — DELETE
 

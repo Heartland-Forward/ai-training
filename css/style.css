@@ -424,6 +424,14 @@ section.title-section {
     display: block;
     margin-bottom: 0.25rem;
   }
+
+  /* Row-label cells sit under a deliberately blank column header, so they carry
+     an empty data-label. Without this, the rule above renders an empty block
+     plus its margin, leaving a stray gap above the label. */
+  .content-section td[data-label=""]::before,
+  .title-section td[data-label=""]::before {
+    display: none;
+  }
 }
 
 /* ============================================
