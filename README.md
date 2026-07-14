@@ -1,12 +1,12 @@
-# AI Training for Heartland Forward Career Coaches
+# AI Training for Heartland Forward rootEd Advisors
 
-This repository hosts a GitHub Pages site dedicated to providing AI training resources and materials for Heartland Forward rooted Career coaches.
+This repository hosts a GitHub Pages site dedicated to providing AI training resources and materials for Heartland Forward rootEd advisors.
 
 ## Purpose
 
 This site serves as a centralized hub for:
 - AI training materials and resources
-- Best practices for integrating AI tools into career coaching
+- Best practices for integrating AI tools into advising work
 - Interactive learning modules
 - Documentation and guides
 
