@@ -350,6 +350,19 @@ main {
 }
 
 /* ============================================
+   PILLAR HEADER DESCRIPTION
+
+   shared.css sizes .pillar-header p but sets no colour: the dashboard paints
+   it emerald with an inline style from React (verified in the live DOM:
+   style="color: rgb(1, 153, 102)"). A static page has no component to do that,
+   so the rule lives here. Same value, same intent.
+   ============================================ */
+
+.pillar-header p {
+  color: var(--brand-emerald);
+}
+
+/* ============================================
    EMBEDS
    The Airtable survey form. Sized here rather than inline so it can sit in a
    .chart-card like any other panel.
