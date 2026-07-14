@@ -231,6 +231,28 @@ main {
   margin: 26px 0 8px 0;
 }
 
+/* Notes and captions under a table or figure. These classes were referenced by
+   the markup but defined nowhere after the old stylesheet was removed, so the
+   notes rendered identically to body prose.
+
+   Values measured off the dashboard's own note treatment (.rankings-cohort,
+   the "Compared against ~187 metropolitans..." line): italic, 0.78rem,
+   --text-disabled. The leading "Note:" is emphasised so the label reads before
+   the sentence does. */
+.prose-section .text-small,
+.prose-section .text-muted {
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-disabled);
+}
+
+.prose-section .text-muted strong,
+.prose-section .text-small strong {
+  color: var(--text-muted);
+  font-style: normal;
+}
+
 .prose-section code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.85em;
