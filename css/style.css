@@ -350,19 +350,6 @@ main {
 }
 
 /* ============================================
-   PILLAR HEADER DESCRIPTION
-
-   shared.css sizes .pillar-header p but sets no colour: the dashboard paints
-   it emerald with an inline style from React (verified in the live DOM:
-   style="color: rgb(1, 153, 102)"). A static page has no component to do that,
-   so the rule lives here. Same value, same intent.
-   ============================================ */
-
-.pillar-header p {
-  color: var(--brand-emerald);
-}
-
-/* ============================================
    EMBEDS
    The Airtable survey form. Sized here rather than inline so it can sit in a
    .chart-card like any other panel.
@@ -397,13 +384,14 @@ main {
   transform: rotate(-90deg);
 }
 
-/* The header's h2/h3 should not carry its own bottom margin: the header rule
-   owns the spacing. */
+/* Measured off the live dashboard's .metrics-section-header h3: 1.2rem, 600,
+   near-black --text-primary (NOT navy), no tracking. The header rule owns the
+   spacing, so the heading carries no margin of its own. */
 .metrics-section-header h2,
 .metrics-section-header h3 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-heading);
-  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  letter-spacing: normal;
 }
