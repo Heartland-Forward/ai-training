@@ -366,25 +366,17 @@ main {
 }
 
 /* ============================================
-   COLLAPSIBLE BEHAVIOUR
+   COLLAPSIBLE
 
-   The dashboard's .metrics-section-header carries the look; these rules only
-   add the open/closed behaviour, which the dashboard does in React state and
-   this site does by toggling a class from js/collapsible.js.
+   Nothing lives here. shared.css already owns the whole behaviour, keyed off
+   .metrics-section.collapsed: the content's height/opacity collapse and the
+   ::before chevron's rotate(45deg) to rotate(-135deg). js/collapsible.js puts
+   the class on the section so those rules fire.
+
+   This file previously carried a display:none collapse, a green chevron, and
+   a rotate override, all because the class was on the wrong element and the
+   shared rules never matched.
    ============================================ */
-
-.collapsible-content.collapsed {
-  display: none;
-}
-
-.section-toggle-icon {
-  color: var(--brand-emerald);
-  flex-shrink: 0;
-}
-
-.collapsible-header.collapsed .section-toggle-icon {
-  transform: rotate(-90deg);
-}
 
 /* Measured off the live dashboard's .metrics-section-header h3: 1.2rem, 600,
    near-black --text-primary (NOT navy), no tracking. The header rule owns the
