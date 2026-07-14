@@ -526,15 +526,22 @@ The section stays commented out. This is a one-word styling fix to content that 
 
 - [ ] **Step 4: Verify**
 
-```bash
-grep -rniE 'career coach|rooted advisor|ROOTED advisor|Rooted program' pages/ index.html components/ README.md
-```
-Expected: no output.
+Two checks, and the case sensitivity is load-bearing. A `-i` flag makes the second check unsatisfiable, because case-insensitive matching cannot tell `rootEd` from `rooted`.
 
 ```bash
-grep -rn 'rootEd' pages/ index.html components/ README.md
+grep -rniE 'career coach' pages/ index.html components/ README.md
 ```
-Expected: every hit uses the exact styling rootEd.
+Expected: no output. Case-insensitive is correct here: there is no legitimate use of the phrase on this site.
+
+```bash
+grep -rnE '\b(rooted|Rooted|ROOTED)\b' pages/ index.html components/ README.md | grep -v 'heartlandforward.org'
+```
+Expected: no output. Case-SENSITIVE, and it excludes heartlandforward.org URLs, whose `/rooted/` slugs are a slug artifact rather than a styling error and must not be "corrected".
+
+```bash
+grep -rno 'root[eE]d' pages/ index.html components/ README.md
+```
+Expected: every hit reads `rootEd`.
 
 Load `http://localhost:5501/index.html` and confirm the page still renders (a malformed meta tag would not visibly break, so check the page source rather than trusting the render).
 
