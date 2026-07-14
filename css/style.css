@@ -176,12 +176,15 @@ main {
    its tokens so the scale matches.
    ============================================ */
 
+/* No max-width here on purpose. Tables and images fill the container, so
+   capping prose at a narrower measure leaves text and tables with different
+   right edges inside the same section. The container's 960px with 38px
+   gutters is what sets the measure, for every kind of content alike. */
 .prose-section p {
   font-size: 0.95rem;
   line-height: 1.7;
   color: var(--text-secondary);
   margin: 0 0 16px 0;
-  max-width: 720px;
 }
 
 .prose-section strong {
@@ -207,7 +210,6 @@ main {
   color: var(--text-secondary);
   margin: 0 0 16px 0;
   padding-left: 20px;
-  max-width: 720px;
 }
 
 .prose-section li {
