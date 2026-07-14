@@ -44,7 +44,7 @@ Requirements this page must satisfy:
 - Draw the deadline distinction (below) in a table. This is the single most publishable error in the project.
 - Call out that accepting pulls the account under the K-12 Terms of Service and Student Data Processing Addendum, a different agreement than consumer Claude. This is the substantive reason to verify rather than use a personal account near student data.
 
-Gemini gets no walkthrough, because there are no self-serve steps to give. It does get a short section explaining why, since readers will ask. See "Rejected" below for the reasoning.
+Gemini gets no walkthrough, because there are no self-serve steps to give. It gets a closing note rather than a section: a section would promise steps it does not have, sitting beside two that do. See "Rejected" below.
 
 ### 3. `pages/resources.html` updated
 
@@ -139,7 +139,9 @@ Both new and edited pages carry a "verified as of July 2026" stamp. Model names 
 
 ## Rejected
 
-- **A Gemini walkthrough.** Gemini for Education is free but admin-gated: "your administrator must have enabled access to Gemini Apps for your account." There is no self-serve path for an individual educator, so there are no steps to write. Gemini keeps its resources row, framed honestly as "free, admin-gated, and you may already have it" (it is on by default for 18+ users in domains that have not opted out) rather than "go sign up". The get-access page carries a short section explaining the absence of steps rather than staying silent, since a reader comparing the three tools will otherwise assume the omission was an oversight.
+- **A Gemini walkthrough.** Gemini for Education is free but admin-gated: "your administrator must have enabled access to Gemini Apps for your account." There is no self-serve path for an individual educator, so there are no steps to write. Gemini keeps its resources row, framed honestly as "free, admin-gated, and you may already have it" (it is on by default for 18+ users in domains that have not opted out) rather than "go sign up". The get-access page carries a closing **note**, not a section, explaining the absence of steps rather than staying silent, since a reader comparing the three tools will otherwise assume the omission was an oversight. A note rather than a section because every section on that page promises steps, and this one has none to give.
+
+The note must keep two things, which are the reason it is not simply deleted. First, Gemini in Classroom is on by default for users 18 and over, so an advisor may already have access and should check rather than assume. Second, consumer Gemini on a personal Google account carries none of the education data protections, which is a real risk for anyone who reaches for it with student data.
 - **Cowork and Dispatch.** Both need the desktop app and a machine the user controls. That does not match an advisor on a school-managed laptop. Claude for Teachers does include Cowork, so this may be worth revisiting.
 - **Reworking how-ai-works to remove overlap.** The four new sections are additive; nothing on the existing page duplicates them.
 
