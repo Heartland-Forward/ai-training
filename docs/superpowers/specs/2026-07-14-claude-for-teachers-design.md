@@ -57,7 +57,16 @@ Gemini is excluded from this page. See "Rejected" below.
 
 - Nav link in `components/header.html` (the nav is shared and injected at runtime by `js/header.js`, so this is the only place it needs adding).
 - A fourth card on `index.html`, matching the existing `doc-card` pattern.
-- `pages/prompts.html` is untouched.
+
+### Terminology sweep
+
+The site predates the rootEd naming. Four places carry the old terms and are corrected:
+
+- `README.md:1`, `:3`, `:9`: "Career Coaches", "rooted Career coaches", "career coaching".
+- `index.html:6`: the meta description says "Rooted Advisors" (wrong styling) and "career coaching work" (wrong program).
+- `pages/prompts.html:55`: "Heartland Forward's Rooted program", inside a commented-out prompt. This is a one-word styling fix to existing content. The section stays commented out; no new prompt content is published.
+
+Beyond that one word, `pages/prompts.html` is untouched.
 
 ## Verified facts
 
