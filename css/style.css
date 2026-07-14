@@ -34,9 +34,12 @@ html, body {
    HEADER
    ============================================ */
 
+/* Navy gradient bar matching .dashboard-footer, so the page is bookended in
+   brand navy the way the sibling HF apps are. Same gradient values as
+   footer.css, driven by the shared tokens. */
 .hf-header {
-  background-color: var(--hf-white);
-  border-bottom: 3px solid var(--hf-green);
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
+  border-bottom: 3px solid var(--brand-emerald);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
@@ -46,20 +49,22 @@ html, body {
 .hf-header-container {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* 28px logo in a compact bar, matching the sibling apps' header proportions. */
 .hf-logo-link {
   display: block;
-  height: 50px;
+  height: 28px;
 }
 
 .hf-logo {
   height: 100%;
   width: auto;
+  opacity: 0.95;
   transition: opacity 0.2s;
 }
 
@@ -73,8 +78,10 @@ html, body {
   align-items: center;
 }
 
+/* Nav sits on the navy gradient now, so links are light rather than navy.
+   Matches the footer's treatment of text on the same background. */
 .hf-nav-link {
-  color: var(--hf-navy);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -84,11 +91,11 @@ html, body {
 }
 
 .hf-nav-link:hover {
-  color: var(--hf-green);
+  color: var(--hf-white);
 }
 
 .hf-nav-link-active {
-  color: var(--hf-green);
+  color: var(--hf-white);
   font-weight: 600;
 }
 
@@ -99,7 +106,7 @@ html, body {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--hf-green);
+  background-color: var(--brand-emerald);
 }
 
 /* Mobile Menu Button */
@@ -115,7 +122,7 @@ html, body {
 .hf-menu-btn svg {
   width: 1.5rem;
   height: 1.5rem;
-  color: var(--hf-navy);
+  color: var(--hf-white);
 }
 
 @media (max-width: 768px) {
@@ -123,6 +130,8 @@ html, body {
     display: block;
   }
 
+  /* Slide-out panel carries the same navy gradient as the bar it hangs from,
+     so the light nav links stay legible. */
   .hf-nav {
     position: fixed;
     top: 0;
@@ -130,7 +139,7 @@ html, body {
     width: 70%;
     max-width: 280px;
     height: 100vh;
-    background: var(--hf-white);
+    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
     flex-direction: column;
     padding: 5rem 2rem 2rem;
     gap: 1.5rem;
@@ -513,19 +522,12 @@ section.title-section {
 }
 
 /* Individual card */
-.doc-card {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid #E5E7EB;
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.doc-card:hover {
-  border-color: var(--hf-green);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+/* Cards now use the design system's .chart-card from shared.css for their
+   surface, border, radius, padding, and hover lift. Only the link reset lives
+   here, since .chart-card was written for divs rather than anchors. */
+.doc-card-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Card header (icon + title) */
