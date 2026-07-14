@@ -146,7 +146,7 @@ existing `style.css`.
 - **Do not use `@import`** even though it would work without a build: `@import` is a serial,
   render-blocking fetch. Ordered `<link>` tags are strictly better and are what datacenter's
   structure already implies.
-- **DROP the Clerk/auth block.** See 2.6.
+- **KEEP the Clerk/auth block.** Owner decision; see the rewritten 2.6. `base.css` ships byte-identical apart from the line-1 provenance comment.
 
 ### 2.3 `shared.css` — COPY VERBATIM
 
@@ -193,13 +193,13 @@ existing `style.css`.
   not Clerk styling — it is pure geometry and colour, has no auth dependency, and is not on the drop
   list. See 2.6.
 
-### 2.6 The Clerk/auth styling to DROP — exact selectors
+### 2.6 The Clerk/auth styling — KEEP IT. Owner decision, reversing this section's original recommendation.
 
 **VERIFIED by grep across all five incoming files.** Clerk/auth styling exists in **exactly one
 file** — `base.css` — as **one contiguous block, lines 199–238** of datacenter's copy. There is no
 Clerk styling in `tokens.css`, `shared.css`, `footer.css`, or `floating-nav.css`.
 
-The exact selectors to drop, and nothing else:
+The block:
 
 ```
 /* Login Page (Clerk SignIn component wrapper) */   <- the comment banner
@@ -209,20 +209,28 @@ The exact selectors to drop, and nothing else:
 @media (max-height: 620px) { .login-page { ... } }   <- media override
 ```
 
-That is 4 rules + 1 comment banner. Delete the block; delete nothing else.
+**Decision: keep all of it. Copy `base.css` byte-identical.** Do not delete these selectors.
 
-**Justification:** `.login-page` is the wrapper for Clerk's React `<SignIn>` component. The target
-has no Clerk, no React, and no authentication (owner: "there's no authentication around this").
-This is *structurally impossible* in the target, which is precisely the carve-out the governing rule
-permits.
+This section originally recommended dropping them, on the reasoning that the target has no Clerk, no
+React, and no authentication, so the block is structurally impossible here. The owner was presented
+with that recommendation alongside a fact it had surfaced: skilled-workforce **kept** the block
+(VERIFIED: `skilled-workforce/css/base.css:174`) despite also being a static site with no auth. So
+dropping it would make the target's `base.css` the only one of three that diverges from upstream.
 
-**Honest flag — a precedent conflict the owner should know about.** skilled-workforce **kept** the
-`.login-page` block (VERIFIED: `skilled-workforce/css/base.css:174`) even though it is also a static
-site with no auth. So dropping it makes the target's `base.css` diverge from *both* siblings by this
-block. I still recommend dropping it, because the owner gave an explicit, unambiguous instruction and
-the governing rule explicitly carves out auth. But it means `base.css` is the one file that will
-never be byte-identical to upstream, and whoever diffs it later should expect that. Record the reason
-in the commit message so it doesn't read as accidental drift.
+The owner chose to keep it, and the reasoning holds up:
+
+- The block is 4 rules and a comment. No `.login-page` element exists in this repo, so the rules
+  never match and cost nothing at runtime.
+- Keeping them means `base.css` stays byte-identical to cir-dashboard and datacenter, so it diffs
+  cleanly forever and upstream fixes port without manual reconciliation.
+- Deleting them buys readability in a file nobody hand-edits, at the price of forking it on day one.
+
+The "drop what is structurally impossible" carve-out still stands as a rule. It simply does not pay
+here, because the cost of the carve-out (a permanent fork of a shared file) exceeds the benefit
+(four inert selectors removed).
+
+**Consequence for §2.2:** `base.css` now has exactly ONE modification, the line-1 provenance comment.
+Not two.
 
 ### 2.7 `tool.css` — DO NOT COPY
 
@@ -786,14 +794,16 @@ cd /Users/william/ai-training && python3 -m http.server 8000
 ```
 Then check `http://localhost:8000/` and each `http://localhost:8000/pages/*.html`.
 
-> **Before starting:** another agent is editing `pages/*.html` (it has already added
-> `pages/get-access.html` and a nav entry). **Coordinate before stage 3** — that is the first stage
-> that touches page files. Stages 1–2 touch only `css/` and are safe to do immediately.
+> **Coordination note, now resolved.** This document was written while another agent was actively
+> editing `pages/*.html`. That content work is complete and merged into this branch as of commit
+> `2b501c5`: six pages now exist, including `pages/get-access.html`, and `pages/how-ai-works.html`
+> has grown five new sections. All stages below are safe to run. Re-read the page files before
+> stage 3 rather than trusting any line count quoted in this document from before that work landed.
 
 ### Stage 1 — Land the shared files, linked nowhere
 
-Copy all five into `css/`. Apply the `base.css` line-1 comment fix (2.2) and drop the `.login-page`
-block (2.6). **Change no HTML.**
+Copy all five into `css/`. Apply the `base.css` line-1 provenance comment (2.2) and nothing else:
+the `.login-page` block STAYS, per the owner decision in 2.6. **Change no HTML.**
 
 - **Verify:** site is pixel-identical to before. Nothing links the new files yet.
 - **Could break:** nothing. This is the safe checkpoint.
@@ -977,8 +987,8 @@ The brief asked for these explicitly. In every case **the file wins**.
 | Which repo is authoritative | **cir-dashboard**, corroborated byte-for-byte by datacenter |
 | Which files come over | `tokens.css`, `base.css`, `shared.css`, `footer.css`, `floating-nav.css` → `css/` |
 | Which file does not | `tool.css` (datacenter's app layer; `style.css` is our equivalent) |
-| Modifications to incoming files | **One**: `base.css` line-1 comment, plus dropping `.login-page` |
-| Clerk/auth to drop | `base.css` only: `.login-page`, `.login-page > *`, 2 media queries |
+| Modifications to incoming files | **Exactly one**: `base.css` line-1 provenance comment. Nothing else. |
+| Clerk/auth styling | **KEEP.** Owner decision. Inert here (no `.login-page` element exists), and keeping it means `base.css` stays byte-identical to both siblings rather than forking on day one. |
 | Reconciliation | **Layer in front; demote `style.css` to the `tool.css` role.** Zero class collisions verified |
 | Class renames | **None** |
 | Nav | **Keep `.hf-header`.** Ship `floating-nav.css` unwired. `js/header.js` untouched |
@@ -987,12 +997,24 @@ The brief asked for these explicitly. In every case **the file wins**.
 | Assets to copy | **None** |
 | Target's dead auth block | **Delete** (`style.css:165–201`, verified unreferenced) |
 
-### Open calls for the owner
+### Open calls — all four now resolved by the owner
 
-1. **Footer mailto subject** — I propose `AI%20Training%20Inquiry`. Five-second change. (3.1)
-2. **`shared.css`'s 733 dead lines** — the rule says ship it; the report says don't. I follow the
-   rule. Reversible if byte-count matters more than diffability. (2.3)
-3. **`.login-page` drop makes `base.css` diverge from both siblings**, since skilled-workforce kept
-   it. I still recommend dropping. Worth recording the reason in the commit. (2.6)
-4. **Floating nav as brand signature rather than navigation** — if that is wanted, it is a separate,
-   defensible goal needing JS and a decision about targets. Not decided silently. (5.2)
+1. **Footer mailto subject** — RESOLVED: `AI%20Training%20Inquiry`. Note the recipients (`wtrolinger@`
+   plus `crews@`) come across verbatim from cir-dashboard, which already uses the owner's own address.
+   The owner asked for "my email" and copying achieves that with no deviation. Flagged to the owner
+   that this puts Cass on every advisor's Contact Us; awaiting no further input, so keep both. (3.1)
+2. **`shared.css`'s 733 dead lines** — RESOLVED: ship it whole. The owner asked for a full copy, and
+   both siblings already carry the same unused rules. Identical files are the point. (2.3)
+3. **`.login-page`** — RESOLVED: **KEEP it.** Reverses this document's original recommendation. See
+   the rewritten 2.6. `base.css` therefore stays byte-identical to both siblings. (2.6)
+4. **Floating nav as brand signature rather than navigation** — NOT PURSUED. `floating-nav.css` ships
+   verbatim but unwired, per 5.2. Reading `FloatingNav.tsx` settled it: it is an in-page section
+   jumper (`getElementById` + `scrollIntoView`), and this site is six separate pages. If the owner
+   later wants it as a brand signature, that is a separate goal needing JS and a decision about
+   targets. Not decided silently.
+
+### Dark mode — resolved
+
+Copy the `[data-theme="dark"]` block verbatim, build no toggle, ship light mode only. Verified
+attribute-gated with zero `prefers-color-scheme` across all five files and both downstream repos, so
+it is genuinely inert. Stage 6 verifies this in-browser and must not be skipped. See 6.1-6.3.
