@@ -167,7 +167,32 @@ body {
 
 main {
   flex: 1;
-  padding-bottom: 64px;
+}
+
+/* ============================================
+   SECTION BANDS
+
+   The dashboard separates stacked sections by alternating full-width bands:
+   summary-section is grey (--bg-surface-raised), rankings-section is white
+   (--bg-surface), and the tone shift plus 64px of vertical padding reads as a
+   break between them. This site reuses .summary-section for every content
+   band, so without this every band was the same grey and they merged into one
+   field. Even-numbered top-level sections take the white band, giving the same
+   grey/white rhythm. Scoped to .summary-section so the landing hero's gradient
+   (.landing-page-section) is never touched.
+   ============================================ */
+
+main > section.summary-section:nth-of-type(even) {
+  background: var(--bg-surface);
+}
+
+/* A hairline break between stacked bands, the same border the dashboard's
+   .pillar-section uses. The tone shift alone is subtle (grey vs white differ
+   by a few values); the rule makes the boundary unambiguous. Adjacent-sibling
+   so it only lands where one section meets another, never on a page's first or
+   only section. */
+main > section + section {
+  border-top: 1px solid var(--border-default);
 }
 
 /* ============================================
