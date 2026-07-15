@@ -1,5 +1,36 @@
 # Heartland Forward Design System Port
 
+> **SUPERSEDED APPROACH. Read this box before the rest of the document.**
+>
+> This spec describes the FIRST approach: copy the five shared CSS files in and
+> layer them in front of `style.css` without changing the pages' markup. That
+> approach shipped and failed. Because the pages used their own class names
+> (`.doc-card`, `.content-section`, `.title-section`) and the shared files use
+> the dashboard's (`.chart-card`, `.pillar-section`, `.summary-section`), the
+> copied CSS matched almost nothing. The only visible change was the font, and
+> the site still looked nothing like the dashboard.
+>
+> **What actually shipped instead:** the pages' markup was rewritten onto the
+> dashboard's own class vocabulary, and every value was measured against the
+> live dashboard rather than inferred from these files. Concretely:
+> - Markup converted to `.pillar-section` / `.summary-section` / `.container` /
+>   `.chart-card` / `.metrics-section` / `.section-header`, so the shared CSS
+>   actually applies.
+> - `style.css` cut to a ~450-line app layer doing only what the dashboard has
+>   no equivalent for: the top header bar and prose/list/table styling.
+> - Landing hero, centered section headers (navy 2rem, emerald description),
+>   card geometry, collapsible chevron, and grey/white section bands with a
+>   hairline break all matched to measured dashboard values.
+> - `landing-page.css` and `executive-summary.css` were also brought over
+>   (this spec's manifest omitted them).
+> - Separately, the "Get Access" page was folded into Resources.
+>
+> The token-and-reconciliation analysis below (sections 1-6, the manifest, the
+> dark-mode and nav findings) is still accurate and was the correct groundwork.
+> The execution order in section 7 is not what happened. The real work is the
+> commit range `8b9a649..cb28acf` on `add-claude-for-teachers`; read the code,
+> not section 7, to see what the site does.
+
 Date: 2026-07-14
 Target: `/Users/william/ai-training` (static HTML, no build step, GitHub Pages)
 Upstream: `cir-dashboard` (React 19 + TS + Vite)

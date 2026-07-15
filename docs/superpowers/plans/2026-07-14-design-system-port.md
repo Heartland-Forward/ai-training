@@ -1,5 +1,17 @@
 # Design System Port Implementation Plan
 
+> **SUPERSEDED. This plan was not what shipped.**
+>
+> The tasks below execute the layer-the-files-without-touching-markup approach.
+> That approach was built and it failed: the pages kept their own class names,
+> the shared CSS matched nothing, and only the font changed. The site was then
+> rebuilt by rewriting each page's markup onto the dashboard's class vocabulary
+> and matching every value to the live dashboard by measurement. See the
+> superseded banner in the companion spec (`../specs/2026-07-14-design-system-port.md`)
+> for the accurate account, and read commits `8b9a649..cb28acf` on
+> `add-claude-for-teachers` for what the site actually does. Do not execute the
+> tasks below as written.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Adopt Heartland Forward's shared design system on the ai-training site, so it looks like a sibling of cir-dashboard, hf-datacenter-citing-research, and skilled-workforce.
