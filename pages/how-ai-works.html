@@ -122,9 +122,9 @@
                             alt="Diagram that represents how context windows work."
                             style="max-width: 800px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
                         <p style="font-size: 0.875rem; color: #6B7280; text-align: center; margin-top: 0.5rem;"></p>
-                        <p>When you chat with AI, you're building a <strong>one-dimensional token sequence</strong>
-                            together. Your messages + AI's responses = the conversation history. This is called the
-                            <strong>context window</strong> - it's the AI's working memory for your conversation.</p>
+                        <p>When you chat with AI, you're building one running transcript together: your messages plus
+                            the AI's responses, in order. That running history is called the
+                            <strong>context window</strong> - the AI's working memory for your conversation.</p>
                         <ul>
                             <li>AI remembers everything in your current chat</li>
                             <li>When you start a <strong>new chat</strong>, you wipe that memory and start fresh</li>
@@ -543,30 +543,23 @@
                         <span class="section-toggle-icon"></span>
                     </div>
                     <div class="metrics-section-content collapsible-content prose-section" id="skills-content">
-                        <p>A Skill is a packaged set of instructions that turns the AI into a specialist for one specific
-                            task. You write it once, name it, and from then on it gets used automatically whenever you
-                            describe work that matches. No more digging up the same multi-paragraph prompt every time you
-                            sit down to do the thing you do every week.</p>
+                        <p>A Skill is a packaged set of instructions that turns the AI into a specialist for one task.
+                            You write it once, name it, and it gets used automatically whenever you describe matching
+                            work, instead of digging up the same long prompt every week.</p>
 
-                        <p>Think of a Skill as a folder the AI can open when the situation calls for it. Inside is a
-                            <code>SKILL.md</code> file: a short header naming the Skill and describing when to use it,
-                            then a body of step-by-step instructions. The body is where you put the things you would tell
-                            a new colleague on their first day. What to pull out, how to lay it out, what to never do,
-                            and what to flag when it is not sure. If the task needs reference material (a template, a
-                            list of the deadlines you work against, the format your counselor expects), those files go in
-                            the same folder and the Skill points at them.
-                        </p>
+                        <p>Think of it as a folder the AI opens when the situation calls for it. Inside is a
+                            <code>SKILL.md</code> file: a short header naming the Skill and saying when to use it, then
+                            step-by-step instructions, the things you would tell a new colleague on day one. Reference
+                            material (a template, your deadline list, the format your counselor expects) goes in the same
+                            folder.</p>
 
-                        <p><strong>The part that surprises people:</strong> you do not have to tell it to use the Skill.
-                            Once the Skill is installed, the AI reads the description of every Skill you have and reaches
-                            for the matching one on its own. You describe the task the way you would say it out loud.
-                            "Here are my notes from the site visit at the hospital, write the follow-up" is enough. It
-                            sees that the employer follow-up Skill applies and runs it.</p>
+                        <p><strong>The part that surprises people:</strong> you do not have to invoke it. Once installed,
+                            the AI reads the description of every Skill you have and reaches for the matching one on its
+                            own. You describe the task out loud, "here are my notes from the hospital site visit, write
+                            the follow-up," and it runs your employer follow-up Skill.</p>
 
-                        <p><strong>Three Skills worth building for advisor work:</strong> the test for whether something
-                            deserves a Skill is simple. If you have explained the same process twice, the third time
-                            should be a Skill.
-                        </p>
+                        <p><strong>Three worth building for advisor work.</strong> The test: if you have explained the
+                            same process twice, the third time should be a Skill.</p>
 
                         <table>
                             <thead>
@@ -579,45 +572,38 @@
                             <tbody>
                                 <tr>
                                     <td data-label="Skill"><strong>Employer follow-up</strong></td>
-                                    <td data-label="What You Write Into It">The structure you use after a site visit:
-                                        thank them, name the specific thing they offered, propose the next concrete step,
-                                        keep it under a screen. Plus a note on tone, since you are writing to a plant
-                                        manager, not a parent.</td>
-                                    <td data-label="What Changes Day to Day">You hand over your notes from the visit and
-                                        get a sendable draft in your voice. The follow-up actually goes out the same week
-                                        instead of sitting in your head until the relationship cools.</td>
+                                    <td data-label="What You Write Into It">Your structure after a site visit: thank
+                                        them, name what they offered, propose the next step, keep it short, and write to
+                                        a plant manager, not a parent.</td>
+                                    <td data-label="What Changes Day to Day">Hand over your notes, get a sendable draft in
+                                        your voice, and the follow-up goes out the same week.</td>
                                 </tr>
                                 <tr>
                                     <td data-label="Skill"><strong>Family-facing rewrite</strong></td>
                                     <td data-label="What You Write Into It">The rules you already apply by instinct: no
-                                        acronyms on first use, name the deadline and what happens if it is missed, plain
-                                        language, short sentences, and what to do about a family that reads in Spanish.
-                                    </td>
+                                        acronyms on first use, name the deadline and the cost of missing it, plain
+                                        language, and what to do for a family that reads in Spanish.</td>
                                     <td data-label="What Changes Day to Day">Any notice, email, or FAFSA night handout
-                                        gets the same treatment without you rebuilding the instructions each time. The
-                                        output is consistent across the year, which is what families actually notice.
-                                    </td>
+                                        gets the same treatment, consistent across the year, without rebuilding the
+                                        instructions each time.</td>
                                 </tr>
                                 <tr>
                                     <td data-label="Skill"><strong>ICAP conversation prep</strong></td>
-                                    <td data-label="What You Write Into It">What you want pulled from a student's file
-                                        before a planning meeting: where they are against the plan, what changed since
-                                        last time, the two or three questions worth asking, and an explicit instruction
-                                        to flag anything it is inferring rather than reading.</td>
-                                    <td data-label="What Changes Day to Day">The prep happens in the two minutes before
-                                        the meeting instead of the twenty you do not have. You walk in with the questions
-                                        already sharpened.</td>
+                                    <td data-label="What You Write Into It">What to pull from a student's file before a
+                                        planning meeting: where they are against the plan, what changed, the few
+                                        questions worth asking, and a note to flag anything it is inferring rather than
+                                        reading.</td>
+                                    <td data-label="What Changes Day to Day">Prep happens in the two minutes before the
+                                        meeting instead of the twenty you do not have.</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <p><strong>You do not have to write it from scratch.</strong> Describe the workflow you have in
-                            mind and ask the AI to draft the <code>SKILL.md</code> for you. It will scaffold the
-                            description that triggers it and the instructions underneath, and you edit from there. The
-                            first draft is usually close enough that the job becomes correcting rather than composing.
-                            Once you have a draft you are happy with, you install it through your tool's own settings;
-                            the exact location moves as vendors update their interfaces, so search that tool's current
-                            documentation if you cannot find it.</p>
+                        <p><strong>You do not have to write it from scratch.</strong> Describe the workflow and ask the
+                            AI to draft the <code>SKILL.md</code>; the first draft is usually close enough that you are
+                            correcting rather than composing. You install it through your tool's own settings, and since
+                            that location moves as vendors change their interfaces, search the tool's current docs if you
+                            cannot find it.</p>
 
                         <p><strong>Where to find it:</strong></p>
                         <ul>
@@ -626,16 +612,10 @@
                             <li><strong>ChatGPT:</strong> Skills. Also auto-invoked on a description match, or selected
                                 explicitly from the composer. The catch is not capability, it is access: they are
                                 workspace and admin-gated.</li>
-                            <li><strong>Gemini:</strong> Gems. Manual only. You switch into a Gem before you prompt, so
-                                the Gem has to be a decision you make up front rather than something that fires when it
-                                fits.</li>
+                            <li><strong>Gemini:</strong> Gems. Manual only, so a Gem is a decision you make up front
+                                rather than something that fires when it fits, and a specialist you have to remember to
+                                switch into is one you will forget to use.</li>
                         </ul>
-
-                        <p><strong>The real split is gating, not capability.</strong> Claude and ChatGPT both pick the
-                            right Skill on their own from the description, so on that axis they are even and the
-                            difference is whether your workspace has Skills turned on at all. Gemini is the one that
-                            genuinely makes you change modes first, which matters more than it sounds: a specialist you
-                            have to remember to switch into is a specialist you will forget to use.</p>
                     </div>
                 </div>
 
@@ -727,8 +707,8 @@
 
                         <p>A recent paper from Chandra et al. (Feb 2026), <a href="https://arxiv.org/html/2602.19141v1"
                                 target="_blank" rel="noopener noreferrer"><em>Sycophantic Chatbots Cause Delusional
-                                    Spiraling, Even in Ideal Bayesians</em></a>, shows this pattern traps even an ideal
-                            Bayesian reasoner, not just a careless user. The most uncomfortable finding in the paper is
+                                    Spiraling, Even in Ideal Bayesians</em></a>, shows this pattern traps even a
+                            careful, rational person, not just a careless one. The most uncomfortable finding in the paper is
                             that simply <em>knowing</em> about sycophancy is not enough to escape it. The authors expect
                             awareness to reduce how often people spiral, but not to eliminate it: the users in their
                             study who suspected they were being flattered kept spiraling anyway. Awareness alone is not
@@ -753,7 +733,7 @@
                             being rude to it, you are correcting for a bias you know is there.</p>
 
                         <p><strong>Treat fast agreement as a signal to probe.</strong> If it agrees with you flatly and
-                            fast, ask it to steel-man the opposite view, or paste the inverted question into a fresh chat
+                            fast, ask it to argue the opposite view as strongly as it can, or paste the reversed question into a fresh chat
                             and see whether it also agrees with that. If it agrees with both sides, you just learned
                             something: not about the student, about the answer you were given.</p>
 
