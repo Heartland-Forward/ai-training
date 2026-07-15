@@ -195,6 +195,14 @@ main > section + section {
   border-top: 1px solid var(--border-default);
 }
 
+/* Section descriptions inherit --brand-emerald from executive-summary.css
+   (kept byte-identical to the dashboard), which is 3.49:1 on the band and
+   fails AA. Override to the dark variant here rather than editing the shared
+   file. */
+.summary-section .section-header p {
+  color: var(--brand-emerald-dark);
+}
+
 /* ============================================
    PROSE, LISTS, TABLES
    The dashboard styles none of these because it has no prose. Built from
@@ -217,15 +225,18 @@ main > section + section {
   font-weight: 600;
 }
 
+/* --brand-emerald-dark, not --brand-emerald: the lighter emerald is 3.49:1 on
+   white, below the 4.5:1 AA bar for body-size links. The dark variant clears
+   it while keeping the brand green. */
 .prose-section a {
-  color: var(--brand-emerald);
+  color: var(--brand-emerald-dark);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.15s ease;
 }
 
 .prose-section a:hover {
-  border-bottom-color: var(--brand-emerald);
+  border-bottom-color: var(--brand-emerald-dark);
 }
 
 .prose-section ul,
@@ -264,12 +275,15 @@ main > section + section {
    the "Compared against ~187 metropolitans..." line): italic, 0.78rem,
    --text-disabled. The leading "Note:" is emphasised so the label reads before
    the sentence does. */
+/* --text-muted, not the dashboard note's --text-disabled: at 0.78rem this text
+   needs 4.5:1 for AA, and --text-disabled failed at 2.45:1. This diverges from
+   the dashboard's own note treatment, which does not meet AA. */
 .prose-section .text-small,
 .prose-section .text-muted {
   font-size: 0.78rem;
   font-style: italic;
   line-height: 1.5;
-  color: var(--text-disabled);
+  color: var(--text-muted);
 }
 
 .prose-section .text-muted strong,
