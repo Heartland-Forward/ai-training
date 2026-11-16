@@ -84,6 +84,7 @@ main {
 }
 
 .hf-site-title {
+  white-space: nowrap;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -97,6 +98,7 @@ main {
 }
 
 .hf-nav-link {
+  white-space: nowrap;
   color: #fff;
   text-decoration: none;
   font-size: 15px;
@@ -136,7 +138,9 @@ main {
   color: #fff;
 }
 
-@media (max-width: 768px) {
+/* The logo, title, and five links need about 830px, so the menu button
+   takes over at 900px rather than at the 768px content breakpoint */
+@media (max-width: 900px) {
   .hf-logo {
     height: 30px;
   }
@@ -325,11 +329,6 @@ main {
   margin: 0;
 }
 
-/* A group heading that follows cards gets the full 60px seam above it */
-.metrics-section + .section-header {
-  margin-top: 60px;
-}
-
 .metrics-section,
 .chart-card {
   background: var(--bg-card);
@@ -351,6 +350,7 @@ main {
   box-shadow: none;
 }
 
+.chart-card h2,
 .chart-card h3 {
   font-size: 28px;
   font-weight: 400;
@@ -405,6 +405,7 @@ main {
   font-weight: 700;
 }
 
+.metrics-section-header:hover h2,
 .metrics-section-header:hover h3 {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -691,10 +692,6 @@ main {
     margin-bottom: 24px;
   }
 
-  .metrics-section + .section-header {
-    margin-top: 40px;
-  }
-
   .summary-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -704,8 +701,10 @@ main {
     font-size: 28px;
   }
 
+  .metrics-section-header h2,
   .metrics-section-header h3,
   .metrics-section h3,
+  .chart-card h2,
   .chart-card h3,
   .summary-card h3 {
     font-size: 22px;
