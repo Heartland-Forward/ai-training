@@ -12,7 +12,7 @@ This site serves as a centralized hub for:
 
 ## GitHub Pages Site
 
-Live at https://will-trolinger.github.io/ai-training/, deployed by GitHub Pages from `main`.
+Live at https://heartland-forward.github.io/ai-training/, deployed by GitHub Pages from `main`.
 
 ## Structure
 
