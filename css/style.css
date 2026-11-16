@@ -169,12 +169,17 @@ main {
     align-items: flex-start;
     padding: 88px 32px 32px;
     gap: 24px;
-    transition: right 0.3s ease;
     z-index: 1000;
+    /* Hidden while closed so its links leave the tab order. The visibility
+       change waits out the slide so the panel still animates shut. */
+    visibility: hidden;
+    transition: right 0.3s ease, visibility 0s linear 0.3s;
   }
 
   .hf-nav.open {
     right: 0;
+    visibility: visible;
+    transition: right 0.3s ease;
   }
 
   .hf-nav-link {
@@ -385,13 +390,10 @@ main {
   opacity: 1;
 }
 
-.metrics-section-header:focus-visible {
-  outline-offset: 6px;
-}
-
 .metrics-section-header h2,
 .metrics-section-header h3,
 .metrics-section h3 {
+  flex: 1;
   margin: 0;
   font-size: 28px;
   font-weight: 400;
@@ -405,8 +407,30 @@ main {
   font-weight: 700;
 }
 
-.metrics-section-header:hover h2,
-.metrics-section-header:hover h3 {
+/* js/collapsible.js wraps each title in this button inside its heading. It
+   fills the heading so the whole row, icon included, is the click target. */
+.collapsible-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.collapsible-trigger:focus-visible {
+  outline-offset: 6px;
+}
+
+.collapsible-trigger:hover .collapsible-label {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
@@ -442,8 +466,11 @@ main {
   margin-top: 28px;
 }
 
+/* shared.css collapses the content to zero height and opacity, which leaves
+   its links in the tab order. Hiding it takes them out. */
 .metrics-section.collapsed .metrics-section-content {
   margin-top: 0;
+  visibility: hidden;
 }
 
 /* ============================================
