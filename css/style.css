@@ -1,95 +1,123 @@
 /* ============================================
    AI TRAINING: APP LAYER
 
-   This file is deliberately small. Everything structural, chromatic, and
-   spatial comes from the shared CIR dashboard files loaded before it:
-   tokens.css, base.css, shared.css, footer.css, landing-page.css,
-   executive-summary.css.
+   The look follows the MRI design system, as ported to plain CSS by
+   skilled-workforce (PR #372): Arial, navy text on a white page, flat
+   cards, a 12px type floor, green focus rings, a flat navy header and
+   footer, and white section cards on a gray band.
 
-   Only two things live here:
-
-   1. The top header bar. The dashboard has no header (it navigates via the
-      floating nav), but this site is six pages and needs one, so it is kept
-      and painted in the dashboard's navy gradient to bookend the footer.
-
-   2. Prose, lists, and tables. The dashboard is a dashboard: it has no
-      paragraphs, so it styles none. This site is mostly prose, so those
-      rules are built here from the dashboard's own tokens and scale rather
-      than invented.
-
-   If you are adding anything else to this file, check shared.css first.
+   tokens.css holds the values. base.css, shared.css, and footer.css are
+   copied verbatim from skilled-workforce so they stay diffable; anything
+   this site needs on top of them lives here.
    ============================================ */
 
 /* ============================================
-   HEADER (kept: the dashboard has no equivalent)
+   PAGE
+   ============================================ */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Gray under everything so two bands meeting on a fractional pixel never
+   antialias into a visible seam. Mastheads paint their own white. */
+main {
+  flex: 1;
+  background: var(--page-gray);
+}
+
+/* MRI focus ring: a green outline, never a glow. Navy surfaces override
+   it to white. */
+:focus-visible {
+  outline: 2px solid var(--green-text);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   HEADER
+   Flat navy bar after the MRI AppHeader: logo, a hairline divider, and the
+   site name on the left; the page nav on the right.
    ============================================ */
 
 .hf-header {
-  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
-  border-bottom: 3px solid var(--brand-emerald);
-  position: sticky;
-  top: 0;
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
   z-index: 1000;
 }
 
 .hf-header-container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 14px 38px;
+  min-height: var(--nav-height);
+  padding: 0 var(--band-gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+}
+
+.hf-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .hf-logo-link {
   display: block;
-  height: 28px;
 }
 
 .hf-logo {
-  height: 100%;
+  display: block;
+  height: 40px;
   width: auto;
-  opacity: 0.95;
-  transition: opacity 0.2s;
 }
 
-.hf-logo:hover {
-  opacity: 1;
+.hf-header-divider {
+  width: 1px;
+  height: 40px;
+  background: #fff;
+}
+
+.hf-site-title {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .hf-nav {
   display: flex;
-  gap: 26px;
+  gap: 28px;
   align-items: center;
 }
 
 .hf-nav-link {
-  color: rgba(255, 255, 255, 0.85);
+  color: #fff;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: color 0.15s ease;
-  position: relative;
-  padding-bottom: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  text-underline-offset: 6px;
 }
 
 .hf-nav-link:hover {
-  color: #ffffff;
+  text-decoration: underline;
 }
 
+/* Underline only: bolding the active link would widen it and shift the
+   nav between pages */
 .hf-nav-link-active {
-  color: #ffffff;
-  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
-.hf-nav-link-active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: var(--brand-emerald);
+.hf-header a:focus-visible,
+.hf-header button:focus-visible {
+  outline-color: #fff;
 }
 
 .hf-menu-btn {
@@ -102,12 +130,25 @@
 }
 
 .hf-menu-btn svg {
+  display: block;
   width: 24px;
   height: 24px;
-  color: #ffffff;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
+  .hf-logo {
+    height: 30px;
+  }
+
+  .hf-header-divider {
+    display: none;
+  }
+
+  .hf-site-title {
+    font-size: 15px;
+  }
+
   .hf-menu-btn {
     display: block;
   }
@@ -119,11 +160,11 @@
     width: 70%;
     max-width: 280px;
     height: 100vh;
-    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
+    background: var(--navy);
     flex-direction: column;
     align-items: flex-start;
-    padding: 80px 38px 38px;
-    gap: 26px;
+    padding: 88px 32px 32px;
+    gap: 24px;
     transition: right 0.3s ease;
     z-index: 1000;
   }
@@ -133,7 +174,7 @@
   }
 
   .hf-nav-link {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .hf-menu-overlay {
@@ -150,138 +191,370 @@
 }
 
 /* ============================================
-   PAGE CANVAS
-   Same 135deg tinted band the dashboard's landing page uses.
+   LANDING (index.html)
+   MRI masthead: logo over a large title, a navy lead, and the tracked-caps
+   cue over a down arrow.
    ============================================ */
 
-body {
-  background: linear-gradient(135deg, var(--bg-surface-raised) 0%, var(--bg-hover) 100%);
-  background-attachment: fixed;
-  color: var(--text-base);
-  margin: 0;
-  padding: 0;
+.landing-page-section {
+  background: var(--bg);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
+  text-align: center;
+  padding: clamp(32px, 9dvh, 81px) var(--band-gutter) 46px;
 }
 
-main {
-  flex: 1;
+.landing-page-logo img {
+  display: block;
+  width: 371px;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto clamp(28px, 6dvh, 60px);
+}
+
+.landing-page-title {
+  max-width: 872px;
+  font-size: clamp(2.2rem, 4.5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin: 0 auto 20px;
+  text-wrap: balance;
+}
+
+.landing-page-subtitle {
+  max-width: 773px;
+  font-size: clamp(1.05rem, 1.7vw, 24px);
+  line-height: 1.5;
+  color: var(--navy);
+  margin: 0 auto;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 48px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.scroll-arrow {
+  width: 18px;
+  height: 18px;
 }
 
 /* ============================================
-   SECTION BANDS
-
-   The dashboard separates stacked sections by alternating full-width bands:
-   summary-section is grey (--bg-surface-raised), rankings-section is white
-   (--bg-surface), and the tone shift plus 64px of vertical padding reads as a
-   break between them. This site reuses .summary-section for every content
-   band, so without this every band was the same grey and they merged into one
-   field. Even-numbered top-level sections take the white band, giving the same
-   grey/white rhythm. Scoped to .summary-section so the landing hero's gradient
-   (.landing-page-section) is never touched.
+   PAGE MASTHEAD (content pages)
+   The page title on white, above the gray band.
    ============================================ */
 
-main > section.summary-section:nth-of-type(even) {
-  background: var(--bg-surface);
+.page-masthead {
+  background: var(--bg);
+  padding: clamp(40px, 7dvh, 72px) var(--band-gutter) 48px;
+  text-align: center;
 }
 
-/* A hairline break between stacked bands, the same border the dashboard's
-   .pillar-section uses. The tone shift alone is subtle (grey vs white differ
-   by a few values); the rule makes the boundary unambiguous. Adjacent-sibling
-   so it only lands where one section meets another, never on a page's first or
-   only section. */
-main > section + section {
-  border-top: 1px solid var(--border-default);
+.page-masthead h1 {
+  max-width: 872px;
+  margin: 0 auto 20px;
+  font-size: clamp(2rem, 3.6vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-wrap: balance;
 }
 
-/* Section descriptions inherit --brand-emerald from executive-summary.css
-   (kept byte-identical to the dashboard), which is 3.49:1 on the band and
-   fails AA. Override to the dark variant here rather than editing the shared
-   file. */
+.page-masthead p {
+  max-width: 773px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+/* ============================================
+   GRAY BAND AND SECTION CARDS
+   MRI section rhythm: one card width, 40px padding, 60px apart, on a gray
+   band with 60px above the first card and below the last.
+   ============================================ */
+
+.summary-section {
+  background: var(--page-gray);
+  padding: 60px var(--band-gutter);
+}
+
+/* A second band on the same page continues the first rather than adding
+   another 60px seam. */
+.summary-section + .summary-section {
+  padding-top: 0;
+}
+
+.summary-section .container {
+  max-width: var(--card-max);
+  padding: 0;
+}
+
+/* Group heading inside a band (index "Start Here", resources "How to Get
+   Access"): the MRI section title, left-aligned, on the gray. */
+.summary-section .section-header {
+  text-align: left;
+  margin: 0 0 32px;
+}
+
+.summary-section .section-header h2 {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
 .summary-section .section-header p {
-  color: var(--brand-emerald-dark);
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* A group heading that follows cards gets the full 60px seam above it */
+.metrics-section + .section-header {
+  margin-top: 60px;
+}
+
+.metrics-section,
+.chart-card {
+  background: var(--bg-card);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: none;
+  padding: var(--card-pad);
+  margin: 0 0 60px;
+}
+
+.metrics-section:last-child,
+.chart-card:last-child {
+  margin-bottom: 0;
+}
+
+/* shared.css gives chart cards a hover lift; the MRI has none */
+.chart-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.chart-card h3 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--navy);
+  margin: 0 0 16px;
+}
+
+/* ============================================
+   COLLAPSIBLE CARD HEADER
+   js/collapsible.js toggles .collapsed on .metrics-section; shared.css
+   collapses the content. This replaces the dashboard's underline bar and
+   chevron with the MRI title and a green plus/minus.
+   ============================================ */
+
+.metrics-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+}
+
+.metrics-section-header::after {
+  display: none;
+}
+
+.metrics-section-header:hover {
+  opacity: 1;
+}
+
+.metrics-section-header:focus-visible {
+  outline-offset: 6px;
+}
+
+.metrics-section-header h2,
+.metrics-section-header h3,
+.metrics-section h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: normal;
+  color: var(--navy);
+}
+
+.metrics-section-header b,
+.section-header b {
+  font-weight: 700;
+}
+
+.metrics-section-header:hover h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Open: minus. Collapsed: plus. Drawn, after the MRI disclosure. */
+.section-toggle-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--green-text);
+  transition: none;
+}
+
+.section-toggle-icon::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 0;
+  transform: none;
+  transition: none;
+  background: linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat;
+}
+
+.metrics-section.collapsed .section-toggle-icon::before {
+  transform: none;
+  background:
+    linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 2px 14px no-repeat;
+}
+
+.metrics-section-content {
+  margin-top: 28px;
+}
+
+.metrics-section.collapsed .metrics-section-content {
+  margin-top: 0;
+}
+
+/* ============================================
+   START HERE TILES (index.html)
+   White cards on the band, labelled with a pill.
+   ============================================ */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.summary-card {
+  display: block;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: var(--card-pad);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.summary-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.summary-card:hover h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.summary-score {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding: 4px 12px;
+  border-radius: var(--radius-badge);
+  background: var(--tab);
+  font-size: var(--text-floor);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.summary-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+
+.card-link-reset {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ============================================
    PROSE, LISTS, TABLES
-   The dashboard styles none of these because it has no prose. Built from
-   its tokens so the scale matches.
    ============================================ */
 
-/* No max-width here on purpose. Tables and images fill the container, so
-   capping prose at a narrower measure leaves text and tables with different
-   right edges inside the same section. The container's 960px with 38px
-   gutters is what sets the measure, for every kind of content alike. */
-.prose-section p {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0 0 16px 0;
-}
-
-.prose-section strong {
-  color: var(--text-strong);
-  font-weight: 600;
-}
-
-/* --brand-emerald-dark, not --brand-emerald: the lighter emerald is 3.49:1 on
-   white, below the 4.5:1 AA bar for body-size links. The dark variant clears
-   it while keeping the brand green. */
-.prose-section a {
-  color: var(--brand-emerald-dark);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease;
-}
-
-.prose-section a:hover {
-  border-bottom-color: var(--brand-emerald-dark);
+.prose-section p,
+.prose-section ul,
+.prose-section ol {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 16px;
 }
 
 .prose-section ul,
 .prose-section ol {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0 0 16px 0;
-  padding-left: 20px;
+  padding-left: 22px;
 }
 
 .prose-section li {
   margin-bottom: 8px;
 }
 
-.prose-section h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--text-heading);
-  letter-spacing: -0.01em;
-  margin: 32px 0 13px 0;
+.prose-section > :last-child {
+  margin-bottom: 0;
+}
+
+.prose-section strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.prose-section a {
+  color: var(--green-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-section a:hover {
+  text-decoration-thickness: 2px;
 }
 
 .prose-section h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-heading);
-  margin: 26px 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 8px;
 }
 
-/* Notes and captions under a table or figure. These classes were referenced by
-   the markup but defined nowhere after the old stylesheet was removed, so the
-   notes rendered identically to body prose.
-
-   Values measured off the dashboard's own note treatment (.rankings-cohort,
-   the "Compared against ~187 metropolitans..." line): italic, 0.78rem,
-   --text-disabled. The leading "Note:" is emphasised so the label reads before
-   the sentence does. */
-/* --text-muted, not the dashboard note's --text-disabled: at 0.78rem this text
-   needs 4.5:1 for AA, and --text-disabled failed at 2.45:1. This diverges from
-   the dashboard's own note treatment, which does not meet AA. */
+/* Notes and captions under a table or figure */
 .prose-section .text-small,
 .prose-section .text-muted {
-  font-size: 0.78rem;
-  font-style: italic;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--text-muted);
 }
@@ -289,61 +562,48 @@ main > section + section {
 .prose-section .text-muted strong,
 .prose-section .text-small strong {
   color: var(--text-muted);
-  font-style: normal;
 }
 
 .prose-section code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.85em;
-  background: var(--bg-hover);
-  border: 1px solid var(--border-default);
-  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--panel);
+  border-radius: var(--radius-sm);
   padding: 1px 5px;
-  color: var(--text-deep);
+  color: var(--navy);
 }
 
 .prose-section img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  margin: 26px auto;
+  border-radius: var(--radius-control);
+  margin: 24px auto;
   display: block;
 }
 
-/* Tables use the dashboard's card surface, border, and radius so they read
-   as panels rather than as bare HTML tables. */
+/* MRI scorecard treatment: hairlines carry the structure, no boxed panel,
+   no shadow, no row hover. */
 .prose-section table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: 10px;
-  box-shadow: 0 2px 3px var(--shadow-card);
-  overflow: hidden;
-  margin: 26px 0;
-  font-size: 0.875rem;
-}
-
-.prose-section thead {
-  background: var(--bg-surface-raised);
+  border-collapse: collapse;
+  margin: 0 0 24px;
+  font-size: 15px;
 }
 
 .prose-section th {
   text-align: left;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 13px 16px;
-  border-bottom: 1px solid var(--border-default);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 0 16px 12px 0;
+  border-bottom: 1px solid var(--rule-strong);
+  vertical-align: bottom;
 }
 
 .prose-section td {
-  padding: 13px 16px;
-  color: var(--text-secondary);
-  border-bottom: 1px solid var(--border-default);
+  padding: 14px 16px 14px 0;
+  color: var(--text);
+  border-bottom: 1px solid var(--rule);
   vertical-align: top;
 }
 
@@ -351,11 +611,7 @@ main > section + section {
   border-bottom: none;
 }
 
-.prose-section tbody tr:hover {
-  background: var(--bg-surface-raised);
-}
-
-/* Mobile: tables reflow into stacked cards, labelled from data-label. */
+/* Mobile: tables reflow into stacked rows, labelled from data-label */
 @media (max-width: 768px) {
   .prose-section table,
   .prose-section thead,
@@ -371,8 +627,12 @@ main > section + section {
   }
 
   .prose-section tbody tr {
-    border-bottom: 1px solid var(--border-default);
-    padding: 13px 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 0;
+  }
+
+  .prose-section tbody tr:first-child {
+    padding-top: 0;
   }
 
   .prose-section tbody tr:last-child {
@@ -381,18 +641,16 @@ main > section + section {
 
   .prose-section td {
     border: none;
-    padding: 6px 16px;
+    padding: 4px 0;
   }
 
   .prose-section td::before {
     content: attr(data-label);
     display: block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-size: var(--text-floor);
+    font-weight: 700;
     color: var(--text-muted);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 
   /* Row-label cells sit under a blank column header and carry an empty
@@ -403,19 +661,7 @@ main > section + section {
 }
 
 /* ============================================
-   CARD LINKS
-   .chart-card from shared.css was written for divs. These are anchors.
-   ============================================ */
-
-.card-link-reset {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ============================================
    EMBEDS
-   The Airtable survey form. Sized here rather than inline so it can sit in a
-   .chart-card like any other panel.
    ============================================ */
 
 .airtable-embed {
@@ -427,26 +673,45 @@ main > section + section {
 }
 
 /* ============================================
-   COLLAPSIBLE
-
-   Nothing lives here. shared.css already owns the whole behaviour, keyed off
-   .metrics-section.collapsed: the content's height/opacity collapse and the
-   ::before chevron's rotate(45deg) to rotate(-135deg). js/collapsible.js puts
-   the class on the section so those rules fire.
-
-   This file previously carried a display:none collapse, a green chevron, and
-   a rotate override, all because the class was on the wrong element and the
-   shared rules never matched.
+   SMALL SCREENS
    ============================================ */
 
-/* Measured off the live dashboard's .metrics-section-header h3: 1.2rem, 600,
-   near-black --text-primary (NOT navy), no tracking. The header rule owns the
-   spacing, so the heading carries no margin of its own. */
-.metrics-section-header h2,
-.metrics-section-header h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: normal;
+@media (max-width: 768px) {
+  :root {
+    --card-pad: 24px;
+  }
+
+  .summary-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .metrics-section,
+  .chart-card {
+    margin-bottom: 24px;
+  }
+
+  .metrics-section + .section-header {
+    margin-top: 40px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .summary-section .section-header h2 {
+    font-size: 28px;
+  }
+
+  .metrics-section-header h3,
+  .metrics-section h3,
+  .chart-card h3,
+  .summary-card h3 {
+    font-size: 22px;
+  }
+
+  .page-masthead p {
+    font-size: 16px;
+  }
 }
