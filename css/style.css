@@ -1,50 +1,41 @@
 /* ============================================
-   HEARTLAND FORWARD DOCUMENTATION STYLESHEET
+   AI TRAINING: APP LAYER
+
+   This file is deliberately small. Everything structural, chromatic, and
+   spatial comes from the shared CIR dashboard files loaded before it:
+   tokens.css, base.css, shared.css, footer.css, landing-page.css,
+   executive-summary.css.
+
+   Only two things live here:
+
+   1. The top header bar. The dashboard has no header (it navigates via the
+      floating nav), but this site is six pages and needs one, so it is kept
+      and painted in the dashboard's navy gradient to bookend the footer.
+
+   2. Prose, lists, and tables. The dashboard is a dashboard: it has no
+      paragraphs, so it styles none. This site is mostly prose, so those
+      rules are built here from the dashboard's own tokens and scale rather
+      than invented.
+
+   If you are adding anything else to this file, check shared.css first.
    ============================================ */
 
-/* Brand Colors */
-:root {
-  --hf-navy: #243269;
-  --hf-green: #019966;
-  --hf-grey: #D6D6D6;
-  --hf-black: #000000;
-  --hf-white: #ffffff;
-}
-
-/* Global Reset for Mobile */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
-
-/* Prevent long words/URLs from causing overflow */
-.content-section,
-.title-section {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
 /* ============================================
-   HEADER
+   HEADER (kept: the dashboard has no equivalent)
    ============================================ */
 
 .hf-header {
-  background-color: var(--hf-white);
-  border-bottom: 3px solid var(--hf-green);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
+  border-bottom: 3px solid var(--brand-emerald);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .hf-header-container {
-  max-width: 80rem;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 14px 38px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,41 +43,42 @@ html, body {
 
 .hf-logo-link {
   display: block;
-  height: 50px;
+  height: 28px;
 }
 
 .hf-logo {
   height: 100%;
   width: auto;
+  opacity: 0.95;
   transition: opacity 0.2s;
 }
 
 .hf-logo:hover {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .hf-nav {
   display: flex;
-  gap: 2rem;
+  gap: 26px;
   align-items: center;
 }
 
 .hf-nav-link {
-  color: var(--hf-navy);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.2s;
+  font-size: 0.9rem;
+  transition: color 0.15s ease;
   position: relative;
-  padding-bottom: 0.25rem;
+  padding-bottom: 4px;
 }
 
 .hf-nav-link:hover {
-  color: var(--hf-green);
+  color: #ffffff;
 }
 
 .hf-nav-link-active {
-  color: var(--hf-green);
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -97,23 +89,22 @@ html, body {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--hf-green);
+  background-color: var(--brand-emerald);
 }
 
-/* Mobile Menu Button */
 .hf-menu-btn {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 8px;
   z-index: 1001;
 }
 
 .hf-menu-btn svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--hf-navy);
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
@@ -128,11 +119,11 @@ html, body {
     width: 70%;
     max-width: 280px;
     height: 100vh;
-    background: var(--hf-white);
+    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-deep) 100%);
     flex-direction: column;
-    padding: 5rem 2rem 2rem;
-    gap: 1.5rem;
-    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    align-items: flex-start;
+    padding: 80px 38px 38px;
+    gap: 26px;
     transition: right 0.3s ease;
     z-index: 1000;
   }
@@ -142,17 +133,13 @@ html, body {
   }
 
   .hf-nav-link {
-    font-size: 1.125rem;
-    padding: 0.5rem 0;
+    font-size: 1rem;
   }
 
   .hf-menu-overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
   }
@@ -162,709 +149,304 @@ html, body {
   }
 }
 
-/* User Display (Cloudflare Access) */
-.user-display {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+/* ============================================
+   PAGE CANVAS
+   Same 135deg tinted band the dashboard's landing page uses.
+   ============================================ */
 
-.user-avatar-fallback {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--hf-green);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 1.125rem;
-  flex-shrink: 0;
-}
-
-.user-greeting {
-  font-size: 0.9375rem;
-  color: var(--hf-navy);
-  font-weight: 500;
-}
-
-@media (max-width: 640px) {
-  .user-greeting {
-    display: none;
-  }
-
-  .user-avatar-fallback {
-    width: 36px;
-    height: 36px;
-  }
-}
-
-/* Structural Elements */
 body {
-  background-color: #F3F4F6; /* bg-gray-100 */
-  color: #111827; /* text-gray-900 */
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, var(--bg-surface-raised) 0%, var(--bg-hover) 100%);
+  background-attachment: fixed;
+  color: var(--text-base);
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
   flex: 1;
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 1.5rem;
-  overflow-x: hidden;
-}
-
-@media (min-width: 640px) {
-  main {
-    padding: 2rem; /* sm:p-8 */
-  }
-}
-
-/* Content container - used in some pages */
-.content-container {
-  max-width: 64rem; /* max-w-5xl */
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Section Base Styling */
-section.content-section,
-section.title-section {
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-}
-
-.content-section {
-  background-color: white;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.title-section {
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.first-section {
-  margin-top: 1.5rem !important;
-}
-
-.last-section {
-  margin-bottom: 4rem !important;
 }
 
 /* ============================================
-   TYPOGRAPHY - Inside Sections Only
+   SECTION BANDS
+
+   The dashboard separates stacked sections by alternating full-width bands:
+   summary-section is grey (--bg-surface-raised), rankings-section is white
+   (--bg-surface), and the tone shift plus 64px of vertical padding reads as a
+   break between them. This site reuses .summary-section for every content
+   band, so without this every band was the same grey and they merged into one
+   field. Even-numbered top-level sections take the white band, giving the same
+   grey/white rhythm. Scoped to .summary-section so the landing hero's gradient
+   (.landing-page-section) is never touched.
    ============================================ */
 
-/* H1 - text-3xl font-bold text-blue-800 mb-2 */
-.content-section h1,
-.title-section h1 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  color: #243269;
-  margin-bottom: 0.5rem;
+main > section.summary-section:nth-of-type(even) {
+  background: var(--bg-surface);
 }
 
-/* H2 - text-2xl font-bold mb-4 */
-.content-section h2,
-.title-section h2 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 700;
-  color: #243269;
-  margin-bottom: 1rem;
+/* A hairline break between stacked bands, the same border the dashboard's
+   .pillar-section uses. The tone shift alone is subtle (grey vs white differ
+   by a few values); the rule makes the boundary unambiguous. Adjacent-sibling
+   so it only lands where one section meets another, never on a page's first or
+   only section. */
+main > section + section {
+  border-top: 1px solid var(--border-default);
 }
 
-/* H3 - text-xl font-semibold text-blue-900 mb-3 */
-.content-section h3,
-.title-section h3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-  color: #243269;
-  margin-bottom: 0.75rem;
+/* Section descriptions inherit --brand-emerald from executive-summary.css
+   (kept byte-identical to the dashboard), which is 3.49:1 on the band and
+   fails AA. Override to the dark variant here rather than editing the shared
+   file. */
+.summary-section .section-header p {
+  color: var(--brand-emerald-dark);
 }
 
-/* H4 - text-lg font-semibold text-blue-900 mb-2 */
-.content-section h4,
-.title-section h4 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 600;
-  color: #243269;
-  margin-bottom: 0.5rem;
+/* ============================================
+   PROSE, LISTS, TABLES
+   The dashboard styles none of these because it has no prose. Built from
+   its tokens so the scale matches.
+   ============================================ */
+
+/* No max-width here on purpose. Tables and images fill the container, so
+   capping prose at a narrower measure leaves text and tables with different
+   right edges inside the same section. The container's 960px with 38px
+   gutters is what sets the measure, for every kind of content alike. */
+.prose-section p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
 }
 
-/* Paragraphs - mb-4 text-gray-700 */
-.content-section p,
-.title-section p {
-  margin-bottom: 1rem;
-  color: #374151;
-}
-
-/* Strong text */
-.content-section strong,
-.title-section strong {
+.prose-section strong {
+  color: var(--text-strong);
   font-weight: 600;
 }
 
-/* ============================================
-   LISTS
-   ============================================ */
-
-/* Unordered lists - list-disc list-inside pl-6 text-gray-700 space-y-2 */
-.content-section ul,
-.title-section ul {
-  list-style-type: disc;
-  list-style-position: inside;
-  padding-left: 1.5rem;
-  color: #374151;
-  margin-bottom: 1rem;
-}
-
-.content-section ul li,
-.title-section ul li {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Ordered lists - list-decimal list-inside pl-6 text-gray-800 space-y-1 */
-.content-section ol,
-.title-section ol {
-  list-style-type: decimal;
-  list-style-position: inside;
-  padding-left: 1.5rem;
-  color: #1F2937;
-  margin-bottom: 1rem;
-}
-
-.content-section ol li,
-.title-section ol li {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
-
-/* ============================================
-   TABLES
-   ============================================ */
-
-.content-section table,
-.title-section table {
-  min-width: 100%;
-  border: 1px solid #E5E7EB;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.content-section thead,
-.title-section thead {
-  background-color: #F9FAFB;
-}
-
-.content-section th,
-.title-section th {
-  padding: 0.5rem 1rem;
-  text-align: left;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #374151;
-  border-bottom: 1px solid #E5E7EB;
-}
-
-.content-section td,
-.title-section td {
-  padding: 0.75rem 1rem;
-  color: #1F2937;
-}
-
-.content-section tbody tr,
-.title-section tbody tr {
-  border-top: 1px solid #E5E7EB;
-}
-
-.content-section tbody tr:nth-child(even),
-.title-section tbody tr:nth-child(even) {
-  background-color: white;
-}
-
-/* Responsive table - card layout on mobile */
-@media (max-width: 768px) {
-  .content-section table,
-  .title-section table {
-    border: none;
-    min-width: 0;
-    width: 100%;
-  }
-
-  .content-section table colgroup,
-  .title-section table colgroup {
-    display: none;
-  }
-
-  .content-section thead,
-  .title-section thead {
-    display: none;
-  }
-
-  .content-section tbody,
-  .title-section tbody {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .content-section tbody tr,
-  .title-section tbody tr {
-    display: block;
-    background: #F9FAFB;
-    border: 1px solid #E5E7EB;
-    border-radius: 0.5rem;
-    padding: 1rem;
-  }
-
-  .content-section tbody tr:nth-child(even),
-  .title-section tbody tr:nth-child(even) {
-    background: #F9FAFB;
-  }
-
-  .content-section td,
-  .title-section td {
-    display: block;
-    padding: 0.25rem 0;
-    border: none;
-  }
-
-  .content-section td::before,
-  .title-section td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    font-size: 0.75rem;
-    color: #6B7280;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-}
-
-/* ============================================
-   COLLAPSIBLE SECTIONS
-   ============================================ */
-
-.collapsible-header {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-  transition: color 0.2s;
-}
-
-.collapsible-header:hover {
-  color: var(--hf-green);
-}
-
-.collapsible-header::after {
-  content: '';
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='%23019966' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  transition: transform 0.3s ease;
-}
-
-.collapsible-header.collapsed::after {
-  transform: rotate(-90deg);
-}
-
-.collapsible-content {
-  max-height: 5000px;
-  overflow: visible;
-  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
-  opacity: 1;
-  margin-top: 1rem;
-}
-
-.collapsible-content.collapsed {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0 !important;
-  overflow: hidden;
-}
-
-/* ============================================
-   DOCUMENTATION CARDS (for index.html)
-   ============================================ */
-
-/* Card grid container */
-.doc-card-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-@media (min-width: 640px) {
-  .doc-card-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .doc-card-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .doc-card-grid-2col {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .doc-card-grid-4col {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-/* Individual card */
-.doc-card {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  border: 1px solid #E5E7EB;
-  transition-property: all;
-  transition-duration: 200ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.doc-card:hover {
-  border-color: var(--hf-green);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Card header (icon + title) */
-.doc-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Card icon/SVG */
-.doc-card-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--hf-green);
-  transition: transform 200ms;
-  flex-shrink: 0;
-}
-
-.doc-card:hover .doc-card-icon {
-  transform: scale(1.1);
-}
-
-/* Card title */
-.doc-card-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #243269;
-  margin: 0;
-}
-
-/* Card description */
-.doc-card-description {
-  font-size: 0.875rem;
-  color: #4B5563;
-  margin-top: 0.75rem;
-  margin-bottom: 0;
-}
-
-/* ============================================
-   COMPACT LINK CARDS (for external software/services)
-   ============================================ */
-
-.link-card {
-  background-color: white;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #E5E7EB;
-  transition: all 200ms;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.link-card:hover {
-  border-color: var(--hf-green);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-.link-card-icon {
-  width: 2rem;
-  height: 2rem;
-  color: var(--hf-green);
-  transition: transform 200ms;
-  object-fit: contain;
-}
-
-.link-card:hover .link-card-icon {
-  transform: scale(1.1);
-}
-
-.link-card-title {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--hf-navy);
-  margin: 0;
-}
-
-.help-link-card {
-  background-color: #FFFBEB;
-  border-color: #FEF3C7;
-}
-
-.help-link-card .link-card-icon {
-  color: #D97706;
-}
-
-.help-link-card .link-card-title {
-  color: #92400E;
-}
-
-/* Form Cards (for Airtable forms) */
-.form-card {
-  /* Inherits from .link-card */
-}
-
-/* Make last form card span full width if it's alone on a row */
-@media (min-width: 640px) {
-  #forms-grid .form-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-  }
-}
-
-/* ============================================
-   LINKS
-   ============================================ */
-
-.content-section a,
-.title-section a {
-  color: var(--hf-green);
+/* --brand-emerald-dark, not --brand-emerald: the lighter emerald is 3.49:1 on
+   white, below the 4.5:1 AA bar for body-size links. The dark variant clears
+   it while keeping the brand green. */
+.prose-section a {
+  color: var(--brand-emerald-dark);
   text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease;
 }
 
-.content-section a:hover,
-.title-section a:hover {
-  text-decoration: underline;
-  color: var(--hf-navy);
+.prose-section a:hover {
+  border-bottom-color: var(--brand-emerald-dark);
 }
 
-/* ============================================
-   FIGURES & IMAGES
-   ============================================ */
-
-.content-section figure,
-.title-section figure {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+.prose-section ul,
+.prose-section ol {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+  padding-left: 20px;
 }
 
-.content-section figure img,
-.title-section figure img {
-  max-width: 48rem;
-  border: 1px solid #D1D5DB;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  margin-left: auto;
-  margin-right: auto;
+.prose-section li {
+  margin-bottom: 8px;
 }
 
-/* Ensure all images respect container width */
-.content-section img,
-.title-section img {
+.prose-section h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+  margin: 32px 0 13px 0;
+}
+
+.prose-section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 26px 0 8px 0;
+}
+
+/* Notes and captions under a table or figure. These classes were referenced by
+   the markup but defined nowhere after the old stylesheet was removed, so the
+   notes rendered identically to body prose.
+
+   Values measured off the dashboard's own note treatment (.rankings-cohort,
+   the "Compared against ~187 metropolitans..." line): italic, 0.78rem,
+   --text-disabled. The leading "Note:" is emphasised so the label reads before
+   the sentence does. */
+/* --text-muted, not the dashboard note's --text-disabled: at 0.78rem this text
+   needs 4.5:1 for AA, and --text-disabled failed at 2.45:1. This diverges from
+   the dashboard's own note treatment, which does not meet AA. */
+.prose-section .text-small,
+.prose-section .text-muted {
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.prose-section .text-muted strong,
+.prose-section .text-small strong {
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+.prose-section code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-default);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text-deep);
+}
+
+.prose-section img {
   max-width: 100%;
   height: auto;
+  border-radius: 10px;
+  margin: 26px auto;
+  display: block;
 }
 
-.content-section figcaption,
-.title-section figcaption {
-  margin-top: 0.5rem;
+/* Tables use the dashboard's card surface, border, and radius so they read
+   as panels rather than as bare HTML tables. */
+.prose-section table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px var(--shadow-card);
+  overflow: hidden;
+  margin: 26px 0;
   font-size: 0.875rem;
-  color: #4B5563;
-  text-align: center;
 }
 
-/* ============================================
-   RESOURCE CARDS (for resources.html)
-   ============================================ */
-
-.highlight-card {
-  background: linear-gradient(135deg, rgba(1, 153, 102, 0.08), rgba(36, 50, 105, 0.08));
-  border: 2px solid var(--hf-green);
+.prose-section thead {
+  background: var(--bg-surface-raised);
 }
 
-.price-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin: 0.75rem 0;
+.prose-section th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border-default);
 }
 
-@media (max-width: 600px) {
-  .price-comparison {
-    grid-template-columns: 1fr;
+.prose-section td {
+  padding: 13px 16px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-default);
+  vertical-align: top;
+}
+
+.prose-section tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prose-section tbody tr:hover {
+  background: var(--bg-surface-raised);
+}
+
+/* Mobile: tables reflow into stacked cards, labelled from data-label. */
+@media (max-width: 768px) {
+  .prose-section table,
+  .prose-section thead,
+  .prose-section tbody,
+  .prose-section tr,
+  .prose-section th,
+  .prose-section td {
+    display: block;
+  }
+
+  .prose-section thead {
+    display: none;
+  }
+
+  .prose-section tbody tr {
+    border-bottom: 1px solid var(--border-default);
+    padding: 13px 0;
+  }
+
+  .prose-section tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .prose-section td {
+    border: none;
+    padding: 6px 16px;
+  }
+
+  .prose-section td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+
+  /* Row-label cells sit under a blank column header and carry an empty
+     data-label, so suppress the empty block and its margin. */
+  .prose-section td[data-label=""]::before {
+    display: none;
   }
 }
 
-.price-box {
-  padding: 0.75rem;
-  border-radius: 0.5rem;
-  text-align: center;
+/* ============================================
+   CARD LINKS
+   .chart-card from shared.css was written for divs. These are anchors.
+   ============================================ */
+
+.card-link-reset {
+  text-decoration: none;
+  color: inherit;
 }
 
-.price-box-standard {
-  background: #F3F4F6;
+/* ============================================
+   EMBEDS
+   The Airtable survey form. Sized here rather than inline so it can sit in a
+   .chart-card like any other panel.
+   ============================================ */
+
+.airtable-embed {
+  width: 100%;
+  height: min(70vh, 720px);
+  border: none;
+  background: transparent;
+  display: block;
 }
 
-.price-box-edu {
-  background: rgba(1, 153, 102, 0.1);
-  border: 1px solid var(--hf-green);
-}
+/* ============================================
+   COLLAPSIBLE
 
-.price-box-full {
-  grid-column: span 2;
-}
+   Nothing lives here. shared.css already owns the whole behaviour, keyed off
+   .metrics-section.collapsed: the content's height/opacity collapse and the
+   ::before chevron's rotate(45deg) to rotate(-135deg). js/collapsible.js puts
+   the class on the section so those rules fire.
 
-.price-label {
-  font-size: 0.75rem;
-  color: #6B7280;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+   This file previously carried a display:none collapse, a green chevron, and
+   a rotate override, all because the class was on the wrong element and the
+   shared rules never matched.
+   ============================================ */
 
-.price-value {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--hf-navy);
-  margin: 0.25rem 0;
-}
-
-.price-box-edu .price-value {
-  color: var(--hf-green);
-}
-
-.price-note {
-  font-size: 0.75rem;
-  color: #6B7280;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  border-radius: 1rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-left: auto;
-}
-
-.badge-free {
-  background: var(--hf-green);
-  color: white;
-}
-
-.badge-discount {
-  background: var(--hf-navy);
-  color: white;
-}
-
-.badge-institution {
-  background: #6B7280;
-  color: white;
-}
-
-.eligibility-tag {
-  display: inline-block;
-  padding: 0.15rem 0.4rem;
-  background: #F3F4F6;
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
-  margin-right: 0.35rem;
-  margin-bottom: 0.35rem;
-  color: #374151;
-}
-
-.resource-link {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.5rem 1rem;
-  background: var(--hf-green);
-  color: white !important;
-  text-decoration: none !important;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-  transition: opacity 0.2s;
-}
-
-.resource-link:hover {
-  opacity: 0.9;
-  text-decoration: none !important;
-}
-
-.section-intro {
-  background: rgba(36, 50, 105, 0.05);
-  border-left: 4px solid var(--hf-navy);
-  padding: 1rem 1.25rem;
-  margin-bottom: 1.5rem;
-  border-radius: 0 0.5rem 0.5rem 0;
-  font-size: 0.9rem;
-}
-
-.resource-description {
-  font-size: 0.85rem;
-  margin: 0.5rem 0;
-}
-
-.table-row-highlight {
-  background: rgba(1, 153, 102, 0.1);
-}
-
-.table-row-muted {
-  background: #F9FAFB;
-}
-
-.text-small {
-  font-size: 0.85rem;
-}
-
-.text-muted {
-  color: #6B7280;
-}
-
-.icon-large {
-  width: 2rem;
-  height: 2rem;
-}
-
-.link-card-subtitle {
+/* Measured off the live dashboard's .metrics-section-header h3: 1.2rem, 600,
+   near-black --text-primary (NOT navy), no tracking. The header rule owns the
+   spacing, so the heading carries no margin of its own. */
+.metrics-section-header h2,
+.metrics-section-header h3 {
   margin: 0;
-  font-size: 0.75rem;
-  color: var(--hf-green);
+  font-size: 1.2rem;
   font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: normal;
 }
