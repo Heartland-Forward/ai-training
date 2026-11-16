@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+  Source for images/og.png, the 1200x630 link-preview thumbnail (Open Graph and
+  Twitter card). Same layout family as skilled-workforce's and the MRI's
+  og.png: title and subtitle on the left, the HF logo on the right.
+
+  Regenerate after a title change by serving the repo root and capturing the
+  #card element at 1200x630 to images/og.png, e.g.
+
+    python3 -m http.server 8000
+    open http://localhost:8000/scripts/og/og-image.html
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --navy: #243269;
+    --bg: #f4f5f7;
+  }
+  html, body { margin: 0; padding: 0; }
+  #card {
+    width: 1200px;
+    height: 630px;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 80px;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  }
+  .copy { flex: 0 0 560px; }
+  h1 {
+    margin: 0 0 32px;
+    font-size: 72px;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+  p {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.4;
+    color: var(--navy);
+  }
+  .art { width: 440px; height: auto; }
+</style>
+</head>
+<body>
+  <div id="card">
+    <div class="copy">
+      <h1>Best Practices for Using AI</h1>
+      <p>AI training for rootEd advisors: free tools, how they work, and how to get access.</p>
+    </div>
+    <img class="art" src="../../images/branding/hf-logo.svg" alt="">
+  </div>
+</body>
+</html>
