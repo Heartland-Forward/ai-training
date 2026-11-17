@@ -1773,13 +1773,13 @@ a.link-arrow:hover {
    After heartlandforward.org: a soft mint-to-blue wash, blue type under a
    green eyebrow, near-square corners, and room to breathe. Faint rings in
    the corner echo the contour lines in the logo. The chat window slides in
-   and types out an example once (js/home.js). */
+   and types out an example once (js/motion.js). */
 
 .home-hero {
   position: relative;
   overflow: hidden;
   padding: clamp(64px, 11vh, 120px) var(--band-gutter);
-  background: linear-gradient(120deg, #e5f4ee 0%, #eaf0f7 55%, #dde8f2 100%);
+  background: var(--hf-wash);
   color: var(--navy);
   isolation: isolate;
 }
@@ -1940,7 +1940,7 @@ a.link-arrow:hover {
   }
 }
 
-/* States set by js/home.js. Without them the finished chat simply shows. */
+/* States set by js/motion.js. Without them the finished chat simply shows. */
 .chat-demo.is-animated .chat-ai {
   opacity: 0;
   transform: translateY(8px);
@@ -2289,18 +2289,6 @@ a.link-arrow:hover {
   }
 }
 
-/* Fade-up on scroll, set up by js/home.js */
-.js-reveal .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-  transition-delay: var(--delay, 0ms);
-}
-
-.js-reveal .reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
 
 @media (max-width: 900px) {
   .home-hero-inner {
@@ -2540,5 +2528,320 @@ a.link-arrow:hover {
     font-size: 11px;
     font-weight: 400;
     word-break: break-all;
+  }
+}
+
+/* ============================================
+   HEARTLAND FORWARD STYLE, SITE-WIDE
+   The look of heartlandforward.org, carried from the home hero to every
+   page: white pages, a soft mint-to-blue wash behind page headers, a green
+   eyebrow over bold blue type, light blue-tint panels with a blue bar on
+   top (green when a card is open), near-square corners, and quiet motion.
+   ============================================ */
+
+main,
+.summary-section {
+  background: var(--bg);
+}
+
+/* ---- Page headers ---- */
+
+.page-masthead {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 9vh, 96px) var(--band-gutter) clamp(52px, 8vh, 84px);
+  background: var(--hf-wash);
+  text-align: left;
+  isolation: isolate;
+}
+
+/* Faint rings in the corner, after the contour lines in the logo */
+.page-masthead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle at 96% 120%, rgba(45, 54, 143, 0.08) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: radial-gradient(circle at 96% 120%, #000 0, #000 30%, transparent 65%);
+  mask-image: radial-gradient(circle at 96% 120%, #000 0, #000 30%, transparent 65%);
+}
+
+.page-masthead-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: calc(var(--toc-width) + 40px + var(--card-max));
+  margin: 0 auto;
+}
+
+/* Pages without the sidebar line their header up with the narrower column */
+main:not(:has(.page-with-toc)) .page-masthead-inner {
+  max-width: var(--card-max);
+}
+
+.masthead-eyebrow,
+.hero-kicker {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--green);
+}
+
+.page-masthead h1 {
+  max-width: none;
+  margin: 12px 0 16px;
+  font-size: clamp(2.4rem, 4.4vw, 56px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.page-masthead p {
+  max-width: 640px;
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.page-masthead .masthead-updated {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* Green outline icon in a white tile with the blue bar, like the impact
+   area cards on heartlandforward.org */
+.masthead-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 132px;
+  border-top: 8px solid var(--navy);
+  border-radius: 2px;
+  background: var(--bg);
+  box-shadow: 0 18px 40px rgba(45, 54, 143, 0.12);
+  color: var(--green);
+}
+
+.masthead-icon .icon {
+  width: 56px;
+  height: 56px;
+  stroke-width: 1.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-masthead-text > * {
+    animation: rise-in 0.6s var(--ease) both;
+  }
+
+  .page-masthead-text > :nth-child(2) {
+    animation-delay: 0.06s;
+  }
+
+  .page-masthead-text > :nth-child(3) {
+    animation-delay: 0.12s;
+  }
+
+  .page-masthead-text > :nth-child(4) {
+    animation-delay: 0.18s;
+  }
+
+  .masthead-icon {
+    animation: rise-in 0.7s 0.15s var(--ease) both, float 7s 1s ease-in-out infinite;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ---- Section headings ---- */
+
+.summary-section .section-header h2,
+.feature-band h2 {
+  font-size: clamp(28px, 2.8vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.summary-section .section-header p {
+  color: var(--text-light);
+}
+
+/* ---- Cards ---- */
+
+.metrics-section,
+.chart-card {
+  border-top: 6px solid var(--navy);
+  border-radius: 2px;
+  background: var(--hf-panel);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.metrics-section:not(.collapsed) {
+  border-top-color: var(--green);
+}
+
+.metrics-section.collapsed:hover {
+  background: var(--hf-panel-hover);
+}
+
+.metrics-section-header h2,
+.metrics-section-header h3,
+.metrics-section h3,
+.card-stack .metrics-section-header h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.metrics-section-header b {
+  font-weight: inherit;
+}
+
+/* Things that sit inside a tinted card go white so they still stand out */
+.metrics-section .prompt-block,
+.metrics-section .prompt-notes > div,
+.metrics-section .resource-card,
+.metrics-section .try-it,
+.metrics-section .callout-tip,
+.prose-section .prompt-warning {
+  background: var(--bg);
+}
+
+.metrics-section .resource-card {
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--green);
+  border-radius: 2px;
+}
+
+.metrics-section .prompt-block,
+.metrics-section .prompt-notes > div,
+.metrics-section .callout,
+.metrics-section .try-it {
+  border-radius: 2px;
+}
+
+.prompt-block-head {
+  background: var(--bg);
+}
+
+.prompt-text {
+  background: var(--hf-panel);
+  border-radius: 0 0 2px 2px;
+}
+
+.callout {
+  border-radius: 2px;
+}
+
+.btn,
+.copy-btn,
+.chip-link {
+  border-radius: 4px;
+}
+
+.toc a.is-active {
+  border-left-color: var(--green);
+}
+
+/* The survey form sits on white inside its card */
+.chart-card .airtable-embed {
+  background: var(--bg);
+}
+
+/* ---- Footer: their bright green link on blue (5.5:1) ---- */
+
+.dashboard-footer .footer-email-link {
+  color: #08d88d;
+}
+
+/* ---- Fade-up on scroll (js/motion.js sets html.js-reveal) ---- */
+
+.js-reveal .reveal,
+.js-reveal .summary-section .section-header,
+.js-reveal .card-stack > .metrics-section,
+.js-reveal .page-with-toc .container > .callout,
+.js-reveal .summary-section .chart-card,
+.js-reveal .home-start-heading,
+.js-reveal .prompts-more {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease),
+    border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  transition-delay: var(--delay, 0ms), var(--delay, 0ms), 0ms, 0ms;
+}
+
+.js-reveal .is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Set by js/motion.js two seconds after load, in case the browser never ran
+   the entrance animations (see the note there). */
+.motion-done .page-masthead-text > *,
+.motion-done .masthead-icon,
+.motion-done .chat-demo,
+.motion-done .start-node,
+.motion-done .start-path::before {
+  animation: none;
+}
+
+.motion-done .is-visible {
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease) !important;
+}
+
+/* ---- Small screens ---- */
+
+/* The folded "On this page" bar sits on white now, so it takes the panel tint */
+@media (max-width: 1000px) {
+  .toc {
+    border-left: 4px solid var(--green);
+    border-radius: 2px;
+    background: var(--hf-panel);
+  }
+}
+
+@media (max-width: 760px) {
+  .masthead-icon {
+    display: none;
+  }
+
+  .page-masthead p {
+    font-size: 17px;
+  }
+}
+
+@media print {
+  .page-masthead {
+    background: #fff;
+  }
+
+  .page-masthead::after,
+  .masthead-icon {
+    display: none;
+  }
+
+  .js-reveal * {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

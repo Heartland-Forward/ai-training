@@ -67,6 +67,12 @@
   /* Motion: short and quiet, and turned off for reduced-motion users */
   --dur: 180ms;
   --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  /* Heartland Forward panels: their light blue tint behind cards (their site
+     uses #2d368f at 5% to 8% on white). Navy text is 9.4:1 on --hf-panel. */
+  --hf-panel: #f4f5fa;
+  --hf-panel-hover: #ebedf6;
+  /* The soft wash behind page headers, after their featured panels */
+  --hf-wash: linear-gradient(120deg, #e5f4ee 0%, #eaf0f7 55%, #dde8f2 100%);
   /* Width of the "On this page" sidebar on long pages */
   --toc-width: 236px;
 }
