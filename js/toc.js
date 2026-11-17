@@ -120,12 +120,19 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.setAttribute('aria-expanded', String(open));
     });
 
-    // Jumping to a card opens it first, and closes the small-screen list.
+    // Open one card and close the rest, so the page stays short as you move
+    // around it.
+    function showOnly(section) {
+        cards.forEach(function (card) { setOpen(card, card === section); });
+    }
+
+    // Jumping to a card opens it, closes the others, and closes the
+    // small-screen list.
     list.addEventListener('click', function (event) {
         const link = event.target.closest('a');
         if (!link) return;
         const target = document.getElementById(link.getAttribute('href').slice(1));
-        if (target) setOpen(target, true);
+        if (target) showOnly(target);
         if (toc.classList.contains('is-open')) {
             toc.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
@@ -138,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
         if (!target) return;
         const section = target.closest('.metrics-section');
-        if (section) setOpen(section, true);
+        if (section) showOnly(section);
         target.scrollIntoView();
     }
     openFromHash();

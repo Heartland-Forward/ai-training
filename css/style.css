@@ -889,6 +889,24 @@ html {
   color: var(--green-text);
 }
 
+/* "Updated November 2026" under a page title: small and quiet */
+.page-masthead .masthead-updated {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* One-sentence overview at the top of a tool card */
+.prose-section .card-summary {
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.prose-section h4:first-child,
+.prose-section .card-summary + h4 {
+  margin-top: 0;
+}
+
 /* ---- Interactive cards (steps, tasks, resources) ---- */
 
 .card-hover {
@@ -1624,7 +1642,7 @@ a.link-arrow:hover {
 
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin: 0 0 8px;
   padding: 0;
