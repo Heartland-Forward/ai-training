@@ -1746,7 +1746,7 @@ a.link-arrow:hover {
 .home-hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(56px, 9vh, 104px) var(--band-gutter) clamp(64px, 10vh, 120px);
+  padding: clamp(56px, 9vh, 104px) var(--band-gutter) clamp(140px, 18vh, 190px);
   background: var(--navy);
   color: #fff;
   isolation: isolate;
@@ -1780,7 +1780,7 @@ a.link-arrow:hover {
   height: 640px;
   top: -260px;
   left: -180px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.42), transparent 65%);
+  background: radial-gradient(circle, rgba(1, 153, 102, 0.5), transparent 65%);
 }
 
 .home-hero-glow::after {
@@ -1788,7 +1788,7 @@ a.link-arrow:hover {
   height: 560px;
   right: -160px;
   bottom: -260px;
-  background: radial-gradient(circle, rgba(96, 128, 235, 0.45), transparent 65%);
+  background: radial-gradient(circle, rgba(1, 153, 102, 0.28), transparent 65%);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1851,7 +1851,7 @@ a.link-arrow:hover {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.4px;
-  color: #d7f2e8;
+  color: #fff;
 }
 
 .home-hero h1 {
@@ -1864,11 +1864,11 @@ a.link-arrow:hover {
   text-wrap: balance;
 }
 
-/* #34d399 on navy is 6.3:1 */
+/* Brand green on navy is 3.4:1, which passes for text this large */
 .hero-accent {
   position: relative;
   display: inline-block;
-  color: #34d399;
+  color: var(--green);
 }
 
 .hero-accent::after {
@@ -1879,7 +1879,7 @@ a.link-arrow:hover {
   bottom: -2px;
   height: 6px;
   border-radius: 3px;
-  background: rgba(52, 211, 153, 0.35);
+  background: rgba(1, 153, 102, 0.45);
   transform-origin: left;
 }
 
@@ -1888,7 +1888,7 @@ a.link-arrow:hover {
   margin: 0;
   font-size: 19px;
   line-height: 1.55;
-  color: #c9cfe6;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .home-hero .hero-actions {
@@ -1919,7 +1919,7 @@ a.link-arrow:hover {
 .chat-demo {
   border-radius: 16px;
   background: #fff;
-  box-shadow: 0 30px 70px rgba(10, 16, 45, 0.35);
+  box-shadow: 0 30px 70px rgba(26, 36, 81, 0.45);
   color: var(--navy);
 }
 
@@ -1938,7 +1938,7 @@ a.link-arrow:hover {
 }
 
 .chat-demo-bar span:first-child {
-  background: var(--green-light);
+  background: var(--green);
 }
 
 .chat-demo-body {
@@ -2039,13 +2039,20 @@ a.link-arrow:hover {
 
 /* ---- Home: steps and prompt cards ---- */
 
-/* Line the home bands up with the hero's 1120px column */
-.summary-section.home-section .container {
+/* The Prompts page's cards get the wider 1120px column */
+.summary-section .prompts-container {
   max-width: 1120px;
 }
 
-.home-section .section-header h2 {
-  font-size: 40px;
+.prompts-more {
+  margin: 32px 0 0;
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.prompts-more a {
+  font-weight: 700;
+  color: var(--green-text);
 }
 
 .step-top {
@@ -2105,6 +2112,256 @@ a.link-arrow:hover {
   font-size: 15px;
 }
 
+/* ---- Home: the "Start here" path ----
+   One white panel that rises over the bottom of the hero, with three
+   numbered stops on a dashed line. A "Start here" bubble marks the first
+   stop. On load the line draws and the stops pop in, one after another. */
+
+.home-start {
+  padding: 0 var(--band-gutter) 88px;
+  background: var(--page-gray);
+}
+
+.start-path {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1120px;
+  margin: -110px auto 0;
+  padding: 64px 40px 40px;
+  border-radius: 20px;
+  background: var(--bg-card);
+  box-shadow: 0 24px 60px rgba(36, 50, 105, 0.14);
+  list-style: none;
+}
+
+/* The dashed line joining the three stops */
+.start-path::before {
+  content: "";
+  position: absolute;
+  top: 92px;
+  left: calc(40px + (100% - 128px) / 6);
+  right: calc(40px + (100% - 128px) / 6);
+  border-top: 2px dashed var(--rule-strong);
+  transform-origin: left;
+}
+
+.start-step a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px 4px;
+  border-radius: var(--radius);
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+}
+
+.start-node {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border: 4px solid var(--bg-card);
+  border-radius: 50%;
+  background: var(--navy);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--navy);
+  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+/* Step 1 wears the brand green */
+.start-step.is-first .start-node {
+  background: var(--green);
+  box-shadow: 0 0 0 2px var(--green);
+}
+
+.start-step a:hover .start-node {
+  transform: scale(1.08);
+}
+
+.start-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.start-step a:hover .start-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.start-step p {
+  flex: 1;
+  max-width: 300px;
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* The "Start here" bubble over step 1, with a pointer down to the stop */
+.start-pin {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: var(--radius-badge);
+  background: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #fff;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.start-pin::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--navy);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.start-pin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .start-path::before {
+    animation: path-draw 0.9s 0.2s var(--ease) both;
+  }
+
+  .start-node {
+    animation: node-pop 0.5s var(--ease) both;
+    animation-delay: calc(0.25s + var(--i) * 0.2s);
+  }
+
+  .start-pin {
+    animation: pin-bob 2.6s 1.2s ease-in-out infinite;
+  }
+
+  .start-pin-dot {
+    animation: pin-pulse 2s ease-out infinite;
+  }
+}
+
+@keyframes path-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@keyframes pin-bob {
+  50% {
+    transform: translate(-50%, -4px);
+  }
+}
+
+@keyframes pin-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(1, 153, 102, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px rgba(1, 153, 102, 0);
+  }
+}
+
+/* Phones: the stops run down the page, joined by a line on the left */
+@media (max-width: 760px) {
+  .start-path {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: -90px;
+    padding: 64px 24px 32px;
+  }
+
+  /* One connector per step, from its stop down to the next one */
+  .start-path::before {
+    display: none;
+  }
+
+  .start-step:not(:last-child) a::after {
+    content: "";
+    position: absolute;
+    top: 56px;
+    bottom: -28px;
+    left: 27px;
+    border-left: 2px dashed var(--rule-strong);
+  }
+
+  .start-step a {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 18px;
+    align-items: start;
+    padding: 0;
+    text-align: left;
+  }
+
+  .start-node {
+    grid-row: span 3;
+    margin: 0;
+  }
+
+  .start-title {
+    margin-top: 12px;
+  }
+
+  .start-pin {
+    top: -46px;
+    left: 0;
+    transform: none;
+  }
+
+  .start-pin::after {
+    left: 28px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .start-pin {
+      animation-name: pin-bob-left;
+    }
+  }
+}
+
+@keyframes pin-bob-left {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 /* Fade-up on scroll, set up by js/home.js */
 .js-reveal .reveal {
   opacity: 0;
@@ -2122,10 +2379,6 @@ a.link-arrow:hover {
   .home-hero-inner {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-
-  .home-section .section-header h2 {
-    font-size: 30px;
   }
 }
 

@@ -29,7 +29,6 @@
     <link rel="icon" href="images/branding/hf-logo.svg" type="image/svg+xml">
     <script src="js/header.js"></script>
     <script src="js/home.js"></script>
-    <script src="js/copy.js" defer></script>
 </head>
 <body>
     <main>
@@ -41,8 +40,7 @@
                     <h1>Best practices for <span class="hero-accent">using AI</span></h1>
                     <p>Learn how AI works, get a free account, and use it on the work already on your plate.</p>
                     <div class="hero-actions">
-                        <a class="btn btn-hero" href="#start-here">Start here<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                        <a class="btn btn-hero-ghost" href="#try-it">Try a prompt</a>
+                        <a class="btn btn-hero" href="pages/prompts.html">Try a prompt<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
                     </div>
                 </div>
                 <div class="chat-demo" role="img" aria-label="Example: an advisor asks an AI tool to turn rough notes into a message for families, and it writes a short, clear note.">
@@ -58,101 +56,34 @@
             </div>
         </section>
 
-        <section class="summary-section home-section" id="start-here">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>Start <b>here</b></h2>
-                    <p>Three steps. Go at your own pace.</p>
-                </div>
-                <ol class="steps">
-                    <li class="reveal" style="--delay: 0ms">
-                        <a class="step-card card-hover" href="pages/how-ai-works.html">
-                            <span class="step-top">
-                                <span class="step-num" aria-hidden="true">1</span>
-                                <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
-                            </span>
-                            <h3><span class="visually-hidden">Step 1: </span>Learn how it works</h3>
+        <section class="home-start" aria-label="Start here">
+            <ol class="start-path">
+                    <li class="start-step is-first" style="--i: 1">
+                        <a href="pages/how-ai-works.html">
+                            <span class="start-pin"><span class="start-pin-dot" aria-hidden="true"></span>Start here</span>
+                            <span class="start-node" aria-hidden="true">1</span>
+                            <h2 class="start-title"><span class="visually-hidden">Step 1: </span>Learn how it works</h2>
                             <p>What happens when you type to an AI, why it gets things wrong, and the features worth knowing.</p>
                             <span class="link-arrow">Understanding AI<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                         </a>
                     </li>
-                    <li class="reveal" style="--delay: 120ms">
-                        <a class="step-card card-hover" href="pages/resources.html">
-                            <span class="step-top">
-                                <span class="step-num" aria-hidden="true">2</span>
-                                <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></span>
-                            </span>
-                            <h3><span class="visually-hidden">Step 2: </span>Get a free tool</h3>
+                    <li class="start-step" style="--i: 2">
+                        <a href="pages/resources.html">
+                            <span class="start-node" aria-hidden="true">2</span>
+                            <h2 class="start-title"><span class="visually-hidden">Step 2: </span>Get a free tool</h2>
                             <p>See which AI tools are free for school staff and how to sign up.</p>
                             <span class="link-arrow">Resources<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                         </a>
                     </li>
-                    <li class="reveal" style="--delay: 240ms">
-                        <a class="step-card card-hover" href="#try-it">
-                            <span class="step-top">
-                                <span class="step-num" aria-hidden="true">3</span>
-                                <span class="step-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></span>
-                            </span>
-                            <h3><span class="visually-hidden">Step 3: </span>Try it on real work</h3>
-                            <p>Copy a prompt below, fill in the blanks, and use it on something already on your list.</p>
-                            <span class="link-arrow">Pick a prompt<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                    <li class="start-step" style="--i: 3">
+                        <a href="pages/prompts.html">
+                            <span class="start-node" aria-hidden="true">3</span>
+                            <h2 class="start-title"><span class="visually-hidden">Step 3: </span>Try it on real work</h2>
+                            <p>Copy a prompt, fill in the blanks, and use it on something already on your list.</p>
+                            <span class="link-arrow">Prompts<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                         </a>
                     </li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="summary-section home-section" id="try-it">
-            <div class="container">
-                <div class="section-header reveal">
-                    <h2>Try it on <b>real work</b></h2>
-                    <p>Copy a prompt, paste it into your AI tool, and fill in the brackets.</p>
-                </div>
-                <div class="task-grid">
-                    <article class="task-card card-hover reveal" style="--delay: 0ms">
-                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-                        <h3>Write to families</h3>
-                        <p>Turn rough notes into a message families can act on.</p>
-                        <div class="prompt-block">
-                            <div class="prompt-block-head">
-                                <span>Prompt</span>
-                                <button type="button" class="copy-btn" data-copy="prompt-families" data-copy-name="write to families prompt" hidden></button>
-                            </div>
-                            <pre class="prompt-text" id="prompt-families">Rewrite these notes as a short message for families. Use plain language, keep it under 150 words, and put the date and what they need to do first. Leave a <span class="fill">[blank]</span> for anything I didn't give you.
-
-<span class="fill">[Paste your notes]</span></pre>
-                        </div>
-                        <a class="link-arrow task-more" href="pages/how-ai-works.html#prompts-content">Why clear prompts work<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                    </article>
-                    <article class="task-card card-hover reveal" style="--delay: 120ms">
-                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span>
-                        <h3>Reach out to employers</h3>
-                        <p>Draft an invite or follow-up for a speaker, site visit, or job shadow.</p>
-                        <div class="prompt-block">
-                            <div class="prompt-block-head">
-                                <span>Prompt</span>
-                                <button type="button" class="copy-btn" data-copy="prompt-employers" data-copy-name="reach out to employers prompt" hidden></button>
-                            </div>
-                            <pre class="prompt-text" id="prompt-employers">Write a short email inviting <span class="fill">[business name]</span> to <span class="fill">[speak at our career day]</span> at <span class="fill">[school]</span> on <span class="fill">[date]</span>. I'm with Heartland Forward's rootEd program. Keep it friendly, under 150 words, with one clear ask. Leave a <span class="fill">[blank]</span> for anything I didn't give you.</pre>
-                        </div>
-                        <a class="link-arrow task-more" href="pages/how-ai-works.html#projects-content">Save your context with Projects<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                    </article>
-                    <article class="task-card card-hover reveal" style="--delay: 240ms">
-                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span>
-                        <h3>Prep for a student meeting</h3>
-                        <p>Sort your notes into good questions before you sit down.</p>
-                        <div class="prompt-block">
-                            <div class="prompt-block-head">
-                                <span>Prompt</span>
-                                <button type="button" class="copy-btn" data-copy="prompt-meeting" data-copy-name="prep for a student meeting prompt" hidden></button>
-                            </div>
-                            <pre class="prompt-text" id="prompt-meeting">I'm meeting with a student about <span class="fill">[topic]</span>. Here are my notes: <span class="fill">[paste notes, no names]</span>. Give me five questions worth asking, and point out anything I might be assuming.</pre>
-                        </div>
-                        <p class="task-note">Leave out names and personal details.</p>
-                        <a class="link-arrow task-more" href="pages/how-ai-works.html#agreement-trap-content">When AI just agrees with you<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                    </article>
-                </div>
-            </div>
+            </ol>
         </section>
     </main>
 <footer class="dashboard-footer">

@@ -33,18 +33,58 @@
     <main>
         <header class="page-masthead">
             <h1>Ready-to-Use Prompts</h1>
-            <p>Prompts you can copy and adapt for your own students, employers, and events.</p>
+            <p>Copy a prompt, paste it into your AI tool, and fill in the brackets.</p>
         </header>
 
         <section class="summary-section">
-            <div class="container">
+            <div class="container prompts-container">
+                <div class="task-grid">
+                    <article class="task-card card-hover">
+                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                        <h3>Write to families</h3>
+                        <p>Turn rough notes into a message families can act on.</p>
+                        <div class="prompt-block">
+                            <div class="prompt-block-head">
+                                <span>Prompt</span>
+                                <button type="button" class="copy-btn" data-copy="prompt-families" data-copy-name="write to families prompt" hidden></button>
+                            </div>
+                            <pre class="prompt-text" id="prompt-families">Rewrite these notes as a short message for families. Use plain language, keep it under 150 words, and put the date and what they need to do first. Leave a <span class="fill">[blank]</span> for anything I didn't give you.
 
-                <div class="chart-card prose-section">
-                    <h2>Coming soon</h2>
-                    <p>This page is still being written. In the meantime, the Understanding AI page covers how to
-                        get better results out of any prompt, and the Resources page covers how to get a free
-                        account to run them on.</p>
+<span class="fill">[Paste your notes]</span></pre>
+                        </div>
+                        <a class="link-arrow task-more" href="how-ai-works.html#prompts-content">Why clear prompts work<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </article>
+                    <article class="task-card card-hover">
+                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span>
+                        <h3>Reach out to employers</h3>
+                        <p>Draft an invite or follow-up for a speaker, site visit, or job shadow.</p>
+                        <div class="prompt-block">
+                            <div class="prompt-block-head">
+                                <span>Prompt</span>
+                                <button type="button" class="copy-btn" data-copy="prompt-employers" data-copy-name="reach out to employers prompt" hidden></button>
+                            </div>
+                            <pre class="prompt-text" id="prompt-employers">Write a short email inviting <span class="fill">[business name]</span> to <span class="fill">[speak at our career day]</span> at <span class="fill">[school]</span> on <span class="fill">[date]</span>. I'm with Heartland Forward's rootEd program. Keep it friendly, under 150 words, with one clear ask. Leave a <span class="fill">[blank]</span> for anything I didn't give you.</pre>
+                        </div>
+                        <a class="link-arrow task-more" href="how-ai-works.html#projects-content">Save your context with Projects<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </article>
+                    <article class="task-card card-hover">
+                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span>
+                        <h3>Prep for a student meeting</h3>
+                        <p>Sort your notes into good questions before you sit down.</p>
+                        <div class="prompt-block">
+                            <div class="prompt-block-head">
+                                <span>Prompt</span>
+                                <button type="button" class="copy-btn" data-copy="prompt-meeting" data-copy-name="prep for a student meeting prompt" hidden></button>
+                            </div>
+                            <pre class="prompt-text" id="prompt-meeting">I'm meeting with a student about <span class="fill">[topic]</span>. Here are my notes: <span class="fill">[paste notes, no names]</span>. Give me five questions worth asking, and point out anything I might be assuming.</pre>
+                        </div>
+                        <p class="task-note">Leave out names and personal details.</p>
+                        <a class="link-arrow task-more" href="how-ai-works.html#agreement-trap-content">When AI just agrees with you<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </article>
+                
                 </div>
+                <p class="prompts-more">More prompts are on the way. Have one that works for you? Share it in the
+                    <a href="survey.html">survey</a>.</p>
             </div>
         </section>
 
@@ -135,6 +175,7 @@ Include brief instructions I can follow.</p>
     </main>
 
     <script src="../js/collapsible.js"></script>
+    <script src="../js/copy.js"></script>
     <footer class="dashboard-footer">
       <div class="footer-content">
         <span>Questions or feedback?</span>
