@@ -1739,21 +1739,18 @@ a.link-arrow:hover {
 }
 
 /* ---- Home: hero ----
-   Navy, continuous with the header, with two slow green and blue glows and
-   a faint dot grid behind the text. A chat window on the right shows what
-   using AI looks like (js/home.js types it out once). */
+   After heartlandforward.org: a soft mint-to-blue wash, blue type under a
+   green eyebrow, near-square corners, and room to breathe. Faint rings in
+   the corner echo the contour lines in the logo. The chat window slides in
+   and types out an example once (js/home.js). */
 
 .home-hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(56px, 9vh, 104px) var(--band-gutter) clamp(140px, 18vh, 190px);
-  background: var(--navy);
-  color: #fff;
+  padding: clamp(64px, 11vh, 120px) var(--band-gutter);
+  background: linear-gradient(120deg, #e5f4ee 0%, #eaf0f7 55%, #dde8f2 100%);
+  color: var(--navy);
   isolation: isolate;
-}
-
-.home-hero :focus-visible {
-  outline-color: #fff;
 }
 
 .home-hero-glow {
@@ -1761,134 +1758,49 @@ a.link-arrow:hover {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
-  background-size: 22px 22px;
-  -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 95%);
-  mask-image: linear-gradient(to bottom, #000 20%, transparent 95%);
-}
-
-.home-hero-glow::before,
-.home-hero-glow::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(20px);
-}
-
-.home-hero-glow::before {
-  width: 640px;
-  height: 640px;
-  top: -260px;
-  left: -180px;
-  background: radial-gradient(circle, rgba(1, 153, 102, 0.5), transparent 65%);
-}
-
-.home-hero-glow::after {
-  width: 560px;
-  height: 560px;
-  right: -160px;
-  bottom: -260px;
-  background: radial-gradient(circle, rgba(1, 153, 102, 0.28), transparent 65%);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .home-hero-glow::before {
-    animation: glow-drift-a 16s ease-in-out infinite alternate;
-  }
-
-  .home-hero-glow::after {
-    animation: glow-drift-b 19s ease-in-out infinite alternate;
-  }
-
-  .chat-demo {
-    animation: float 7s ease-in-out infinite;
-  }
-
-  .hero-accent::after {
-    animation: underline-in 0.9s 0.3s var(--ease) both;
-  }
-}
-
-@keyframes glow-drift-a {
-  to {
-    transform: translate(90px, 70px) scale(1.12);
-  }
-}
-
-@keyframes glow-drift-b {
-  to {
-    transform: translate(-80px, -50px) scale(1.08);
-  }
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes underline-in {
-  from {
-    transform: scaleX(0);
-  }
+  background: repeating-radial-gradient(circle at 94% 115%, rgba(45, 54, 143, 0.08) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: radial-gradient(circle at 94% 115%, #000 0, #000 30%, transparent 62%);
+  mask-image: radial-gradient(circle at 94% 115%, #000 0, #000 30%, transparent 62%);
 }
 
 .home-hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 64px;
   align-items: center;
   max-width: 1120px;
   margin: 0 auto;
 }
 
+/* Their eyebrow: brand green, bold, about 19px (large text, so 3:1 is enough) */
 .hero-kicker {
-  display: inline-flex;
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-badge);
-  background: rgba(255, 255, 255, 0.08);
-  font-size: 13px;
+  display: block;
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: 0.4px;
-  color: #fff;
-}
-
-.home-hero h1 {
-  margin: 22px 0 18px;
-  font-size: clamp(2.5rem, 5vw, 64px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #fff;
-  text-wrap: balance;
-}
-
-/* Brand green on navy is 3.4:1, which passes for text this large */
-.hero-accent {
-  position: relative;
-  display: inline-block;
+  letter-spacing: -0.01em;
   color: var(--green);
 }
 
-.hero-accent::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 6px;
-  border-radius: 3px;
-  background: rgba(1, 153, 102, 0.45);
-  transform-origin: left;
+.home-hero h1 {
+  margin: 14px 0 20px;
+  font-size: clamp(2.5rem, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.hero-accent {
+  color: var(--green);
 }
 
 .home-hero-text > p {
   max-width: 520px;
   margin: 0;
   font-size: 19px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  color: var(--navy);
 }
 
 .home-hero .hero-actions {
@@ -1897,47 +1809,45 @@ a.link-arrow:hover {
 }
 
 .btn-hero {
-  background: #fff;
-  color: var(--navy);
-}
-
-.btn-hero:hover {
-  background: var(--green-tint);
-}
-
-.btn-hero-ghost {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  background: var(--navy);
   color: #fff;
 }
 
-.btn-hero-ghost:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.08);
+.btn-hero:hover {
+  background: var(--navy-dark);
 }
 
-/* The chat window */
+/* The chat window: white, near-square, with their 8px blue bar on top */
 .chat-demo {
-  border-radius: 16px;
+  border-radius: 2px;
   background: #fff;
-  box-shadow: 0 30px 70px rgba(26, 36, 81, 0.45);
+  box-shadow: 0 18px 44px rgba(45, 54, 143, 0.13);
   color: var(--navy);
 }
 
-.chat-demo-bar {
+.chat-demo::before {
+  content: "";
+  display: block;
+  height: 8px;
+  background: var(--navy);
+}
+
+.chat-demo-label {
   display: flex;
-  gap: 6px;
-  padding: 14px 16px;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
   border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-text);
 }
 
-.chat-demo-bar span {
-  width: 10px;
-  height: 10px;
+.chat-demo-label span {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--rule);
-}
-
-.chat-demo-bar span:first-child {
   background: var(--green);
 }
 
@@ -1952,22 +1862,22 @@ a.link-arrow:hover {
 .chat-bubble {
   max-width: 88%;
   padding: 12px 16px;
-  border-radius: 14px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .chat-user {
   align-self: flex-end;
-  border-bottom-right-radius: 4px;
+  border-radius: 10px 10px 2px 10px;
   background: var(--navy);
   color: #fff;
 }
 
 .chat-ai {
   align-self: flex-start;
-  border-bottom-left-radius: 4px;
-  background: var(--green-tint);
+  border-left: 3px solid var(--green);
+  border-radius: 2px 10px 10px 2px;
+  background: rgba(45, 54, 143, 0.06);
   color: var(--navy);
 }
 
@@ -2037,6 +1947,19 @@ a.link-arrow:hover {
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .chat-demo {
+    animation: chat-in 0.7s 0.1s var(--ease) both;
+  }
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
 /* ---- Home: steps and prompt cards ---- */
 
 /* The Prompts page's cards get the wider 1120px column */
@@ -2053,43 +1976,6 @@ a.link-arrow:hover {
 .prompts-more a {
   font-weight: 700;
   color: var(--green-text);
-}
-
-.step-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.step-top .step-num {
-  width: 40px;
-  height: 40px;
-  margin: 0;
-  background: var(--navy);
-  color: #fff;
-}
-
-.step-icon {
-  display: inline-flex;
-  color: var(--green-text);
-}
-
-.step-icon .icon {
-  width: 26px;
-  height: 26px;
-}
-
-.steps > li {
-  display: flex;
-}
-
-.steps .step-card {
-  width: 100%;
-}
-
-.step-card:hover .step-num {
-  background: var(--green-text);
 }
 
 .task-card .prompt-block {
@@ -2113,37 +1999,47 @@ a.link-arrow:hover {
 }
 
 /* ---- Home: the "Start here" path ----
-   One white panel that rises over the bottom of the hero, with three
-   numbered stops on a dashed line. A "Start here" bubble marks the first
-   stop. On load the line draws and the stops pop in, one after another. */
+   A full-width white band under the hero. Three numbered stops sit on a
+   dashed line, and a "Start here" bubble marks the first. On load the line
+   draws and the stops pop in, one after another. */
 
 .home-start {
-  padding: 0 var(--band-gutter) 88px;
-  background: var(--page-gray);
+  padding: clamp(72px, 10vh, 112px) var(--band-gutter) clamp(80px, 11vh, 120px);
+  background: var(--bg);
+}
+
+.home-start-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.home-start-heading {
+  margin: 0 0 88px;
+  font-size: clamp(2rem, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--navy);
 }
 
 .start-path {
   position: relative;
-  z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  max-width: 1120px;
-  margin: -110px auto 0;
-  padding: 64px 40px 40px;
-  border-radius: 20px;
-  background: var(--bg-card);
-  box-shadow: 0 24px 60px rgba(36, 50, 105, 0.14);
+  gap: 32px;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
-/* The dashed line joining the three stops */
+/* The dashed line joining the three stops, from the first center to the last */
 .start-path::before {
   content: "";
   position: absolute;
-  top: 92px;
-  left: calc(40px + (100% - 128px) / 6);
-  right: calc(40px + (100% - 128px) / 6);
+  top: 28px;
+  left: calc((100% - 64px) / 6);
+  right: calc((100% - 64px) / 6);
   border-top: 2px dashed var(--rule-strong);
   transform-origin: left;
 }
@@ -2155,7 +2051,6 @@ a.link-arrow:hover {
   align-items: center;
   height: 100%;
   padding: 0 8px 4px;
-  border-radius: var(--radius);
   color: var(--text);
   text-align: center;
   text-decoration: none;
@@ -2169,19 +2064,17 @@ a.link-arrow:hover {
   justify-content: center;
   width: 56px;
   height: 56px;
-  margin-bottom: 20px;
-  border: 4px solid var(--bg-card);
+  margin-bottom: 22px;
+  border: 4px solid var(--bg);
   border-radius: 50%;
   background: var(--navy);
   font-size: 20px;
   font-weight: 700;
   color: #fff;
   box-shadow: 0 0 0 2px var(--navy);
-  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
+  transition: transform var(--dur) var(--ease);
 }
 
-/* Step 1 wears the brand green */
 .start-step.is-first .start-node {
   background: var(--green);
   box-shadow: 0 0 0 2px var(--green);
@@ -2192,10 +2085,11 @@ a.link-arrow:hover {
 }
 
 .start-title {
-  margin: 0 0 8px;
-  font-size: 22px;
+  margin: 0 0 10px;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--navy);
 }
 
@@ -2208,7 +2102,7 @@ a.link-arrow:hover {
 .start-step p {
   flex: 1;
   max-width: 300px;
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -2216,13 +2110,13 @@ a.link-arrow:hover {
 /* The "Start here" bubble over step 1, with a pointer down to the stop */
 .start-pin {
   position: absolute;
-  top: -50px;
+  top: -52px;
   left: 50%;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 7px 14px;
-  border-radius: var(--radius-badge);
+  border-radius: 4px;
   background: var(--navy);
   font-size: 13px;
   font-weight: 700;
@@ -2298,16 +2192,18 @@ a.link-arrow:hover {
   }
 }
 
-/* Phones: the stops run down the page, joined by a line on the left */
+/* Phones: the stops run down the page, joined by short connectors */
 @media (max-width: 760px) {
-  .start-path {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    margin-top: -90px;
-    padding: 64px 24px 32px;
+  .home-start-heading {
+    margin-bottom: 72px;
+    text-align: left;
   }
 
-  /* One connector per step, from its stop down to the next one */
+  .start-path {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .start-path::before {
     display: none;
   }
@@ -2316,7 +2212,7 @@ a.link-arrow:hover {
     content: "";
     position: absolute;
     top: 56px;
-    bottom: -28px;
+    bottom: -32px;
     left: 27px;
     border-left: 2px dashed var(--rule-strong);
   }
@@ -2340,7 +2236,7 @@ a.link-arrow:hover {
   }
 
   .start-pin {
-    top: -46px;
+    top: -48px;
     left: 0;
     transform: none;
   }
@@ -2390,8 +2286,16 @@ a.link-arrow:hover {
 
   .home-hero {
     background: #fff;
-    color: var(--navy);
   }
+}
+
+/* ---- Brand blue overrides ----
+   footer.css and base.css are copied verbatim from skilled-workforce and
+   hard-code #243269. The site now uses Heartland Forward's #2d368f, so the
+   two places those files paint show up here instead. */
+
+.dashboard-footer {
+  background: var(--navy);
 }
 
 /* ---- Responsive ---- */

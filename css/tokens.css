@@ -7,14 +7,16 @@
  * MRI has no dark theme, so this site has none either.
  */
 :root {
-  --navy: #243269;
-  --navy-dark: #1a2451;
+  /* Heartland Forward's blue, as used across heartlandforward.org and in the
+     logo. (MRI and skilled-workforce use the darker #243269.) */
+  --navy: #2d368f;
+  --navy-dark: #232a72;
   --green: #019966;
   /* Text-safe green: #019966 is 3.65:1 on white, under AA for body text */
   --green-text: #007b52;
   --green-tint: #e6f5f0;
   --green-light: #10b981;
-  --text: #243269;
+  --text: #2d368f;
   /* Darkened from MRI's #7c84a5 (3.7:1 on white) to pass AA: 5.2:1 on
      white, 4.8:1 on --panel */
   --text-muted: #636b8f;
@@ -32,7 +34,7 @@
   --tab: #dee0e9;
   --tab-hover: #cfd3e0;
   /* Hierarchy comes from hairlines, not shadows */
-  --shadow-menu: 0 6px 18px rgba(36, 50, 105, 0.12);
+  --shadow-menu: 0 6px 18px rgba(45, 54, 143, 0.12);
   --radius: 12px;
   --radius-control: 8px;
   --radius-sm: 4px;
@@ -51,7 +53,7 @@
 
   /* ---- Site additions (not in MRI) ----
      Each text pair below is checked to 4.5:1 or better. */
-  /* Navy-tinted panel for "heads-up" callouts: navy text is 10.6:1 on it.
+  /* Navy-tinted panel for "heads-up" callouts: navy text is about 9:1 on it.
      (Avoid --text-muted on --page-gray: 4.34:1 fails AA; use --text-light.) */
   --navy-tint: #eef0f6;
   /* Caution and stop colors for the safe-to-paste guide. The -text values
