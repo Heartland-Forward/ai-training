@@ -33,7 +33,7 @@
     <main>
         <header class="page-masthead">
             <h1>AI Resources for K-12</h1>
-            <p>Curated list of AI tools with real K-12 education pricing. No slop, no wrappers. Verified July 2026.</p>
+            <p>Curated list of AI tools with real K-12 education pricing. No slop, no wrappers. Verified November 2026.</p>
         </header>
 
         <section class="summary-section">
@@ -103,32 +103,43 @@
                         <tr>
                             <td data-label="Tool"><strong><a href="https://www.canva.com/education/" target="_blank">Canva for Education</a></strong></td>
                             <td data-label="Category">Design</td>
-                            <td data-label="Standard Price">$12.99/mo</td>
+                            <!-- Canva Pro is US$18/month billed monthly, or US$144/year, from
+                                 canva.com/pricing, checked November 2026. Eligible roles from Canva's
+                                 "About Canva Education" help article, checked November 2026. -->
+                            <td data-label="Standard Price">$18/mo (Canva Pro)</td>
                             <td data-label="K-12 Price">FREE</td>
-                            <td data-label="Eligibility">US K-12 educators. A school-issued email verifies instantly</td>
+                            <td data-label="Eligibility">Certified K-12 teachers, librarians, learning-support staff, and curriculum specialists. Counselors and advisors are not on the list</td>
                         </tr>
                         <tr>
                             <td data-label="Tool"><strong><a href="https://www.khanmigo.ai/" target="_blank">Khanmigo for Teachers</a></strong></td>
                             <td data-label="Category">Tutoring</td>
-                            <td data-label="Standard Price">$4/mo</td>
+                            <!-- $4/month or $44/year for the Learner and Parent plans, from
+                                 khanmigo.ai/pricing. Eligibility from Khan Academy's "Khanmigo Teacher
+                                 Tools" terms (last updated February 18, 2025). Both checked November 2026. -->
+                            <td data-label="Standard Price">$4/mo (learner and parent plans)</td>
                             <td data-label="K-12 Price">FREE (teacher tools)</td>
-                            <td data-label="Eligibility">Any educator 18+. No verification step</td>
+                            <td data-label="Eligibility">Adults employed by a school as teachers or other school staff. You confirm it yourself; no documents</td>
                         </tr>
                         <tr>
                             <td data-label="Tool"><strong><a href="https://github.com/education/teachers" target="_blank">GitHub Copilot Pro</a></strong></td>
                             <td data-label="Category">Coding</td>
+                            <!-- $10/month from github.com/features/copilot/plans. Eligibility and the
+                                 "non-degree granting institution" denial reason from the FAQ on
+                                 github.com/education/teachers. Both checked November 2026. -->
                             <td data-label="Standard Price">$10/mo</td>
                             <td data-label="K-12 Price">FREE</td>
-                            <td data-label="Eligibility">Verified teacher status, by document review</td>
+                            <td data-label="Eligibility">Educators at accredited institutions, by document review. GitHub does not name K-12, and lists a non-degree-granting school as a reason it may decline</td>
                         </tr>
                     </tbody>
                 </table>
                 <p class="text-small text-muted"><strong>Note:</strong> "Free for K-12" does not always mean free for you.
-                    Claude, ChatGPT, Khanmigo, and Canva are the four on this list a rootEd advisor can sign up for on a
-                    school-issued email. Copilot Chat and Gemini come with your district's Microsoft or Google account
+                    Claude, ChatGPT, and Khanmigo are open to school staff as well as teachers, so they are the ones on
+                    this list a rootEd advisor can usually sign up for on a school-issued email. Canva limits its free
+                    offer to teaching roles, so an advisor generally gets it only through a school or district that has
+                    rolled Canva out. Copilot Chat and Gemini come with your district's Microsoft or Google account
                     if the district has them on. The How to Get Access section below covers all six. GitHub verifies
-                    teacher status by document review, so it is one to hand to a teacher rather than to attempt yourself.
-                    Read the eligibility column before spending time on a signup.</p>
+                    teacher status by document review and may not accept K-12 schools at all, so it is one to hand to a
+                    teacher rather than to attempt yourself. Read the eligibility column before spending time on a signup.</p>
                     </div>
                 </div>
 
@@ -179,7 +190,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>How to <b>Get Access</b></h2>
-                    <p>The first four you sign up for yourself on your school-issued email, with no district approval needed. The last two come with your district's Microsoft or Google account, so there is nothing to sign up for: you only check whether your district has them turned on. <em>Verified against official sources in July 2026, and Copilot Chat and Gemini in November 2026. Terms, dates, and verification partners can change.</em></p>
+                    <p>The first three you sign up for yourself on your school-issued email, with no district approval needed. Canva is open only to teaching roles, so check its eligibility list first. The last two come with your district's Microsoft or Google account, so there is nothing to sign up for: you only check whether your district has them turned on. <em>Verified against official sources in November 2026. Terms, dates, and verification partners can change.</em></p>
                 </div>
 
 
@@ -252,22 +263,33 @@
                     </div>
                     <div class="metrics-section-content collapsible-content prose-section" id="khanmigo-content">
 
-                        <p>The lowest-friction option here. There is no verification step at all: no document, no school
-                            email requirement, no waiting on a review.</p>
+                        <!-- Sources, all checked November 2026: the FAQ on khanmigo.ai (eligibility
+                             quote, classroom access); Khan Academy's "Khanmigo Teacher Tools" terms,
+                             last updated February 18, 2025 (employment requirement); the help article
+                             "How do I sign up for Khanmigo?" (steps, US IP address, English account);
+                             khanmigo.ai/pricing ($4/month or $44/year). -->
+                        <p>The lowest-friction option here. There is no document to upload, no school email requirement,
+                            and no waiting on a review.</p>
 
-                        <p><strong>Who qualifies.</strong> Khan Academy's wording is broad: "To access Khanmigo for
+                        <p><strong>Who qualifies.</strong> The Khanmigo site's wording is broad: "To access Khanmigo for
                             Teachers, you must be an educator who is 18 years or older and lives in one of these
-                            countries or territories." It never defines "educator," and asks for no proof of one.</p>
+                            countries or territories." The terms you accept at signup are narrower: you must be
+                            "employed in an official teaching or administrative capacity by a school or other
+                            educational agency." Nobody checks this; you confirm it yourself by accepting the terms, so
+                            read them and make sure your role fits.</p>
 
                         <p><strong>The steps:</strong></p>
                         <ol>
-                            <li>Create a free Khan Academy account, or sign in to one you already have.</li>
-                            <li>Go to <a href="https://www.khanmigo.ai/" target="_blank" rel="noopener noreferrer">khanmigo.ai</a> and choose the free teacher tools.</li>
-                            <li>That is the whole flow. There is nothing to verify and nobody to wait on.</li>
+                            <li>Go to <a href="https://www.khanmigo.ai/" target="_blank" rel="noopener noreferrer">khanmigo.ai</a> and click "Sign up for free" under the teacher option.</li>
+                            <li>Create a free Khan Academy account, or log in to one you already have. Its language has to be set to English.</li>
+                            <li>Fill in your details and accept the terms. You are sent to Khanmigo, and a confirmation email follows.</li>
                         </ol>
 
-                        <p>Cost: free, with no end date. Khanmigo costs $4/mo for learners and parents; the teacher tools
-                            are the free tier.</p>
+                        <p>You need to be in the US (Khan Academy checks your connection's location) or one of its other
+                            supported countries.</p>
+
+                        <p>Cost: free, with no end date announced. Khanmigo costs $4/month or $44/year for learners and
+                            parents; the teacher tools are the free tier.</p>
 
                         <p><strong>Two honest caveats.</strong> It is teacher-facing only: you cannot grant students
                             access from a free account, since classroom access is available only through school or
@@ -285,17 +307,29 @@
                     </div>
                     <div class="metrics-section-content collapsible-content prose-section" id="canva-content">
 
+                        <!-- Sources, all checked November 2026: Canva's "About Canva Education" help
+                             article (eligible roles, signup steps, the "access right away" quote, US
+                             teachers needing only a license) and canva.com/education/eligibility-guidelines
+                             (48-hour review, re-verification every 3 years). -->
                         <p>Free premium Canva for K-12, and the quickest of any tool here if your school email domain is
                             recognised: access is granted on the spot, with no document and no review.</p>
 
+                        <p><strong>Check your role first.</strong> Canva's free education plan is for people in
+                            teaching roles: certified K-12 teachers currently teaching, school librarians, learning
+                            support assistants or teachers, curriculum specialists, and certified teachers at technical
+                            or vocational schools. Counselors and advisors are not on that list. If that leaves you out,
+                            ask whether your school or district has rolled Canva Education out to its staff, since
+                            schools and districts can sign up as organizations.</p>
+
                         <p><strong>The steps:</strong></p>
                         <ol>
-                            <li>Go to <a href="https://www.canva.com/education/" target="_blank" rel="noopener noreferrer">canva.com/education</a> and sign up using your school-issued email.</li>
-                            <li>If your school's email domain is recognised, you are in immediately. Canva's wording: "If you sign up for Canva Education with a verified educational email domain, you'll get access right away."</li>
-                            <li>If it is not recognised, you upload one document and Canva reviews it within 48 hours.</li>
+                            <li>Go to <a href="https://www.canva.com/education/" target="_blank" rel="noopener noreferrer">canva.com/education</a> and sign up using your school-issued email, or your school's Google, Microsoft, or Clever account.</li>
+                            <li>Choose Teacher, then fill in your school's name, address, and website.</li>
+                            <li>If your school's email domain is recognised, you are in immediately. Canva's wording: "If you signed up with a verified educational email domain, you'll get access right away." It may still ask you to verify your teaching credentials later.</li>
+                            <li>If it is not recognised, you upload a document and Canva reviews it within 48 hours. In the US, a copy of your teaching license is all it asks for.</li>
                         </ol>
 
-                        <p>Cost: free, for as long as you stay eligible. Canva re-verifies every three years.</p>
+                        <p>Cost: free, for as long as you stay eligible. Canva asks you to re-verify every three years.</p>
 
                     </div>
                 </div>

@@ -39,7 +39,7 @@
             <p>AI comes in many forms - from recommendation systems to
                 self-driving cars. Today we're focusing on AI chatbots, the tools you'll use most often in
                 your work. The product names, features, and vendor comparisons on this page were verified
-                against official sources in July 2026. Names and tier labels change often, so check the
+                against official sources in November 2026. Names and tier labels change often, so check the
                 vendor before relying on a detail here.</p>
         </header>
 
@@ -226,9 +226,14 @@
 
                         <p>AI isn't limited to text. You can interact through voice and images too - but under the hood,
                             everything still becomes tokens in that same context window.</p>
+                        <!-- ChatGPT Voice "Live", the free-plan limit, and the December 11, 2026
+                             retirement of Advanced voice: help.openai.com "ChatGPT Voice" and "Retiring
+                             Advanced and Standard voice in ChatGPT", checked November 2026. -->
                         <p><strong>Voice:</strong> Speak instead of type (tap the microphone icon). Your speech gets
-                            transcribed to text, converted to tokens, and processed like any typed message. Advanced
-                            Voice Mode in ChatGPT enables real-time conversations - great for mock interview practice.
+                            transcribed to text, converted to tokens, and processed like any typed message. ChatGPT
+                            Voice's "Live" option holds real-time spoken conversations, with limited use on the free
+                            plan - great for mock interview practice. (The older Advanced Voice retires on December 11,
+                            2026, so guides that name it are out of date.)
                         </p>
                         <p><strong>Image Input:</strong> Upload photos and the AI "sees" them by converting the image
                             into tokens (through a process of breaking it into patches). This works for text-based images
@@ -383,13 +388,20 @@
                         </ul>
 
                         <p><strong>Where to find it:</strong></p>
+                        <!-- Sources, checked November 2026: support.claude.com "Use research on Claude";
+                             help.openai.com "Deep research in ChatGPT" and chatgpt.com/pricing ("Limited
+                             deep research" on Free); support.google.com Gemini Deep Research help page;
+                             perplexity.ai help center "What is Research mode?" and "What is Pro Search?". -->
                         <ul>
-                            <li><strong>Claude:</strong> "Research" mode, alongside the model picker</li>
-                            <li><strong>ChatGPT:</strong> Look for "Deep Research" in the model selector (requires
-                                Plus/Pro)
+                            <li><strong>Claude:</strong> "Research". Click the + button below the message box and choose
+                                Research. Web search has to be on, and it is for paid plans.</li>
+                            <li><strong>ChatGPT:</strong> "Deep research". Choose it from the + (tools) menu, or type
+                                /Deepresearch. Limited on the free plan, with more on paid plans.
                             </li>
-                            <li><strong>Gemini:</strong> "Deep Research" option in Google's Gemini</li>
-                            <li><strong>Perplexity:</strong> "Pro Search" offers similar extended research</li>
+                            <li><strong>Gemini:</strong> "Deep Research" option in Google's Gemini. Limited for everyone,
+                                with higher limits on Google's paid AI plans.</li>
+                            <li><strong>Perplexity:</strong> "Research" (some menus call it Deep Research). Limited on the
+                                free plan.</li>
                         </ul>
 
                         <p><strong>The tradeoff:</strong> Deep Research takes real time (minutes, not seconds) and
@@ -469,15 +481,21 @@
                             context into fresh chats. If a body of work is going to come up more than twice, it deserves
                             a Project.</p>
 
+                        <!-- Sources, checked November 2026: support.claude.com "What are projects?";
+                             help.openai.com "Projects in ChatGPT"; support.google.com "Organize your
+                             projects with notebooks in Gemini Apps"; Google Workspace Updates, "Notebooks
+                             in Gemini ... now for schools and organizations" (September 17, 2026) and
+                             "NotebookLM now Gemini Notebook" (July 2026). -->
                         <p><strong>Where to find it:</strong></p>
                         <ul>
-                            <li><strong>Claude:</strong> Projects</li>
+                            <li><strong>Claude:</strong> Projects. Available on every plan, including free.</li>
                             <li><strong>ChatGPT:</strong> Projects, at near parity with Claude's. Project instructions
                                 override your global custom instructions.</li>
-                            <li><strong>Gemini:</strong> No true equivalent. The two closest options each do half the
-                                job. A Gem carries instructions and files, but it is a persona you switch into, not a
-                                folder your chats live in. A Drive project groups files, but carries no standing
-                                instructions. Neither does both.</li>
+                            <li><strong>Gemini:</strong> Notebooks. Open the sidebar and choose New notebook under
+                                "Notebooks." A notebook remembers its sources, instructions, and chats, which makes it the
+                                closest match to a Project. Since September 2026 it is available on school Google
+                                accounts too, on by default unless your district turns it off. Notebooks also sync with
+                                Gemini Notebook, the tool formerly called NotebookLM.</li>
                         </ul>
                     </div>
                 </div>
@@ -543,10 +561,16 @@
                             source, so check those against the real thing before you work from the tool.</p>
 
                         <p><strong>Where to find it:</strong></p>
+                        <!-- Sources, checked November 2026: support.claude.com "What are artifacts and how
+                             do I use them?"; help.openai.com model release notes (May 28, 2026: canvas no
+                             longer available in GPT-5.5) and "Working with writing blocks and code blocks in
+                             ChatGPT"; support.google.com Gemini Canvas help page. -->
                         <ul>
                             <li><strong>Claude:</strong> Artifacts. Opens on its own when the output warrants it.</li>
-                            <li><strong>ChatGPT:</strong> Canvas, a document and code surface that opens beside the chat,
-                                for documents and code rather than click-through tools.</li>
+                            <li><strong>ChatGPT:</strong> Writing blocks and code blocks: an editable draft or piece of
+                                code inside the reply, which you can open full screen. They replaced Canvas, which is no
+                                longer available on ChatGPT's current models, so older guides that mention Canvas are out
+                                of date.</li>
                             <li><strong>Gemini:</strong> Canvas, invoked manually. Use Add Files, then Canvas.</li>
                         </ul>
                     </div>
@@ -621,15 +645,20 @@
                             cannot find it.</p>
 
                         <p><strong>Where to find it:</strong></p>
+                        <!-- Sources, checked November 2026: support.claude.com "Use Skills in Claude";
+                             help.openai.com "Skills in ChatGPT" and "Plugins in ChatGPT";
+                             support.google.com "About the transition from Gems to skills". -->
                         <ul>
                             <li><strong>Claude:</strong> Skills. Auto-invoked when your request matches the Skill's
-                                description.</li>
-                            <li><strong>ChatGPT:</strong> Skills. Also auto-invoked on a description match, or selected
-                                explicitly from the composer. The catch is not capability, it is access: they are
-                                workspace and admin-gated.</li>
-                            <li><strong>Gemini:</strong> Gems. Manual only, so a Gem is a decision you make up front
-                                rather than something that fires when it fits, and a specialist you have to remember to
-                                switch into is one you will forget to use.</li>
+                                description. Available on every plan, including free.</li>
+                            <li><strong>ChatGPT:</strong> Skills, now found under Plugins in the sidebar. Also
+                                auto-invoked on a description match, or picked yourself with an @ mention. The catch is
+                                not capability, it is access: OpenAI lists them for Business, Enterprise, Healthcare, and
+                                Edu workspaces, subject to admin settings.</li>
+                            <li><strong>Gemini:</strong> Gems, for now. Google is replacing Gems with skills that Gemini
+                                uses on its own when they fit, starting November 2026 for personal Google accounts and
+                                in 2027 for school accounts. Until your school account switches over, a Gem is manual: a
+                                specialist you have to remember to switch into, which is one you will forget to use.</li>
                         </ul>
                     </div>
                 </div>
@@ -675,15 +704,24 @@
                             </tbody>
                         </table>
 
-                        <p><strong>Read-only is a Claude promise, not an industry rule.</strong> Claude's connectors are
-                            read-only by design: it can see your inbox, your calendar, and your files, and it cannot send
-                            the mail, move the appointment, or edit the document. ChatGPT is different. Its Apps do have
-                            write actions, admin-gated and off by default rather than absent. So do not carry the
-                            read-only assumption from one tool to the other. Check what the connector you just turned on
-                            is actually allowed to do before you point it at anything that matters.</p>
+                        <!-- Sources, checked November 2026: support.claude.com "Use Google Workspace
+                             connectors" and "Set up the Microsoft 365 connector" ("Permissions are read-only
+                             by default"); help.openai.com "Connected apps in ChatGPT" and "Admin controls,
+                             security, and compliance for plugins and apps"; support.google.com Gemini
+                             Connected Apps list; support.google.com Gemini Enterprise connectors. -->
+                        <p><strong>Connectors can act, not just read.</strong> Claude's Google connectors can send,
+                            reply to, and forward Gmail, create and change Calendar events, and share, move, or trash
+                            Drive files. By default it asks for your approval before each of those. Its Microsoft 365
+                            connector is read-only on a school account unless an administrator turns on write tools.
+                            ChatGPT's apps can also take actions; in Edu and Enterprise workspaces an admin turns apps and
+                            their actions on, and new ones start off. So do not assume any connector only reads. Check
+                            what the one you just turned on is actually allowed to do before you point it at anything
+                            that matters, and read every approval request before you click it.</p>
 
-                        <p><strong>If your district runs Microsoft, this decides the tool.</strong> Gemini has no
+                        <p><strong>If your district runs Microsoft, this decides the tool.</strong> The Gemini app has no
                             Microsoft 365 connector at all. Not a limited one: no Outlook, no OneDrive, no SharePoint.
+                            (Google's separate, paid Gemini Enterprise product does connect to Microsoft 365, but that is
+                            not the Gemini your district's Google account gives you.)
                             Claude and ChatGPT both reach Outlook and SharePoint. For an advisor whose mail, calendar,
                             and every shared folder live in the Microsoft stack, that is not a feature-comparison
                             footnote, it is most of the value of connectors disappearing. It is also the kind of thing
@@ -699,11 +737,11 @@
                         <p><strong>Where to find it:</strong></p>
                         <ul>
                             <li><strong>Claude:</strong> Connectors.</li>
-                            <li><strong>ChatGPT:</strong> Apps, renamed from Connectors in December 2025. Documentation
-                                and walkthroughs written before then still call them Connectors, so search both names.
+                            <li><strong>ChatGPT:</strong> Connected apps, formerly called Connectors, now added through
+                                Plugins. Older walkthroughs still call them Connectors, so search both names.
                             </li>
-                            <li><strong>Gemini:</strong> Connected Apps, renamed from Extensions. No Microsoft 365
-                                connector of any kind.</li>
+                            <li><strong>Gemini:</strong> Connected Apps (older guides call them Extensions). No Microsoft
+                                365 connector of any kind.</li>
                         </ul>
                     </div>
                 </div>
