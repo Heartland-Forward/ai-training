@@ -1738,6 +1738,409 @@ a.link-arrow:hover {
   }
 }
 
+/* ---- Home: hero ----
+   Navy, continuous with the header, with two slow green and blue glows and
+   a faint dot grid behind the text. A chat window on the right shows what
+   using AI looks like (js/home.js types it out once). */
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 9vh, 104px) var(--band-gutter) clamp(64px, 10vh, 120px);
+  background: var(--navy);
+  color: #fff;
+  isolation: isolate;
+}
+
+.home-hero :focus-visible {
+  outline-color: #fff;
+}
+
+.home-hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 95%);
+  mask-image: linear-gradient(to bottom, #000 20%, transparent 95%);
+}
+
+.home-hero-glow::before,
+.home-hero-glow::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.home-hero-glow::before {
+  width: 640px;
+  height: 640px;
+  top: -260px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.42), transparent 65%);
+}
+
+.home-hero-glow::after {
+  width: 560px;
+  height: 560px;
+  right: -160px;
+  bottom: -260px;
+  background: radial-gradient(circle, rgba(96, 128, 235, 0.45), transparent 65%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero-glow::before {
+    animation: glow-drift-a 16s ease-in-out infinite alternate;
+  }
+
+  .home-hero-glow::after {
+    animation: glow-drift-b 19s ease-in-out infinite alternate;
+  }
+
+  .chat-demo {
+    animation: float 7s ease-in-out infinite;
+  }
+
+  .hero-accent::after {
+    animation: underline-in 0.9s 0.3s var(--ease) both;
+  }
+}
+
+@keyframes glow-drift-a {
+  to {
+    transform: translate(90px, 70px) scale(1.12);
+  }
+}
+
+@keyframes glow-drift-b {
+  to {
+    transform: translate(-80px, -50px) scale(1.08);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes underline-in {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.home-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-badge);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #d7f2e8;
+}
+
+.home-hero h1 {
+  margin: 22px 0 18px;
+  font-size: clamp(2.5rem, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-wrap: balance;
+}
+
+/* #34d399 on navy is 6.3:1 */
+.hero-accent {
+  position: relative;
+  display: inline-block;
+  color: #34d399;
+}
+
+.hero-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(52, 211, 153, 0.35);
+  transform-origin: left;
+}
+
+.home-hero-text > p {
+  max-width: 520px;
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.55;
+  color: #c9cfe6;
+}
+
+.home-hero .hero-actions {
+  justify-content: flex-start;
+  margin-top: 32px;
+}
+
+.btn-hero {
+  background: #fff;
+  color: var(--navy);
+}
+
+.btn-hero:hover {
+  background: var(--green-tint);
+}
+
+.btn-hero-ghost {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.btn-hero-ghost:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* The chat window */
+.chat-demo {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(10, 16, 45, 0.35);
+  color: var(--navy);
+}
+
+.chat-demo-bar {
+  display: flex;
+  gap: 6px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-demo-bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--rule);
+}
+
+.chat-demo-bar span:first-child {
+  background: var(--green-light);
+}
+
+.chat-demo-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 270px;
+  padding: 22px;
+}
+
+.chat-bubble {
+  max-width: 88%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.chat-user {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.chat-ai {
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  background: var(--green-tint);
+  color: var(--navy);
+}
+
+.chat-dots {
+  display: none;
+  gap: 5px;
+  padding: 4px 0;
+}
+
+.chat-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-text);
+  animation: dot-blink 1s infinite;
+}
+
+.chat-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.chat-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes dot-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* States set by js/home.js. Without them the finished chat simply shows. */
+.chat-demo.is-animated .chat-ai {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.chat-demo.is-thinking .chat-ai,
+.chat-demo.is-replied .chat-ai {
+  opacity: 1;
+  transform: none;
+}
+
+.chat-demo.is-thinking .chat-dots {
+  display: inline-flex;
+}
+
+.chat-demo.is-thinking .chat-reply {
+  display: none;
+}
+
+.chat-demo.is-typing .chat-typed::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: #fff;
+  animation: caret 0.8s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---- Home: steps and prompt cards ---- */
+
+/* Line the home bands up with the hero's 1120px column */
+.summary-section.home-section .container {
+  max-width: 1120px;
+}
+
+.home-section .section-header h2 {
+  font-size: 40px;
+}
+
+.step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step-top .step-num {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  background: var(--navy);
+  color: #fff;
+}
+
+.step-icon {
+  display: inline-flex;
+  color: var(--green-text);
+}
+
+.step-icon .icon {
+  width: 26px;
+  height: 26px;
+}
+
+.steps > li {
+  display: flex;
+}
+
+.steps .step-card {
+  width: 100%;
+}
+
+.step-card:hover .step-num {
+  background: var(--green-text);
+}
+
+.task-card .prompt-block {
+  margin: 0 0 12px;
+}
+
+.task-card .prompt-text {
+  font-size: 13px;
+}
+
+.task-note {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.task-more {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 15px;
+}
+
+/* Fade-up on scroll, set up by js/home.js */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  transition-delay: var(--delay, 0ms);
+}
+
+.js-reveal .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-section .section-header h2 {
+    font-size: 30px;
+  }
+}
+
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .home-hero {
+    background: #fff;
+    color: var(--navy);
+  }
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 900px) {
