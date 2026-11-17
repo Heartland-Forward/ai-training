@@ -2298,6 +2298,125 @@ a.link-arrow:hover {
   background: var(--navy);
 }
 
+/* ---- Understanding AI: tokens diagram ----
+   Built in HTML so it stays sharp at any size: text, then token chips, then
+   the numbers the model reads. Steps sit side by side and stack on phones. */
+
+.token-flow {
+  margin: 8px 0 20px;
+}
+
+.tf-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1.3fr) 28px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 10px;
+}
+
+.tf-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-label {
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.tf-box {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--navy);
+  border-radius: 2px;
+  background: var(--bg);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.tf-text {
+  font-weight: 700;
+}
+
+.tf-chips span,
+.tf-nums span {
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  white-space: pre;
+}
+
+.tf-chips span:nth-child(odd) {
+  background: var(--green-tint);
+}
+
+.tf-chips span:nth-child(even) {
+  background: rgba(45, 54, 143, 0.1);
+}
+
+.tf-nums span {
+  background: var(--panel);
+}
+
+/* Arrow between steps: a line with a head, pointing right (down on phones) */
+.tf-arrow {
+  position: relative;
+  align-self: center;
+  height: 2px;
+  margin-top: 22px;
+  background: var(--rule-strong);
+}
+
+.tf-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -1px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--rule-strong);
+  border-right: 2px solid var(--rule-strong);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.token-flow figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+@media (max-width: 900px) {
+  .tf-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-arrow {
+    justify-self: center;
+    width: 2px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .tf-arrow::after {
+    top: auto;
+    right: auto;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 900px) {

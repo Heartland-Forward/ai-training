@@ -126,9 +126,6 @@
                                 <li><strong>At work in the jobs students want:</strong> hospitals use it to read scans,
                                     banks to flag fraud, farms to watch crops, and factories to catch defects.</li>
                             </ul>
-                            <p>That last one matters for advising. AI is already part of most jobs students are
-                                aiming for.</p>
-                            <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> Ask a student to list every AI they used before lunch. Most will miss the feed on their phone.</span></p>
                         </div>
                     </div>
                     </div>
@@ -150,7 +147,6 @@
                                 squeezes the patterns into its network. During <strong>post-training</strong>, people rate
                                 its answers so it learns to act like an assistant. When you ask it something, it draws on
                                 that snapshot.</p>
-                            <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> Search <a href="https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1" target="_blank" rel="noopener noreferrer">FineWeb Explorer</a> to see real web pages used to train AI.</span></p>
                         </div>
                     </div>
                     <div class="metrics-section collapsed">
@@ -175,8 +171,28 @@
                         </div>
                         <div class="metrics-section-content collapsible-content prose-section" id="tokens-content">
                             <p class="card-summary">AI reads text in small chunks called tokens: pieces of words, whole words, or punctuation.</p>
-                            <img src="../images/how-ai-works/tokenization.png" alt="Diagram showing a sentence split into tokens" style="max-width: 640px;">
-                            <p>A short sentence is around 15 tokens. Tokens matter because every AI has a limit on how many
+                            <figure class="token-flow">
+                                <div class="tf-steps" aria-hidden="true">
+                                    <div class="tf-step">
+                                        <span class="tf-label">Your text</span>
+                                        <div class="tf-box tf-text">Tokenizing text is a very interesting process.</div>
+                                    </div>
+                                    <span class="tf-arrow"></span>
+                                    <div class="tf-step">
+                                        <span class="tf-label">Tokens</span>
+                                        <div class="tf-box tf-chips"><span>Token</span><span>izing</span><span>text</span><span>is</span><span>a</span><span>very</span><span>interesting</span><span>process</span><span>.</span></div>
+                                    </div>
+                                    <span class="tf-arrow"></span>
+                                    <div class="tf-step">
+                                        <span class="tf-label">Numbers the AI reads</span>
+                                        <div class="tf-box tf-nums"><span>3404</span><span>4954</span><span>1495</span><span>374</span><span>264</span><span>1633</span><span>7185</span><span>1920</span><span>13</span></div>
+                                    </div>
+                                </div>
+                                <figcaption>The sentence "Tokenizing text is a very interesting process." becomes nine
+                                    tokens, and each token becomes a number. Every AI tool splits text a little
+                                    differently.</figcaption>
+                            </figure>
+                            <p>A typical sentence is 10 to 20 tokens. Tokens matter because every AI has a limit on how many
                                 it can hold at once, which leads to the context window.</p>
                             <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> Paste a sentence into <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener noreferrer">Tiktokenizer</a> and watch it split.</span></p>
                         </div>
@@ -194,7 +210,6 @@
                                 <li>A new chat starts with a clean slate.</li>
                                 <li>Very long chats can push early details out, and answers get worse.</li>
                             </ul>
-                            <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> Start a new chat when you switch topics. The AI stays focused on the task in front of it.</span></p>
                         </div>
                     </div>
                     <div class="metrics-section collapsed">
