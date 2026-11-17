@@ -1864,24 +1864,6 @@ a.link-arrow:hover {
   background: var(--navy);
 }
 
-.chat-demo-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 22px;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--green-text);
-}
-
-.chat-demo-label span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-}
-
 .chat-demo-body {
   display: flex;
   flex-direction: column;
