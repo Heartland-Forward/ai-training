@@ -1520,6 +1520,37 @@ a.link-arrow:hover {
   color: var(--navy);
 }
 
+/* Prompt cards on the Prompts page */
+.prompt-notes > div:only-child {
+  grid-column: 1 / -1;
+}
+
+.prompt-notes dd ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.prompt-notes dd li {
+  margin-bottom: 4px;
+}
+
+.prompt-notes dd li:last-child {
+  margin-bottom: 0;
+}
+
+.prompt-notes dd a,
+.prose-section .prompt-warning a {
+  font-weight: 700;
+  color: var(--green-text);
+}
+
+.prose-section .prompt-warning {
+  padding: 10px 14px;
+  border-left: 3px solid var(--navy);
+  background: var(--navy-tint);
+  font-size: 15px;
+}
+
 /* ---- Safe-to-paste guide ---- */
 
 .safety-grid {

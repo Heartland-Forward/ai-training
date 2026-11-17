@@ -33,58 +33,165 @@
     <main>
         <header class="page-masthead">
             <h1>Ready-to-Use Prompts</h1>
-            <p>Copy a prompt, paste it into your AI tool, and fill in the brackets.</p>
+            <p>Copy a prompt, paste it into your AI tool, and fill in the highlighted parts.</p>
+            <p class="masthead-updated">Updated November 2026</p>
         </header>
 
         <section class="summary-section">
-            <div class="container prompts-container">
-                <div class="task-grid">
-                    <article class="task-card card-hover">
-                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
-                        <h3>Write to families</h3>
-                        <p>Turn rough notes into a message families can act on.</p>
-                        <div class="prompt-block">
-                            <div class="prompt-block-head">
-                                <span>Prompt</span>
-                                <button type="button" class="copy-btn" data-copy="prompt-families" data-copy-name="write to families prompt" hidden></button>
-                            </div>
-                            <pre class="prompt-text" id="prompt-families">Rewrite these notes as a short message for families. Use plain language, keep it under 150 words, and put the date and what they need to do first. Leave a <span class="fill">[blank]</span> for anything I didn't give you.
+            <div class="page-with-toc">
+                <nav class="toc" data-toc="#prompts-content" aria-label="On this page"></nav>
+                <div class="container" id="prompts-content">
+                    <div class="callout callout-note">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <div class="callout-body">
+                            <p>Keep student names and personal details out of every prompt.
+                                <a href="#leave-out">See what not to include</a>.</p>
+                        </div>
+                    </div>
 
-<span class="fill">[Paste your notes]</span></pre>
+                    <div class="section-header toc-group" id="prompts-list" data-toc-label="Prompts">
+                        <h2>Prompts</h2>
+                        <p>Each one says what to fill in, why it works, and what to ask next.</p>
+                    </div>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="family-message-content">
+                            <h3>Write to <b>families</b><span class="card-hint">A plain-language message parents can act on</span></h3>
+                            <span class="section-toggle-icon"></span>
                         </div>
-                        <a class="link-arrow task-more" href="how-ai-works.html#prompts-content">Why clear prompts work<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                    </article>
-                    <article class="task-card card-hover">
-                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span>
-                        <h3>Reach out to employers</h3>
-                        <p>Draft an invite or follow-up for a speaker, site visit, or job shadow.</p>
-                        <div class="prompt-block">
-                            <div class="prompt-block-head">
-                                <span>Prompt</span>
-                                <button type="button" class="copy-btn" data-copy="prompt-employers" data-copy-name="reach out to employers prompt" hidden></button>
+                        <div class="metrics-section-content collapsible-content prose-section" id="family-message-content">
+                            <p class="card-summary">Turn rough notes into a message families can act on.</p>
+                            <div class="prompt-block">
+                                <div class="prompt-block-head">
+                                    <span>Prompt</span>
+                                    <button type="button" class="copy-btn" data-copy="prompt-family-message" data-copy-name="write to families prompt" hidden></button>
+                                </div>
+                                <pre class="prompt-text" id="prompt-family-message">I'm a college and career advisor at <span class="fill">(school name)</span>. Turn my notes below into a message for parents and guardians. Many will read it on a phone, and some read English as a second language, so use plain, everyday words and spell out any acronyms (like FAFSA). Start with what families need to do and by when. Keep it under 150 words and end with how to reach me. If anything is missing or unclear in my notes, write [NEED: ___] instead of guessing.
+
+This will go out as: <span class="fill">(text / email / flyer / school app post)</span>
+
+My notes: <span class="fill">(what's happening, date, time, place, what to bring, deadline)</span></pre>
                             </div>
-                            <pre class="prompt-text" id="prompt-employers">Write a short email inviting <span class="fill">[business name]</span> to <span class="fill">[speak at our career day]</span> at <span class="fill">[school]</span> on <span class="fill">[date]</span>. I'm with Heartland Forward's rootEd program. Keep it friendly, under 150 words, with one clear ask. Leave a <span class="fill">[blank]</span> for anything I didn't give you.</pre>
+                            <dl class="prompt-notes">
+                                <div>
+                                    <dt>Why it works</dt>
+                                    <dd>Naming the audience and the format changes the result. A text needs to be much shorter than an email, and "read on a phone" pushes the AI toward short lines.</dd>
+                                </div>
+                                <div>
+                                    <dt>Try next</dt>
+                                    <dd>
+                                        <ul>
+                                        <li>"Make it shorter for a text message."</li>
+                                        <li>"Write a Spanish version." Have a fluent speaker check any translation before it goes out.</li>
+                                        </ul>
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
-                        <a class="link-arrow task-more" href="how-ai-works.html#projects-content">Save your context with Projects<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                    </article>
-                    <article class="task-card card-hover">
-                        <span class="icon-tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span>
-                        <h3>Prep for a student meeting</h3>
-                        <p>Sort your notes into good questions before you sit down.</p>
-                        <div class="prompt-block">
-                            <div class="prompt-block-head">
-                                <span>Prompt</span>
-                                <button type="button" class="copy-btn" data-copy="prompt-meeting" data-copy-name="prep for a student meeting prompt" hidden></button>
+                    </div>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="outreach-email-content">
+                            <h3>Reach out to <b>employers</b><span class="card-hint">An invite with a clear ask and time commitment</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="outreach-email-content">
+                            <p class="card-summary">Draft an invite or follow-up for a speaker, site visit, or job shadow.</p>
+                            <div class="prompt-block">
+                                <div class="prompt-block-head">
+                                    <span>Prompt</span>
+                                    <button type="button" class="copy-btn" data-copy="prompt-outreach-email" data-copy-name="reach out to employers prompt" hidden></button>
+                                </div>
+                                <pre class="prompt-text" id="prompt-outreach-email">I'm a college and career advisor at <span class="fill">(school name)</span> in <span class="fill">(town)</span>, working with Heartland Forward's rootEd program. Write a short email inviting <span class="fill">(contact name, title, business name)</span> to <span class="fill">(speak at career day / host a site visit / offer a job shadow)</span> on <span class="fill">(date or date range)</span>.
+
+Say why our students would benefit from their field: <span class="fill">(one line on why you thought of this business)</span>. Say what we're asking, how much of their time it takes, and what we'll handle for them: <span class="fill">(for example, 30 minutes; we provide transportation and supervision)</span>. End with one clear ask and a reply-by date of <span class="fill">(date)</span>.
+
+Keep it friendly and under 150 words, with no flattery or buzzwords. Give me two subject line options. If I left out something they'd need to know before saying yes, write [NEED: ___].</pre>
                             </div>
-                            <pre class="prompt-text" id="prompt-meeting">I'm meeting with a student about <span class="fill">[topic]</span>. Here are my notes: <span class="fill">[paste notes, no names]</span>. Give me five questions worth asking, and point out anything I might be assuming.</pre>
+                            <dl class="prompt-notes">
+                                <div>
+                                    <dt>Why it works</dt>
+                                    <dd>Busy owners say yes when they can see the time commitment and why you picked them. Generic invites get ignored.</dd>
+                                </div>
+                                <div>
+                                    <dt>Try next</dt>
+                                    <dd>
+                                        <ul>
+                                        <li>"Write a polite follow-up for if they haven't replied in a week."</li>
+                                        <li>"Write a thank-you note after the visit that mentions <span class="fill">(one thing students got out of it)</span>."</li>
+                                        </ul>
+                                    </dd>
+                                </div>
+                            </dl>
                         </div>
-                        <p class="task-note">Leave out names and personal details.</p>
-                        <a class="link-arrow task-more" href="how-ai-works.html#agreement-trap-content">When AI just agrees with you<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-                    </article>
-                
+                    </div>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="meeting-prep-content">
+                            <h3>Prep for a <b>student meeting</b><span class="card-hint">Questions to ask, and what you might be assuming</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="meeting-prep-content">
+                            <p class="card-summary">Sort your notes into good questions before you sit down.</p>
+                            <p class="prompt-warning">Remove names and identifying details first. See <a href="#leave-out">what not to include</a>.</p>
+                            <div class="prompt-block">
+                                <div class="prompt-block-head">
+                                    <span>Prompt</span>
+                                    <button type="button" class="copy-btn" data-copy="prompt-meeting-prep" data-copy-name="prep for a student meeting prompt" hidden></button>
+                                </div>
+                                <pre class="prompt-text" id="prompt-meeting-prep">I'm a college and career advisor preparing to meet with a <span class="fill">(grade level)</span> student about <span class="fill">(topic, for example, deciding between a 2-year program and a 4-year college)</span>. My notes are below, with names and identifying details removed.
+
+Give me:
+1. Five open-ended questions that get the student talking, not yes/no questions
+2. Any assumptions I seem to be making about this student
+3. What I don't know yet that could change my advice
+4. One or two realistic next steps we could agree on by the end of the meeting
+
+Be direct. If my notes lean toward a conclusion, tell me what would make that conclusion wrong.
+
+My notes: <span class="fill">(paste notes, no names or identifying details)</span></pre>
+                            </div>
+                            <dl class="prompt-notes">
+                                <div>
+                                    <dt>Why it works</dt>
+                                    <dd>Asking for assumptions and "what would make this wrong" stops the AI from agreeing with your first read on a student. <a href="how-ai-works.html#agreement-trap-content">More on the agreement trap</a>.</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="section-header toc-group" id="what-not-to-include" data-toc-label="Before you paste">
+                        <h2>Before you <b>paste</b></h2>
+                        <p>What to keep out of AI tools.</p>
+                    </div>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="leave-out-content">
+                            <h3>What <b>not to include</b><span class="card-hint">Keep student information out of every prompt</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="leave-out-content">
+                            <p class="card-summary">Leave these out of every prompt. It matters most when you prep for a student meeting.</p>
+                            <ul>
+                                <li>Names, initials, student ID numbers, or birthdates.</li>
+                                <li>Details that identify a student in a small school even without a name, like "the junior whose dad runs the feed store" or "our only student on the robotics team."</li>
+                                <li>Grades, test scores, or attendance tied to one student.</li>
+                                <li>IEP, 504, health, or mental health information.</li>
+                                <li>Immigration status, family income, financial aid details, custody, or discipline records.</li>
+                            </ul>
+                            <p>Describe the situation in general terms instead, like "a junior interested in nursing who's worried about cost."</p>
+                            <h4>For the other prompts</h4>
+                            <ul>
+                                <li><strong>Family messages:</strong> don't put one student's information in a message going to many families.</li>
+                                <li><strong>Employer emails:</strong> a business name and contact are fine. Don't name the students going on a job shadow until you have permission.</li>
+                            </ul>
+                            <p>If your school or district has an approved AI tool or policy, use that tool and follow that policy.</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <p class="prompts-more">More prompts are on the way. Have one that works for you? Share it in the
+                        <a href="survey.html">survey</a>.</p>
                 </div>
-                <p class="prompts-more">More prompts are on the way. Have one that works for you? Share it in the
-                    <a href="survey.html">survey</a>.</p>
             </div>
         </section>
 
@@ -175,6 +282,7 @@ Include brief instructions I can follow.</p>
     </main>
 
     <script src="../js/collapsible.js"></script>
+    <script src="../js/toc.js"></script>
     <script src="../js/copy.js"></script>
     <footer class="dashboard-footer">
       <div class="footer-content">
