@@ -138,9 +138,9 @@ main {
   color: #fff;
 }
 
-/* The logo, title, and six links need about 980px, so the menu button
-   takes over at 1080px rather than at the 768px content breakpoint */
-@media (max-width: 1080px) {
+/* The logo, title, and five links need about 830px, so the menu button
+   takes over at 900px rather than at the 768px content breakpoint */
+@media (max-width: 900px) {
   .hf-logo {
     height: 30px;
   }
@@ -1275,7 +1275,7 @@ a.link-arrow:hover {
 }
 
 /* Sidebar becomes a collapsible bar above the content */
-@media (max-width: 1180px) {
+@media (max-width: 1000px) {
   .page-with-toc {
     grid-template-columns: minmax(0, var(--card-max));
     gap: 24px;
