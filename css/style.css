@@ -138,9 +138,9 @@ main {
   color: #fff;
 }
 
-/* The logo, title, and five links need about 830px, so the menu button
-   takes over at 900px rather than at the 768px content breakpoint */
-@media (max-width: 900px) {
+/* The logo, title, and six links need about 980px, so the menu button
+   takes over at 1080px rather than at the 768px content breakpoint */
+@media (max-width: 1080px) {
   .hf-logo {
     height: 30px;
   }
@@ -739,5 +739,1078 @@ main {
 
   .page-masthead p {
     font-size: 16px;
+  }
+}
+
+/* ============================================
+   REVAMP COMPONENTS
+   Added for the site revamp. Everything here builds on the MRI look above:
+   navy on white, flat cards on the gray band, hairlines for structure, and
+   green as the single accent. Interactive cards get a hairline border that
+   turns green on hover, plus a 2px lift, instead of a shadow.
+   ============================================ */
+
+html {
+  scroll-padding-top: 24px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Screen-reader-only text, for the copy button's live message */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Inline SVG icons: Lucide-style strokes, decorative unless labelled */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Small tracked-caps label above a heading */
+.eyebrow {
+  display: block;
+  margin: 0 0 10px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--navy-dark);
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--navy);
+  border-color: var(--rule-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--navy);
+}
+
+.btn-small {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+/* ---- Landing hero additions ---- */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.landing-page-lead {
+  max-width: 680px;
+  margin: 16px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+/* ---- Masthead meta: read time and what you get ---- */
+
+.masthead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masthead-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-badge);
+  background: var(--panel);
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.masthead-meta .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--green-text);
+}
+
+/* ---- Interactive cards (steps, tasks, resources) ---- */
+
+.card-hover {
+  border: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+a.card-hover:hover,
+.card-hover:has(a:hover) {
+  border-color: var(--green);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a.card-hover:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ---- Start-here steps ---- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: var(--green-tint);
+  color: var(--green-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.step-card h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.step-card p {
+  flex: 1;
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.step-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--green-text);
+  text-decoration: none;
+}
+
+.link-arrow .icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--dur) var(--ease);
+}
+
+a:hover .link-arrow .icon,
+a.link-arrow:hover .icon {
+  transform: translateX(3px);
+}
+
+a.link-arrow:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- "I want to..." task cards ---- */
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: var(--green-tint);
+  color: var(--green-text);
+}
+
+.icon-tile .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.task-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.task-card p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-badge);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.chip-link:hover {
+  border-color: var(--green);
+  background: var(--green-tint);
+}
+
+/* A small status pill, e.g. "Checked Nov 2026" or "Free" */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-badge);
+  background: var(--panel);
+  font-size: var(--text-floor);
+  font-weight: 700;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.chip-green {
+  background: var(--green-tint);
+  color: var(--green-text);
+}
+
+/* ---- Callouts ---- */
+
+.callout {
+  display: flex;
+  gap: 14px;
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  border-radius: var(--radius-control);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.callout > .icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+}
+
+.callout-body > :last-child,
+.prose-section .callout-body > :last-child {
+  margin-bottom: 0;
+}
+
+.prose-section .callout p,
+.prose-section .callout ul,
+.prose-section .callout ol {
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.callout-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.callout-tip {
+  background: var(--green-tint);
+}
+
+.callout-tip > .icon,
+.callout-tip .callout-label {
+  color: var(--green-text);
+}
+
+.callout-note {
+  background: var(--navy-tint);
+}
+
+.callout-ask {
+  border: 1px solid var(--rule-strong);
+  background: var(--bg);
+}
+
+/* "Try it" line at the end of a concept section */
+.try-it {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 24px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background: var(--panel);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.prose-section .try-it {
+  margin-bottom: 0;
+}
+
+.try-it .icon {
+  margin-top: 3px;
+  color: var(--green-text);
+}
+
+/* ---- Pages with an "On this page" sidebar ---- */
+
+.page-with-toc {
+  display: grid;
+  grid-template-columns: var(--toc-width) minmax(0, var(--card-max));
+  gap: 40px;
+  align-items: start;
+  justify-content: center;
+}
+
+.page-with-toc > .container {
+  width: 100%;
+  max-width: var(--card-max);
+  margin: 0;
+}
+
+.toc {
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.toc-toggle {
+  display: none;
+}
+
+.toc-title {
+  margin: 0 0 12px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid var(--rule-strong);
+}
+
+.toc-group-label {
+  padding: 14px 12px 6px 16px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.toc-group-label:first-child {
+  padding-top: 0;
+}
+
+.toc a {
+  display: block;
+  margin-left: -1px;
+  padding: 7px 12px 7px 16px;
+  border-left: 2px solid transparent;
+  color: var(--text-light);
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.toc a.is-active {
+  border-left-color: var(--green);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.toc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.toc-actions .btn-small {
+  min-height: 44px;
+}
+
+/* Sidebar becomes a collapsible bar above the content */
+@media (max-width: 1180px) {
+  .page-with-toc {
+    grid-template-columns: minmax(0, var(--card-max));
+    gap: 24px;
+  }
+
+  .toc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 4px 24px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+  }
+
+  .toc-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 52px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .toc-toggle .icon {
+    color: var(--green-text);
+    transition: transform var(--dur) var(--ease);
+  }
+
+  .toc.is-open .toc-toggle .icon {
+    transform: rotate(180deg);
+  }
+
+  .toc-body {
+    display: none;
+    padding: 8px 0 20px;
+  }
+
+  .toc.is-open .toc-body {
+    display: block;
+  }
+
+  .toc-title {
+    display: none;
+  }
+}
+
+/* Group heading between cards on long pages (e.g. "The basics") */
+.toc-group {
+  margin: 0 0 24px;
+}
+
+.toc-group + .metrics-section,
+.toc-group + .chart-card {
+  margin-top: 0;
+}
+
+.metrics-section + .toc-group,
+.chart-card + .toc-group {
+  margin-top: 72px;
+}
+
+/* A run of collapsed cards that sit closer together than full sections */
+.card-stack .metrics-section {
+  margin-bottom: 16px;
+  padding: 28px 32px;
+}
+
+.card-stack .metrics-section:last-child {
+  margin-bottom: 0;
+}
+
+.card-stack .metrics-section-header h3 {
+  font-size: 24px;
+}
+
+.card-stack + .toc-group,
+.callout + .metrics-section {
+  margin-top: 0;
+}
+
+.card-stack + .toc-group {
+  margin-top: 72px;
+}
+
+/* Short fact beside a collapsible title, readable while the card is shut */
+.card-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-light);
+}
+
+/* Chips at the top of a card: price, who signs up, last checked */
+.card-meta,
+.prose-section .card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+
+.resource-card .card-meta {
+  margin: 0;
+}
+
+.resource-card .card-meta:empty {
+  display: none;
+}
+
+/* The ask-your-school callout sits on the gray band, above the cards */
+.container > .callout {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .card-stack .metrics-section {
+    padding: 20px 24px;
+  }
+
+  .card-stack .metrics-section-header h3 {
+    font-size: 20px;
+  }
+}
+
+/* ---- Prompt blocks with a copy button ---- */
+
+.prompt-block {
+  margin: 8px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.prompt-block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 4px 4px 4px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.prompt-text {
+  margin: 0;
+  padding: 18px 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--navy);
+}
+
+/* Bracketed fill-ins inside a prompt */
+.fill {
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: var(--green-tint);
+  color: var(--green-text);
+  font-weight: 700;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-control);
+  background: var(--bg);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.copy-btn[hidden] {
+  display: none;
+}
+
+.copy-btn:hover {
+  border-color: var(--navy);
+}
+
+.copy-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.copy-btn.is-copied {
+  border-color: var(--green);
+  color: var(--green-text);
+}
+
+/* Short labelled notes under a prompt: "Why it works", "Make it better" */
+.prompt-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.prompt-notes > div {
+  padding: 16px 18px;
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.prompt-notes dt {
+  margin: 0 0 4px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.prompt-notes dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+/* ---- Safe-to-paste guide ---- */
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
+}
+
+.safety-card {
+  padding: 20px;
+  border-top: 4px solid;
+  border-radius: var(--radius-sm) var(--radius-sm) var(--radius-control) var(--radius-control);
+}
+
+.safety-card h4,
+.prose-section .safety-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.prose-section .safety-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 15px;
+}
+
+.safety-go {
+  border-color: var(--green);
+  background: var(--green-tint);
+}
+
+.safety-go h4 {
+  color: var(--green-text);
+}
+
+.safety-caution {
+  border-color: var(--amber);
+  background: var(--amber-tint);
+}
+
+.prose-section .safety-caution h4 {
+  color: var(--amber-text);
+}
+
+.safety-stop {
+  border-color: var(--red);
+  background: var(--red-tint);
+}
+
+.prose-section .safety-stop h4 {
+  color: var(--red-text);
+}
+
+/* ---- Checklist (static) ---- */
+
+.checklist,
+.prose-section .checklist {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.checklist li:last-child {
+  border-bottom: 0;
+}
+
+.checklist .icon {
+  margin-top: 3px;
+  color: var(--green-text);
+}
+
+/* ---- Numbered stages (rollout path) ---- */
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  counter-reset: stage;
+}
+
+.stages li {
+  padding: 20px;
+  border-radius: var(--radius-control);
+  background: var(--panel);
+  counter-increment: stage;
+}
+
+.stages li::before {
+  content: "Stage " counter(stage);
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.prose-section .stages strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---- Resource link cards ---- */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.prose-section .resource-grid {
+  padding: 0;
+}
+
+.resource-grid li {
+  margin: 0;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.resource-card h4,
+.prose-section .resource-card h4 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.resource-source,
+.prose-section .resource-card .resource-source {
+  flex: none;
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.prose-section .resource-card p {
+  flex: 1;
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+/* ---- Home: "bring AI to your school" band ---- */
+
+.feature-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: var(--card-pad);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border-left: 4px solid var(--green);
+}
+
+.feature-band h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.feature-band h2 b {
+  font-weight: 700;
+}
+
+.feature-band p {
+  max-width: 560px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.feature-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .feature-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-band-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 900px) {
+  .steps,
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-grid,
+  .stages,
+  .resource-grid,
+  .prompt-notes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .task-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .step-card,
+  .task-card {
+    padding: 24px;
+  }
+
+  .callout {
+    padding: 16px;
+  }
+}
+
+/* ---- Motion preferences ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Print: the cheat sheet, or any page, prints clean ---- */
+
+@media print {
+  .hf-header,
+  .dashboard-footer,
+  .toc,
+  .copy-btn,
+  .hero-actions,
+  .scroll-indicator,
+  .no-print {
+    display: none !important;
+  }
+
+  main,
+  .summary-section,
+  .page-masthead {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .page-masthead {
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .metrics-section,
+  .chart-card {
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    break-inside: avoid;
+  }
+
+  .metrics-section.collapsed .metrics-section-content {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    overflow: visible;
+  }
+
+  .page-with-toc {
+    display: block;
+  }
+
+  .prose-section a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 11px;
+    font-weight: 400;
+    word-break: break-all;
   }
 }

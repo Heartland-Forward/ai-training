@@ -48,4 +48,23 @@
   --card-max: 1000px;
   /* MRI draws the header at 69px at every width */
   --nav-height: 69px;
+
+  /* ---- Site additions (not in MRI) ----
+     Each text pair below is checked to 4.5:1 or better. */
+  /* Navy-tinted panel for "heads-up" callouts: navy text is 10.6:1 on it.
+     (Avoid --text-muted on --page-gray: 4.34:1 fails AA; use --text-light.) */
+  --navy-tint: #eef0f6;
+  /* Caution and stop colors for the safe-to-paste guide. The -text values
+     pass AA on white and on their tints; the plain values are borders only. */
+  --amber: #d97706;
+  --amber-text: #92400e;
+  --amber-tint: #fdf3e2;
+  --red: #dc2626;
+  --red-text: #a61b1b;
+  --red-tint: #fcebeb;
+  /* Motion: short and quiet, and turned off for reduced-motion users */
+  --dur: 180ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  /* Width of the "On this page" sidebar on long pages */
+  --toc-width: 236px;
 }
