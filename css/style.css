@@ -741,3 +741,2089 @@ main {
     font-size: 16px;
   }
 }
+
+/* ============================================
+   REVAMP COMPONENTS
+   Added for the site revamp. Everything here builds on the MRI look above:
+   navy on white, flat cards on the gray band, hairlines for structure, and
+   green as the single accent. Interactive cards get a hairline border that
+   turns green on hover, plus a 2px lift, instead of a shadow.
+   ============================================ */
+
+html {
+  scroll-padding-top: 24px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Screen-reader-only text, for the copy button's live message */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Inline SVG icons: Lucide-style strokes, decorative unless labelled */
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Small tracked-caps label above a heading */
+.eyebrow {
+  display: block;
+  margin: 0 0 10px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--navy-dark);
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--navy);
+  border-color: var(--rule-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--navy);
+}
+
+.btn-small {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+/* ---- Landing hero additions ---- */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.landing-page-lead {
+  max-width: 680px;
+  margin: 16px auto 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+/* ---- Masthead meta: read time and what you get ---- */
+
+.masthead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masthead-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-badge);
+  background: var(--panel);
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.masthead-meta .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--green-text);
+}
+
+/* "Updated November 2026" under a page title: small and quiet */
+.page-masthead .masthead-updated {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* One-sentence overview at the top of a tool card */
+.prose-section .card-summary {
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.prose-section h4:first-child,
+.prose-section .card-summary + h4 {
+  margin-top: 0;
+}
+
+/* ---- Interactive cards (steps, tasks, resources) ---- */
+
+.card-hover {
+  border: 1px solid transparent;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+a.card-hover:hover,
+.card-hover:has(a:hover) {
+  border-color: var(--green);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a.card-hover:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ---- Start-here steps ---- */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: var(--green-tint);
+  color: var(--green-text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.step-card h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.step-card p {
+  flex: 1;
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.step-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--green-text);
+  text-decoration: none;
+}
+
+.link-arrow .icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--dur) var(--ease);
+}
+
+a:hover .link-arrow .icon,
+a.link-arrow:hover .icon {
+  transform: translateX(3px);
+}
+
+a.link-arrow:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- "I want to..." task cards ---- */
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: var(--green-tint);
+  color: var(--green-text);
+}
+
+.icon-tile .icon {
+  width: 22px;
+  height: 22px;
+}
+
+.task-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.task-card p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-badge);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.chip-link:hover {
+  border-color: var(--green);
+  background: var(--green-tint);
+}
+
+/* A small status pill, e.g. "Checked Nov 2026" or "Free" */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-badge);
+  background: var(--panel);
+  font-size: var(--text-floor);
+  font-weight: 700;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.chip-green {
+  background: var(--green-tint);
+  color: var(--green-text);
+}
+
+/* ---- Callouts ---- */
+
+.callout {
+  display: flex;
+  gap: 14px;
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  border-radius: var(--radius-control);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.callout > .icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+}
+
+.callout-body > :last-child,
+.prose-section .callout-body > :last-child {
+  margin-bottom: 0;
+}
+
+.prose-section .callout p,
+.prose-section .callout ul,
+.prose-section .callout ol {
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.callout-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.callout-tip {
+  background: var(--green-tint);
+}
+
+.callout-tip > .icon,
+.callout-tip .callout-label {
+  color: var(--green-text);
+}
+
+.callout-note {
+  background: var(--navy-tint);
+}
+
+.callout-ask {
+  border: 1px solid var(--rule-strong);
+  background: var(--bg);
+}
+
+/* "Try it" line at the end of a concept section */
+.try-it {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 24px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background: var(--panel);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.prose-section .try-it {
+  margin-bottom: 0;
+}
+
+.try-it .icon {
+  margin-top: 3px;
+  color: var(--green-text);
+}
+
+/* ---- Pages with an "On this page" sidebar ---- */
+
+.page-with-toc {
+  display: grid;
+  grid-template-columns: var(--toc-width) minmax(0, var(--card-max));
+  gap: 40px;
+  align-items: start;
+  justify-content: center;
+}
+
+.page-with-toc > .container {
+  width: 100%;
+  max-width: var(--card-max);
+  margin: 0;
+}
+
+.toc {
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.toc-toggle {
+  display: none;
+}
+
+.toc-title {
+  margin: 0 0 12px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 1px solid var(--rule-strong);
+}
+
+.toc-group-label {
+  padding: 14px 12px 6px 16px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.toc-group-label:first-child {
+  padding-top: 0;
+}
+
+.toc a {
+  display: block;
+  margin-left: -1px;
+  padding: 7px 12px 7px 16px;
+  border-left: 2px solid transparent;
+  color: var(--text-light);
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.toc a.is-active {
+  border-left-color: var(--green);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.toc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.toc-actions .btn-small {
+  min-height: 44px;
+}
+
+/* Sidebar becomes a collapsible bar above the content */
+@media (max-width: 1000px) {
+  .page-with-toc {
+    grid-template-columns: minmax(0, var(--card-max));
+    gap: 24px;
+  }
+
+  .toc {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 4px 24px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+  }
+
+  .toc-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 52px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .toc-toggle .icon {
+    color: var(--green-text);
+    transition: transform var(--dur) var(--ease);
+  }
+
+  .toc.is-open .toc-toggle .icon {
+    transform: rotate(180deg);
+  }
+
+  .toc-body {
+    display: none;
+    padding: 8px 0 20px;
+  }
+
+  .toc.is-open .toc-body {
+    display: block;
+  }
+
+  .toc-title {
+    display: none;
+  }
+}
+
+/* Group heading between cards on long pages (e.g. "The basics") */
+.toc-group {
+  margin: 0 0 24px;
+}
+
+.toc-group + .metrics-section,
+.toc-group + .chart-card {
+  margin-top: 0;
+}
+
+.metrics-section + .toc-group,
+.chart-card + .toc-group {
+  margin-top: 72px;
+}
+
+/* A run of collapsed cards that sit closer together than full sections */
+.card-stack .metrics-section {
+  margin-bottom: 16px;
+  padding: 28px 32px;
+}
+
+.card-stack .metrics-section:last-child {
+  margin-bottom: 0;
+}
+
+.card-stack .metrics-section-header h3 {
+  font-size: 24px;
+}
+
+.card-stack + .toc-group,
+.callout + .metrics-section {
+  margin-top: 0;
+}
+
+.card-stack + .toc-group {
+  margin-top: 72px;
+}
+
+/* Short fact beside a collapsible title, readable while the card is shut */
+.card-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text-light);
+}
+
+/* Chips at the top of a card: price, who signs up, last checked */
+.card-meta,
+.prose-section .card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+
+.resource-card .card-meta {
+  margin: 0;
+}
+
+.resource-card .card-meta:empty {
+  display: none;
+}
+
+/* The ask-your-school callout sits on the gray band, above the cards */
+.container > .callout {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .card-stack .metrics-section {
+    padding: 20px 24px;
+  }
+
+  .card-stack .metrics-section-header h3 {
+    font-size: 20px;
+  }
+}
+
+/* ---- Prompt blocks with a copy button ---- */
+
+.prompt-block {
+  margin: 8px 0 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.prompt-block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 4px 4px 4px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.prompt-text {
+  margin: 0;
+  padding: 18px 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--navy);
+}
+
+/* Bracketed fill-ins inside a prompt */
+.fill {
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: var(--green-tint);
+  color: var(--green-text);
+  font-weight: 700;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-control);
+  background: var(--bg);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.copy-btn[hidden] {
+  display: none;
+}
+
+.copy-btn:hover {
+  border-color: var(--navy);
+}
+
+.copy-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.copy-btn.is-copied {
+  border-color: var(--green);
+  color: var(--green-text);
+}
+
+/* Short labelled notes under a prompt: "Why it works", "Make it better" */
+.prompt-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.prompt-notes > div {
+  padding: 16px 18px;
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.prompt-notes dt {
+  margin: 0 0 4px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.prompt-notes dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+/* Prompt cards on the Prompts page */
+.prompt-notes > div:only-child {
+  grid-column: 1 / -1;
+}
+
+.prompt-notes dd ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.prompt-notes dd li {
+  margin-bottom: 4px;
+}
+
+.prompt-notes dd li:last-child {
+  margin-bottom: 0;
+}
+
+.prompt-notes dd a,
+.prose-section .prompt-warning a {
+  font-weight: 700;
+  color: var(--green-text);
+}
+
+.prose-section .prompt-warning {
+  padding: 10px 14px;
+  border-left: 3px solid var(--navy);
+  background: var(--navy-tint);
+  font-size: 15px;
+}
+
+/* ---- Safe-to-paste guide ---- */
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
+}
+
+.safety-card {
+  padding: 20px;
+  border-top: 4px solid;
+  border-radius: var(--radius-sm) var(--radius-sm) var(--radius-control) var(--radius-control);
+}
+
+.safety-card h4,
+.prose-section .safety-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.prose-section .safety-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 15px;
+}
+
+.safety-go {
+  border-color: var(--green);
+  background: var(--green-tint);
+}
+
+.safety-go h4 {
+  color: var(--green-text);
+}
+
+.safety-caution {
+  border-color: var(--amber);
+  background: var(--amber-tint);
+}
+
+.prose-section .safety-caution h4 {
+  color: var(--amber-text);
+}
+
+.safety-stop {
+  border-color: var(--red);
+  background: var(--red-tint);
+}
+
+.prose-section .safety-stop h4 {
+  color: var(--red-text);
+}
+
+/* ---- Checklist (static) ---- */
+
+.checklist,
+.prose-section .checklist {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.checklist li:last-child {
+  border-bottom: 0;
+}
+
+.checklist .icon {
+  margin-top: 3px;
+  color: var(--green-text);
+}
+
+/* ---- Numbered stages (rollout path) ---- */
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  counter-reset: stage;
+}
+
+.stages li {
+  padding: 20px;
+  border-radius: var(--radius-control);
+  background: var(--panel);
+  counter-increment: stage;
+}
+
+.stages li::before {
+  content: "Stage " counter(stage);
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.prose-section .stages strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ---- Resource link cards ---- */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.prose-section .resource-grid {
+  padding: 0;
+}
+
+.resource-grid li {
+  margin: 0;
+}
+
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  border-radius: var(--radius-control);
+  background: var(--panel);
+}
+
+.resource-card h4,
+.prose-section .resource-card h4 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.resource-source,
+.prose-section .resource-card .resource-source {
+  flex: none;
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.prose-section .resource-card p {
+  flex: 1;
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+/* ---- Home: "bring AI to your school" band ---- */
+
+.feature-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: var(--card-pad);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border-left: 4px solid var(--green);
+}
+
+.feature-band h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.feature-band h2 b {
+  font-weight: 700;
+}
+
+.feature-band p {
+  max-width: 560px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.feature-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .feature-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-band-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---- Home: hero ----
+   After heartlandforward.org: a soft mint-to-blue wash, blue type under a
+   green eyebrow, near-square corners, and room to breathe. Faint rings in
+   the corner echo the contour lines in the logo. The chat window slides in
+   and types out an example once (js/motion.js). */
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(64px, 11vh, 120px) var(--band-gutter);
+  background: var(--hf-wash);
+  color: var(--navy);
+  isolation: isolate;
+}
+
+.home-hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle at 94% 115%, rgba(45, 54, 143, 0.08) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: radial-gradient(circle at 94% 115%, #000 0, #000 30%, transparent 62%);
+  mask-image: radial-gradient(circle at 94% 115%, #000 0, #000 30%, transparent 62%);
+}
+
+.home-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 64px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Their eyebrow: brand green, bold, about 19px (large text, so 3:1 is enough) */
+.hero-kicker {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--green);
+}
+
+.home-hero h1 {
+  margin: 14px 0 20px;
+  font-size: clamp(2.5rem, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.hero-accent {
+  color: var(--green);
+}
+
+.home-hero-text > p {
+  max-width: 520px;
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.home-hero .hero-actions {
+  justify-content: flex-start;
+  margin-top: 32px;
+}
+
+.btn-hero {
+  border-radius: 4px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.btn-hero:hover {
+  background: var(--navy-dark);
+}
+
+/* The chat window: white, near-square, with their 8px blue bar on top */
+.chat-demo {
+  border-radius: 2px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(45, 54, 143, 0.13);
+  color: var(--navy);
+}
+
+.chat-demo::before {
+  content: "";
+  display: block;
+  height: 8px;
+  background: var(--navy);
+}
+
+.chat-demo-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 270px;
+  padding: 22px;
+}
+
+.chat-bubble {
+  max-width: 88%;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.chat-user {
+  align-self: flex-end;
+  border-radius: 10px 10px 2px 10px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.chat-ai {
+  align-self: flex-start;
+  border-left: 3px solid var(--green);
+  border-radius: 2px 10px 10px 2px;
+  background: rgba(45, 54, 143, 0.06);
+  color: var(--navy);
+}
+
+.chat-dots {
+  display: none;
+  gap: 5px;
+  padding: 4px 0;
+}
+
+.chat-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-text);
+  animation: dot-blink 1s infinite;
+}
+
+.chat-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.chat-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes dot-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* States set by js/motion.js. Without them the finished chat simply shows. */
+.chat-demo.is-animated .chat-ai {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.chat-demo.is-thinking .chat-ai,
+.chat-demo.is-replied .chat-ai {
+  opacity: 1;
+  transform: none;
+}
+
+.chat-demo.is-thinking .chat-dots {
+  display: inline-flex;
+}
+
+.chat-demo.is-thinking .chat-reply {
+  display: none;
+}
+
+.chat-demo.is-typing .chat-typed::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -2px;
+  background: #fff;
+  animation: caret 0.8s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chat-demo {
+    animation: chat-in 0.7s 0.1s var(--ease) both;
+  }
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* ---- Home: steps and prompt cards ---- */
+
+/* The Prompts page's cards get the wider 1120px column */
+.summary-section .prompts-container {
+  max-width: 1120px;
+}
+
+.prompts-more {
+  margin: 32px 0 0;
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.prompts-more a {
+  font-weight: 700;
+  color: var(--green-text);
+}
+
+.task-card .prompt-block {
+  margin: 0 0 12px;
+}
+
+.task-card .prompt-text {
+  font-size: 13px;
+}
+
+.task-note {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.task-more {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 15px;
+}
+
+/* ---- Home: the "Start here" path ----
+   A full-width white band under the hero. Three numbered stops sit on a
+   dashed line, and a "Start here" bubble marks the first. On load the line
+   draws and the stops pop in, one after another. */
+
+.home-start {
+  padding: clamp(72px, 10vh, 112px) var(--band-gutter) clamp(80px, 11vh, 120px);
+  background: var(--bg);
+}
+
+.home-start-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.home-start-heading {
+  margin: 0 0 88px;
+  font-size: clamp(2rem, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--navy);
+}
+
+.start-path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The dashed line joining the three stops, from the first center to the last */
+.start-path::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: calc((100% - 64px) / 6);
+  right: calc((100% - 64px) / 6);
+  border-top: 2px dashed var(--rule-strong);
+  transform-origin: left;
+}
+
+.start-step a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px 4px;
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+}
+
+.start-node {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 22px;
+  border: 4px solid var(--bg);
+  border-radius: 50%;
+  background: var(--navy);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--navy);
+  transition: transform var(--dur) var(--ease);
+}
+
+.start-step.is-first .start-node {
+  background: var(--green);
+  box-shadow: 0 0 0 2px var(--green);
+}
+
+.start-step a:hover .start-node {
+  transform: scale(1.08);
+}
+
+.start-title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.start-step a:hover .start-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.start-step p {
+  flex: 1;
+  max-width: 300px;
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* The "Start here" bubble over step 1, with a pointer down to the stop */
+.start-pin {
+  position: absolute;
+  top: -52px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 4px;
+  background: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #fff;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.start-pin::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: var(--navy);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.start-pin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .start-path::before {
+    animation: path-draw 0.9s 0.2s var(--ease) both;
+  }
+
+  .start-node {
+    animation: node-pop 0.5s var(--ease) both;
+    animation-delay: calc(0.25s + var(--i) * 0.2s);
+  }
+
+  .start-pin {
+    animation: pin-bob 2.6s 1.2s ease-in-out infinite;
+  }
+
+  .start-pin-dot {
+    animation: pin-pulse 2s ease-out infinite;
+  }
+}
+
+@keyframes path-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@keyframes pin-bob {
+  50% {
+    transform: translate(-50%, -4px);
+  }
+}
+
+@keyframes pin-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(1, 153, 102, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px rgba(1, 153, 102, 0);
+  }
+}
+
+/* Phones: the stops run down the page, joined by short connectors */
+@media (max-width: 760px) {
+  .home-start-heading {
+    margin-bottom: 72px;
+    text-align: left;
+  }
+
+  .start-path {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .start-path::before {
+    display: none;
+  }
+
+  .start-step:not(:last-child) a::after {
+    content: "";
+    position: absolute;
+    top: 56px;
+    bottom: -32px;
+    left: 27px;
+    border-left: 2px dashed var(--rule-strong);
+  }
+
+  .start-step a {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 18px;
+    align-items: start;
+    padding: 0;
+    text-align: left;
+  }
+
+  .start-node {
+    grid-row: span 3;
+    margin: 0;
+  }
+
+  .start-title {
+    margin-top: 12px;
+  }
+
+  .start-pin {
+    top: -48px;
+    left: 0;
+    transform: none;
+  }
+
+  .start-pin::after {
+    left: 28px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .start-pin {
+      animation-name: pin-bob-left;
+    }
+  }
+}
+
+@keyframes pin-bob-left {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+
+@media (max-width: 900px) {
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .home-hero {
+    background: #fff;
+  }
+}
+
+/* ---- Brand blue overrides ----
+   footer.css and base.css are copied verbatim from skilled-workforce and
+   hard-code #243269. The site now uses Heartland Forward's #2d368f, so the
+   two places those files paint show up here instead. */
+
+.dashboard-footer {
+  background: var(--navy);
+}
+
+/* ---- Understanding AI: tokens diagram ----
+   Built in HTML so it stays sharp at any size: text, then token chips, then
+   the numbers the model reads. Steps sit side by side and stack on phones. */
+
+.token-flow {
+  margin: 8px 0 20px;
+}
+
+.tf-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1.3fr) 28px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 10px;
+}
+
+.tf-step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tf-label {
+  font-size: var(--text-floor);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-text);
+}
+
+.tf-box {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--navy);
+  border-radius: 2px;
+  background: var(--bg);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.tf-text {
+  font-weight: 700;
+}
+
+.tf-chips span,
+.tf-nums span {
+  padding: 3px 7px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  white-space: pre;
+}
+
+.tf-chips span:nth-child(odd) {
+  background: var(--green-tint);
+}
+
+.tf-chips span:nth-child(even) {
+  background: rgba(45, 54, 143, 0.1);
+}
+
+.tf-nums span {
+  background: var(--panel);
+}
+
+/* Arrow between steps: a line with a head, pointing right (down on phones) */
+.tf-arrow {
+  position: relative;
+  align-self: center;
+  height: 2px;
+  margin-top: 22px;
+  background: var(--rule-strong);
+}
+
+.tf-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -1px;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid var(--rule-strong);
+  border-right: 2px solid var(--rule-strong);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.token-flow figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+@media (max-width: 900px) {
+  .tf-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-arrow {
+    justify-self: center;
+    width: 2px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .tf-arrow::after {
+    top: auto;
+    right: auto;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%) rotate(135deg);
+  }
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 900px) {
+  .steps,
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .safety-grid,
+  .stages,
+  .resource-grid,
+  .prompt-notes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .task-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .step-card,
+  .task-card {
+    padding: 24px;
+  }
+
+  .callout {
+    padding: 16px;
+  }
+}
+
+/* ---- Motion preferences ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Print: the cheat sheet, or any page, prints clean ---- */
+
+@media print {
+  .hf-header,
+  .dashboard-footer,
+  .toc,
+  .copy-btn,
+  .hero-actions,
+  .scroll-indicator,
+  .no-print {
+    display: none !important;
+  }
+
+  main,
+  .summary-section,
+  .page-masthead {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .page-masthead {
+    margin-bottom: 12px;
+    text-align: left;
+  }
+
+  .metrics-section,
+  .chart-card {
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    break-inside: avoid;
+  }
+
+  .metrics-section.collapsed .metrics-section-content {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    overflow: visible;
+  }
+
+  .page-with-toc {
+    display: block;
+  }
+
+  .prose-section a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 11px;
+    font-weight: 400;
+    word-break: break-all;
+  }
+}
+
+/* ============================================
+   HEARTLAND FORWARD STYLE, SITE-WIDE
+   The look of heartlandforward.org, carried from the home hero to every
+   page: white pages, a soft mint-to-blue wash behind page headers, a green
+   eyebrow over bold blue type, light blue-tint panels with a blue bar on
+   top (green when a card is open), near-square corners, and quiet motion.
+   ============================================ */
+
+main,
+.summary-section {
+  background: var(--bg);
+}
+
+/* ---- Page headers ---- */
+
+.page-masthead {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 9vh, 96px) var(--band-gutter) clamp(52px, 8vh, 84px);
+  background: var(--hf-wash);
+  text-align: left;
+  isolation: isolate;
+}
+
+/* Faint rings in the corner, after the contour lines in the logo */
+.page-masthead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-radial-gradient(circle at 96% 120%, rgba(45, 54, 143, 0.08) 0 1px, transparent 1px 22px);
+  -webkit-mask-image: radial-gradient(circle at 96% 120%, #000 0, #000 30%, transparent 65%);
+  mask-image: radial-gradient(circle at 96% 120%, #000 0, #000 30%, transparent 65%);
+}
+
+.page-masthead-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: calc(var(--toc-width) + 40px + var(--card-max));
+  margin: 0 auto;
+}
+
+/* Pages without the sidebar line their header up with the narrower column */
+main:not(:has(.page-with-toc)) .page-masthead-inner {
+  max-width: var(--card-max);
+}
+
+.masthead-eyebrow,
+.hero-kicker {
+  display: block;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--green);
+}
+
+.page-masthead h1 {
+  max-width: none;
+  margin: 12px 0 16px;
+  font-size: clamp(2.4rem, 4.4vw, 56px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.page-masthead p {
+  max-width: 640px;
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+
+.page-masthead .masthead-updated {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* Green outline icon in a white tile with the blue bar, like the impact
+   area cards on heartlandforward.org */
+.masthead-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  height: 132px;
+  border-top: 8px solid var(--navy);
+  border-radius: 2px;
+  background: var(--bg);
+  box-shadow: 0 18px 40px rgba(45, 54, 143, 0.12);
+  color: var(--green);
+}
+
+.masthead-icon .icon {
+  width: 56px;
+  height: 56px;
+  stroke-width: 1.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-masthead-text > * {
+    animation: rise-in 0.6s var(--ease) both;
+  }
+
+  .page-masthead-text > :nth-child(2) {
+    animation-delay: 0.06s;
+  }
+
+  .page-masthead-text > :nth-child(3) {
+    animation-delay: 0.12s;
+  }
+
+  .page-masthead-text > :nth-child(4) {
+    animation-delay: 0.18s;
+  }
+
+  .masthead-icon {
+    animation: rise-in 0.7s 0.15s var(--ease) both, float 7s 1s ease-in-out infinite;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ---- Section headings ---- */
+
+.summary-section .section-header h2,
+.feature-band h2 {
+  font-size: clamp(28px, 2.8vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.summary-section .section-header p {
+  color: var(--text-light);
+}
+
+/* ---- Cards ---- */
+
+.metrics-section,
+.chart-card {
+  border-top: 6px solid var(--navy);
+  border-radius: 2px;
+  background: var(--hf-panel);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.metrics-section:not(.collapsed) {
+  border-top-color: var(--green);
+}
+
+.metrics-section.collapsed:hover {
+  background: var(--hf-panel-hover);
+}
+
+.metrics-section-header h2,
+.metrics-section-header h3,
+.metrics-section h3,
+.card-stack .metrics-section-header h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.metrics-section-header b {
+  font-weight: inherit;
+}
+
+/* Things that sit inside a tinted card go white so they still stand out */
+.metrics-section .prompt-block,
+.metrics-section .prompt-notes > div,
+.metrics-section .resource-card,
+.metrics-section .try-it,
+.metrics-section .callout-tip,
+.prose-section .prompt-warning {
+  background: var(--bg);
+}
+
+.metrics-section .resource-card {
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--green);
+  border-radius: 2px;
+}
+
+.metrics-section .prompt-block,
+.metrics-section .prompt-notes > div,
+.metrics-section .callout,
+.metrics-section .try-it {
+  border-radius: 2px;
+}
+
+.prompt-block-head {
+  background: var(--bg);
+}
+
+.prompt-text {
+  background: var(--hf-panel);
+  border-radius: 0 0 2px 2px;
+}
+
+.callout {
+  border-radius: 2px;
+}
+
+.btn,
+.copy-btn,
+.chip-link {
+  border-radius: 4px;
+}
+
+.toc a.is-active {
+  border-left-color: var(--green);
+}
+
+/* The survey form sits on white inside its card */
+.chart-card .airtable-embed {
+  background: var(--bg);
+}
+
+/* ---- Footer: their bright green link on blue (5.5:1) ---- */
+
+.dashboard-footer .footer-email-link {
+  color: #08d88d;
+}
+
+/* ---- Fade-up on scroll (js/motion.js sets html.js-reveal) ---- */
+
+.js-reveal .reveal,
+.js-reveal .summary-section .section-header,
+.js-reveal .card-stack > .metrics-section,
+.js-reveal .page-with-toc .container > .callout,
+.js-reveal .summary-section .chart-card,
+.js-reveal .home-start-heading,
+.js-reveal .prompts-more {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease),
+    border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  transition-delay: var(--delay, 0ms), var(--delay, 0ms), 0ms, 0ms;
+}
+
+.js-reveal .is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Set by js/motion.js two seconds after load, in case the browser never ran
+   the entrance animations (see the note there). */
+.motion-done .page-masthead-text > *,
+.motion-done .masthead-icon,
+.motion-done .chat-demo,
+.motion-done .start-node,
+.motion-done .start-path::before {
+  animation: none;
+}
+
+.motion-done .is-visible {
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease) !important;
+}
+
+/* ---- Small screens ---- */
+
+/* The folded "On this page" bar sits on white now, so it takes the panel tint */
+@media (max-width: 1000px) {
+  .toc {
+    border-left: 4px solid var(--green);
+    border-radius: 2px;
+    background: var(--hf-panel);
+  }
+}
+
+@media (max-width: 760px) {
+  .masthead-icon {
+    display: none;
+  }
+
+  .page-masthead p {
+    font-size: 17px;
+  }
+}
+
+@media print {
+  .page-masthead {
+    background: #fff;
+  }
+
+  .page-masthead::after,
+  .masthead-icon {
+    display: none;
+  }
+
+  .js-reveal * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

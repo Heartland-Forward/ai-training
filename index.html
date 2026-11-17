@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI Training Resources for Heartland Forward rootEd Advisors. Learn to use AI tools to enhance your advising work.">
     <title>AI Training - Heartland Forward</title>
-    <meta name="theme-color" content="#243269">
+    <meta name="theme-color" content="#2d368f">
     <!-- Link previews. Crawlers do not run JS and need absolute URLs, so these
          are static. images/og.png is rendered from scripts/og/og-image.html. -->
     <meta property="og:type" content="website">
@@ -28,49 +28,67 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/branding/hf-logo.svg" type="image/svg+xml">
     <script src="js/header.js"></script>
+    <script src="js/motion.js"></script>
 </head>
 <body>
     <main>
-        <section class="landing-page-section">
-            <div class="landing-page-content">
-                <div class="landing-page-logo">
-                    <img src="images/branding/hf-logo.svg" alt="Heartland Forward">
+        <section class="home-hero">
+            <div class="home-hero-glow" aria-hidden="true"></div>
+            <div class="home-hero-inner">
+                <div class="home-hero-text">
+                    <span class="hero-kicker">AI training for rootEd advisors</span>
+                    <h1>Best practices for <span class="hero-accent">using AI</span></h1>
+                    <p>Learn how AI works, get a free account, and use it on the work already on your plate.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-hero" href="pages/prompts.html">Try a prompt<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                    </div>
                 </div>
-                <h1 class="landing-page-title">Best Practices for Using AI</h1>
-                <p class="landing-page-subtitle">AI Training for rootEd Advisors</p>
-            </div>
-            <div class="scroll-indicator">
-                <span>Scroll to explore the training</span>
-                <svg class="scroll-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <div class="chat-demo" role="img" aria-label="Example: an advisor asks an AI tool to turn rough notes into a message for families, and it writes a short, clear note.">
+                    <div class="chat-demo-body" aria-hidden="true">
+                        <div class="chat-bubble chat-user"><span class="chat-typed" data-text="Turn these notes into a short message for families: FAFSA night, Thursday 6pm, library, bring tax forms.">Turn these notes into a short message for families: FAFSA night, Thursday 6pm, library, bring tax forms.</span></div>
+                        <div class="chat-bubble chat-ai">
+                            <span class="chat-dots"><span></span><span></span><span></span></span>
+                            <span class="chat-reply">Hi families! Join us Thursday at 6 p.m. in the library for FAFSA Night. We&rsquo;ll walk through the form with you step by step. Please bring your tax forms. Questions? Just reply to this email.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="summary-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Start <b>Here</b></h2>
-                    <p>Free AI tools, how they actually work, and how to get access on your school email.</p>
-                </div>
-
-                <div class="summary-grid">
-                    <a href="pages/how-ai-works.html" class="summary-card card-link-reset">
-                        <h3>Understanding AI</h3>
-                        <div class="summary-score">Concepts</div>
-                        <p>What is actually happening when you talk to an AI: tokens, context, reasoning, tools, Projects, Artifacts, Skills, and Connectors.</p>
-                    </a>
-
-                    <a href="pages/resources.html" class="summary-card card-link-reset">
-                        <h3>Resources</h3>
-                        <div class="summary-score">Free tools</div>
-                        <p>Curated K-12 AI tools with real education pricing and eligibility, plus step-by-step signup for the ones you can get free on your school email: Claude, ChatGPT, Khanmigo, and Canva. Plus how to check whether your district already gives you Copilot Chat or Gemini.</p>
-                    </a>
-                </div>
+        <section class="home-start" aria-labelledby="home-start-heading">
+            <div class="home-start-inner">
+                <h2 class="home-start-heading" id="home-start-heading">Get going in three steps</h2>
+            <ol class="start-path">
+                    <li class="start-step is-first" style="--i: 1">
+                        <a href="pages/how-ai-works.html">
+                            <span class="start-pin"><span class="start-pin-dot" aria-hidden="true"></span>Start here</span>
+                            <span class="start-node" aria-hidden="true">1</span>
+                            <h3 class="start-title"><span class="visually-hidden">Step 1: </span>Learn how it works</h3>
+                            <p>What happens when you type to an AI, why it gets things wrong, and the features worth knowing.</p>
+                            <span class="link-arrow">Understanding AI<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                        </a>
+                    </li>
+                    <li class="start-step" style="--i: 2">
+                        <a href="pages/resources.html">
+                            <span class="start-node" aria-hidden="true">2</span>
+                            <h3 class="start-title"><span class="visually-hidden">Step 2: </span>Get a free tool</h3>
+                            <p>See which AI tools are free for school staff and how to sign up.</p>
+                            <span class="link-arrow">Resources<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                        </a>
+                    </li>
+                    <li class="start-step" style="--i: 3">
+                        <a href="pages/prompts.html">
+                            <span class="start-node" aria-hidden="true">3</span>
+                            <h3 class="start-title"><span class="visually-hidden">Step 3: </span>Try it on real work</h3>
+                            <p>Copy a prompt, fill in the blanks, and use it on something already on your list.</p>
+                            <span class="link-arrow">Prompts<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                        </a>
+                    </li>
+            </ol>
             </div>
         </section>
     </main>
-    <footer class="dashboard-footer">
+<footer class="dashboard-footer">
       <div class="footer-content">
         <span>Questions or feedback?</span>
         <a href="mailto:wtrolinger@heartlandforward.org,crews@heartlandforward.org?subject=AI%20Training%20Inquiry" class="footer-email-link">Contact Us</a>

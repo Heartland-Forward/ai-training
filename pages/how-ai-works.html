@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Understanding how AI chatbots work - tokens, context windows, modalities, and tools.">
-    <title>How AI Works - AI Training</title>
-    <meta name="theme-color" content="#243269">
+        content="What AI is, how chatbots work, and how to get good results from them.">
+    <title>Understanding AI - AI Training</title>
+    <meta name="theme-color" content="#2d368f">
     <!-- Link previews. Crawlers do not run JS and need absolute URLs, so these
          are static. images/og.png is rendered from scripts/og/og-image.html. -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Heartland Forward">
-    <meta property="og:title" content="How AI Works - AI Training">
-    <meta property="og:description" content="Understanding how AI chatbots work - tokens, context windows, modalities, and tools.">
+    <meta property="og:title" content="Understanding AI - AI Training">
+    <meta property="og:description" content="What AI is, how chatbots work, and how to get good results from them.">
     <meta property="og:url" content="https://heartland-forward.github.io/ai-training/pages/how-ai-works.html">
     <meta property="og:image" content="https://heartland-forward.github.io/ai-training/images/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Best Practices for Using AI: AI training for rootEd advisors, from Heartland Forward">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How AI Works - AI Training">
-    <meta name="twitter:description" content="Understanding how AI chatbots work - tokens, context windows, modalities, and tools.">
+    <meta name="twitter:title" content="Understanding AI - AI Training">
+    <meta name="twitter:description" content="What AI is, how chatbots work, and how to get good results from them.">
     <meta name="twitter:image" content="https://heartland-forward.github.io/ai-training/images/og.png">
     <link rel="stylesheet" href="../css/tokens.css">
     <link rel="stylesheet" href="../css/base.css">
@@ -30,735 +30,432 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../images/branding/hf-logo.svg" type="image/svg+xml">
     <script src="../js/header.js"></script>
+    <script src="../js/motion.js"></script>
 </head>
 
 <body>
     <main>
         <header class="page-masthead">
-            <h1>How Do AI Chatbots Work?</h1>
-            <p>AI comes in many forms - from recommendation systems to
-                self-driving cars. Today we're focusing on AI chatbots, the tools you'll use most often in
-                your work. The product names, features, and vendor comparisons on this page were verified
-                against official sources in July 2026. Names and tier labels change often, so check the
-                vendor before relying on a detail here.</p>
+            <div class="page-masthead-inner">
+                <div class="page-masthead-text">
+                    <span class="masthead-eyebrow">How it works</span>
+                    <h1>Understanding AI</h1>
+                    <p>What AI is, how chatbots work, and how to get good results from them.</p>
+                    <p class="masthead-updated">Updated November 2026</p>
+                </div>
+                <span class="masthead-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            </div>
         </header>
 
         <section class="summary-section">
-            <div class="container">
+            <div class="page-with-toc">
+                <nav class="toc" data-toc="#understanding-content" aria-label="On this page"></nav>
+                <div class="container" id="understanding-content">
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="mental-model-content">
-                        <h2>The <b>"Zip File of the Internet"</b> Mental Model</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="section-header toc-group" id="big-picture" data-toc-label="The big picture">
+                        <h2>The <b>big picture</b></h2>
+                        <p>The basics, for anyone new to AI.</p>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="mental-model-content">
-                        <img src="../images/how-ai-works/ai-overview.png"
-                            alt="Diagram showing internet content (documents, images, charts) being compressed into a zip file, then transformed into a neural network brain"
-                            style="max-width: 500px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-                        <p>Think of Large Language Models (LLMs) like <a href="https://chatgpt.com/" target="_blank"
-                                rel="noopener noreferrer">ChatGPT</a> as a <strong>"zip file" of the internet</strong>.
-                            During training, the AI reads essentially all of the internet and compresses that knowledge
-                            into its neural network. When you ask a question, it's recalling information from this
-                            compressed knowledge base.</p>
-                        <p>This compression happens through a process called <strong>pre-training</strong>, where the
-                            model learns patterns from massive amounts of text. Then, through
-                            <strong>post-training</strong>, human labelers fine-tune it to respond helpfully as an
-                            assistant.</p>
-                        <p><strong>See what's in the training data:</strong> <a
-                                href="https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1" target="_blank"
-                                rel="noopener noreferrer">FineWeb Explorer</a> lets you search through a sample of the
-                            actual web pages used to train AI models.</p>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="what-is-ai-content">
+                            <h3>What <b>AI</b> is<span class="card-hint">Software that learns from examples</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="what-is-ai-content">
+                            <p class="card-summary">AI is software that learns patterns from lots of examples, then uses them to make a guess about something new.</p>
+                            <p>Most software follows rules a person wrote out step by step. AI works out its own rules from
+                                data. Show it thousands of emails marked "spam" and it learns what spam looks like. Show it
+                                years of traffic and it learns when the highway backs up.</p>
+                            <h4>What it does</h4>
+                            <ul>
+                                <li><strong>Recognizes</strong> faces, voices, handwriting, and objects in photos.</li>
+                                <li><strong>Predicts</strong> tomorrow's weather, a late bus, or which students may need a check-in.</li>
+                                <li><strong>Recommends</strong> the next video, song, or product.</li>
+                                <li><strong>Creates</strong> text, images, and audio. This is generative AI, covered next.</li>
+                            </ul>
+                            <p>All four are guesses based on patterns. They're often right and sometimes wrong, so a person
+                                still makes the call when it matters.</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="prompts-content">
-                        <h2><b>Prompts</b>: How You Talk to AI</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="ai-vs-generative-content">
+                            <h3>AI vs. <b>generative AI</b><span class="card-hint">Sorting and predicting vs. making something new</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="ai-vs-generative-content">
+                            <p class="card-summary">Generative AI is the kind of AI that makes new things, like a paragraph, a picture, or a song.</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Traditional AI</th>
+                                        <th>Generative AI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label=""><strong>What it does</strong></td>
+                                        <td data-label="Traditional AI">Sorts, predicts, and recommends</td>
+                                        <td data-label="Generative AI">Writes, draws, and talks</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label=""><strong>What you get</strong></td>
+                                        <td data-label="Traditional AI">A label, a score, or a pick</td>
+                                        <td data-label="Generative AI">A first draft</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label=""><strong>Examples</strong></td>
+                                        <td data-label="Traditional AI">Spam filters, fraud alerts, streaming picks</td>
+                                        <td data-label="Generative AI">ChatGPT, Claude, Gemini, image makers</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>Chatbots like ChatGPT, Claude, and Gemini run on <strong>large language models</strong>
+                                (LLMs). An LLM is generative AI trained on a huge amount of text. Most of this page is
+                                about these chatbots, since they're the tools you'll use at work.</p>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="prompts-content">
-                        <img src="../images/how-ai-works/prompting.png"
-                            alt="Diagram of a person sending a prompt to an AI chatbot."
-                            style="max-width: 400px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-                        <p>A <strong>prompt</strong> is simply what you type (or say) to the AI. It's your input - the
-                            question, instruction, or request that kicks off the conversation. Everything you've learned
-                            so far - tokens, context windows, modalities - all comes together in your prompt.</p>
-                        <p>When you send a prompt:</p>
-                        <ul>
-                            <li>Your text gets broken into <strong>tokens</strong></li>
-                            <li>Those tokens enter the AI's <strong>context window</strong></li>
-                            <li>Prompts can include other forms of data like <strong>images</strong> or <strong>files</strong></li>
-                            <li>The AI predicts the most helpful response based on patterns from its training</li>
-                            <li>Some predictions will invoke the usage of external <strong>tools</strong> or
-                                <strong>plugins</strong>
-                            </li>
-
-                        </ul>
-                        <p>The quality of AI's output depends heavily on the quality of your input. Vague prompts get
-                            vague answers. Specific, well-structured prompts get useful responses. This is why
-                            <strong>"prompt engineering"</strong> has become such a valuable skill.</p>
-                        <p><strong>Key insight:</strong> You're not searching a database or giving commands to a simple
-                            program. You're having a conversation with a system that predicts helpful responses. The more
-                            context and clarity you provide, the better it can help you.</p>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="everyday-ai-content">
+                            <h3>Where you <b>already see AI</b><span class="card-hint">On your phone, at school, and in the jobs students want</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="everyday-ai-content">
+                            <p class="card-summary">You use AI every day, even if you don't call it that.</p>
+                            <ul>
+                                <li><strong>On your phone:</strong> face unlock, autocorrect, voice assistants, and photo
+                                    search ("show me pictures of my dog").</li>
+                                <li><strong>At home:</strong> streaming and shopping picks, spam filters, and map apps that
+                                    route you around traffic.</li>
+                                <li><strong>At school:</strong> live captions in video calls, grammar suggestions, and the
+                                    feeds your students scroll every night.</li>
+                                <li><strong>At work in the jobs students want:</strong> hospitals use it to read scans,
+                                    banks to flag fraud, farms to watch crops, and factories to catch defects.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="tokens-content">
-                        <h2>Understanding <b>Tokens</b>: How AI Reads Text</h2>
-                        <span class="section-toggle-icon"></span>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="tokens-content">
-                        <img src="../images/how-ai-works/tokenization.png"
-                            alt="Diagram showing tokenization process of text."
-                            style="max-width: 90%; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-                        <p>AI doesn't read words the way we do. It breaks text into <strong>tokens</strong> - small
-                            chunks that can be parts of words, whole words, or punctuation. A short sentence might be 15
-                            tokens, while a paragraph could be 50-100 tokens.</p>
-                        <p>Why does this matter?</p>
-                        <ul>
-                            <li>Longer conversations use more tokens, which can slow things down</li>
-                            <li>There's a limit to how many tokens AI can process at once (the "context window")</li>
-                            <li>Understanding tokens helps you write more efficient prompts</li>
-                        </ul>
-                        <p><strong>Try it yourself:</strong> <a href="https://tiktokenizer.vercel.app" target="_blank"
-                                rel="noopener noreferrer">Tik Tokenizer</a> lets you see exactly how your text gets
-                            broken into tokens.</p>
+
+                    <div class="section-header toc-group" id="how-chatbots-work" data-toc-label="How chatbots work">
+                        <h2>How <b>chatbots work</b></h2>
+                        <p>What happens when you type to ChatGPT, Claude, or Gemini.</p>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="context-window-content">
-                        <h2>The <b>Context Window</b>: AI's Working Memory</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="mental-model-content">
+                            <h3>The <b>"zip file"</b> of the internet<span class="card-hint">A compressed snapshot of a lot of text</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="mental-model-content">
+                            <p class="card-summary">A chatbot is a compressed snapshot of a huge amount of text, trained to answer like a helpful assistant.</p>
+                            <img src="../images/how-ai-works/ai-overview.png" alt="Diagram showing internet content compressed into a zip file, then turned into a neural network brain" style="max-width: 460px;">
+                            <p>During <strong>pre-training</strong>, the model reads a vast amount of the internet and
+                                squeezes the patterns into its network. During <strong>post-training</strong>, people rate
+                                its answers so it learns to act like an assistant. When you ask it something, it draws on
+                                that snapshot.</p>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="context-window-content">
-                        <img src="../images/how-ai-works/context-window.svg"
-                            alt="Diagram that represents how context windows work."
-                            style="max-width: 800px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-                        <p style="font-size: 0.875rem; color: #6B7280; text-align: center; margin-top: 0.5rem;"></p>
-                        <p>When you chat with AI, you're building one running transcript together: your messages plus
-                            the AI's responses, in order. That running history is called the
-                            <strong>context window</strong> - the AI's working memory for your conversation.</p>
-                        <ul>
-                            <li>AI remembers everything in your current chat</li>
-                            <li>When you start a <strong>new chat</strong>, you wipe that memory and start fresh</li>
-                            <li>Starting fresh is often good - it keeps the AI focused on your current task</li>
-                        </ul>
-                        <p>The context window can be thought of like a short-term memory for the AI. It holds the recent
-                            conversation so the AI can respond appropriately, but it has a limited capacity.</p>
-                        <p><strong>Tip:</strong> Start a new chat when switching to a completely different topic. This
-                            prevents the AI from being distracted by old content and can improve response quality.</p>
-                        <p><strong>Visualize it:</strong> <a href="https://context-windows.damien-henry.com"
-                                target="_blank" rel="noopener noreferrer">Context Window Size Visualizer</a> lets you
-                            select different AI models and see exactly how much text fits in their context window -
-                            scroll through randomly generated content to experience the actual volume each model can
-                            process.</p>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="prompts-content">
+                            <h3><b>Prompts</b><span class="card-hint">What you type or say to the AI</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="prompts-content">
+                            <p class="card-summary">A prompt is what you type or say to the AI: a question, a request, or a task.</p>
+                            <img src="../images/how-ai-works/prompting.png" alt="Diagram of a person sending a prompt to an AI chatbot" style="max-width: 360px;">
+                            <p>Vague prompts get vague answers. Say who it's for, what you need, and how long it should be,
+                                and the answer gets much better. You can also attach files, photos, or links.</p>
+                            <p>Treat it like a conversation with a new coworker. If the first answer misses, tell it what
+                                to change.</p>
+                            <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> See <a href="prompts.html">ready-to-use prompts</a> for advising work.</span></p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="probabilistic-recall-content">
-                        <h2><b>Probabilistic Recall</b>: Why AI Can Be Wrong</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="tokens-content">
+                            <h3><b>Tokens</b><span class="card-hint">How AI reads text</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="tokens-content">
+                            <p class="card-summary">AI reads text in small chunks called tokens: pieces of words, whole words, or punctuation.</p>
+                            <figure class="token-flow">
+                                <div class="tf-steps" aria-hidden="true">
+                                    <div class="tf-step">
+                                        <span class="tf-label">Your text</span>
+                                        <div class="tf-box tf-text">Tokenizing text is a very interesting process.</div>
+                                    </div>
+                                    <span class="tf-arrow"></span>
+                                    <div class="tf-step">
+                                        <span class="tf-label">Tokens</span>
+                                        <div class="tf-box tf-chips"><span>Token</span><span>izing</span><span>text</span><span>is</span><span>a</span><span>very</span><span>interesting</span><span>process</span><span>.</span></div>
+                                    </div>
+                                    <span class="tf-arrow"></span>
+                                    <div class="tf-step">
+                                        <span class="tf-label">Numbers the AI reads</span>
+                                        <div class="tf-box tf-nums"><span>3404</span><span>4954</span><span>1495</span><span>374</span><span>264</span><span>1633</span><span>7185</span><span>1920</span><span>13</span></div>
+                                    </div>
+                                </div>
+                                <figcaption>The sentence "Tokenizing text is a very interesting process." becomes nine
+                                    tokens, and each token becomes a number. Every AI tool splits text a little
+                                    differently.</figcaption>
+                            </figure>
+                            <p>A typical sentence is 10 to 20 tokens. Tokens matter because every AI has a limit on how many
+                                it can hold at once, which leads to the context window.</p>
+                            <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> Paste a sentence into <a href="https://tiktokenizer.vercel.app" target="_blank" rel="noopener noreferrer">Tiktokenizer</a> and watch it split.</span></p>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section"
-                        id="probabilistic-recall-content">
-                        <img src="../images/how-ai-works/prediction.png"
-                            alt="Diagram showing an AI predicting the next word by probability."
-                            style="max-width: 600px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-                        <p>AI doesn't "remember" facts like a database looks up records. It <strong>probabilistically
-                                reconstructs</strong> information based on patterns. This means:</p>
-                        <ul>
-                            <li>It can occasionally get facts wrong (called "hallucinations")</li>
-                            <li>It may sound confident even when incorrect</li>
-                            <li>Common information is more reliable than obscure details</li>
-                            <li><strong>Always verify important information</strong> against primary sources</li>
-                        </ul>
-                        <p><strong>You've seen this before:</strong> Your phone's <a
-                                href="https://support.apple.com/en-mt/guide/ipod-touch/iphd4ea90231/ios" target="_blank"
-                                rel="noopener noreferrer">predictive text keyboard</a> works the same way - it suggests
-                            words based on patterns, not by looking them up in a dictionary. AI chatbots are just a much
-                            larger version of this same concept.</p>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="context-window-content">
+                            <h3>The <b>context window</b><span class="card-hint">The AI&#39;s memory for one chat</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="context-window-content">
+                            <p class="card-summary">The context window is everything the AI can see in your current chat: your messages, its replies, and any files.</p>
+                            <img src="../images/how-ai-works/context-window.svg" alt="Diagram of a context window filling up with a conversation" style="max-width: 640px;">
+                            <ul>
+                                <li>The AI remembers what's in the current chat.</li>
+                                <li>A new chat starts with a clean slate.</li>
+                                <li>Very long chats can push early details out, and answers get worse.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="two-limitations-content">
-                        <h2>Two <b>Critical Limitations</b> of Core LLMs</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="why-wrong-content">
+                            <h3>Why AI <b>gets things wrong</b><span class="card-hint">It predicts words; it doesn&#39;t look facts up</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="why-wrong-content">
+                            <p class="card-summary">AI predicts the most likely next words. It doesn&#39;t look facts up, so it can sound sure and still be wrong.</p>
+                            <img src="../images/how-ai-works/prediction.png" alt="Diagram of an AI predicting the next word by probability" style="max-width: 520px;">
+                            <p>Your phone's predictive text works the same way, at a much smaller scale. Three things trip
+                                chatbots up:</p>
+                            <ul>
+                                <li><strong>Made-up facts.</strong> People call these hallucinations: a confident answer with
+                                    a wrong date, name, or dollar amount.</li>
+                                <li><strong>Old information.</strong> Each model learned from data up to a cutoff date, so it
+                                    may not know this year's deadlines or job openings.</li>
+                                <li><strong>Local details.</strong> It knows common facts and often misses your school's
+                                    policies or local employers.</li>
+                            </ul>
+                            <p>Check anything that matters against the original source before you share it. Web search,
+                                below, helps with the last two.</p>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="two-limitations-content">
-                        <img src="../images/how-ai-works/limitations.png"
-                            alt="Diagram showing key limitations of large language models."
-                            style="max-width: 400px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-
-                        <p>By default, when you talk to an AI, you're talking to a <strong>self-contained
-                                entity</strong>. There's no calculator, no internet connection, no access to your files -
-                            just a neural network predicting helpful responses based on its compressed knowledge. This
-                            creates two important limitations:</p>
-                        <ul>
-                            <li><strong>Knowledge cutoff dates</strong> - AI models are trained at a specific point in
-                                time, so they don't automatically know about recent news, current job postings, or
-                                today's market conditions. (<a
-                                    href="https://www.allmo.ai/articles/list-of-large-language-model-cut-off-dates"
-                                    target="_blank" rel="noopener noreferrer">See current cutoff dates</a>)</li>
-                            <li><strong>Niche information gaps</strong> - AI excels at common knowledge but struggles
-                                with specialized, local information like specific company cultures, regional employer
-                                preferences, or your school's particular policies.</li>
-                        </ul>
-                        <p><strong>The good news?</strong> These limitations have solutions. Modern AI tools come
-                            equipped with <strong>additional capabilities</strong> that extend what they can do far
-                            beyond their base training...
-                        </p>
                     </div>
-                </div>
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="modalities-content">
-                        <h2><b>Modalities</b>: Different Ways to Interact</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="section-header toc-group" id="what-they-can-do" data-toc-label="What they can do">
+                        <h2>What <b>they can do</b></h2>
+                        <p>Beyond typing a question and reading the answer.</p>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="modalities-content">
-                        <img src="../images/how-ai-works/modalities.png"
-                            alt="Diagram showing text, image, and voice ways to interact with AI."
-                            style="max-width: 500px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-
-                        <p>AI isn't limited to text. You can interact through voice and images too - but under the hood,
-                            everything still becomes tokens in that same context window.</p>
-                        <p><strong>Voice:</strong> Speak instead of type (tap the microphone icon). Your speech gets
-                            transcribed to text, converted to tokens, and processed like any typed message. Advanced
-                            Voice Mode in ChatGPT enables real-time conversations - great for mock interview practice.
-                        </p>
-                        <p><strong>Image Input:</strong> Upload photos and the AI "sees" them by converting the image
-                            into tokens (through a process of breaking it into patches). This works for text-based images
-                            like screenshots and documents, but also for identifying objects, plants, animals, landmarks,
-                            or anything visual - the AI analyzes what it sees, not just reads text from it.</p>
-                        <p><strong>File Upload (data):</strong> Upload files for the AI to analyze and extract
-                            information from. This can include documents, spreadsheets, and more, allowing for deeper
-                            interaction with your data.
-                        </p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Modality</th>
-                                    <th>Best For</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Modality"><strong>Text</strong></td>
-                                    <td data-label="Best For">Most tasks - the default</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Modality"><strong>Voice Input</strong></td>
-                                    <td data-label="Best For">Quick queries, mobile use</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Modality"><strong>Image Input</strong></td>
-                                    <td data-label="Best For">Photos, screenshots</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Modality"><strong>File Upload (data)</strong></td>
-                                    <td data-label="Best For">Data analysis, report generation</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="modalities-content">
+                            <h3>Voice, images, <b>and files</b><span class="card-hint">More ways to talk to it than typing</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="modalities-content">
+                            <p class="card-summary">You can talk to a chatbot, show it a photo, or hand it a file. It all becomes tokens in the same chat.</p>
+                            <!-- ChatGPT Voice "Live", the free-plan limit, and the December 11, 2026
+                                 retirement of Advanced voice: help.openai.com "ChatGPT Voice" and "Retiring
+                                 Advanced and Standard voice in ChatGPT", checked November 2026. -->
+                            <ul>
+                                <li><strong>Voice:</strong> tap the microphone and speak. ChatGPT Voice's "Live" option
+                                    holds a real back-and-forth conversation, which works well for mock interviews.</li>
+                                <li><strong>Images:</strong> upload a screenshot, a flyer, or a photo of a handout and ask
+                                    about it.</li>
+                                <li><strong>Files:</strong> upload a document or spreadsheet and ask it to summarize, compare,
+                                    or pull out dates.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="thinking-content">
-                        <h2><b>Thinking Models</b>: When AI Reasons Step by Step</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="thinking-content">
+                            <h3><b>Thinking</b> mode<span class="card-hint">Slower answers for harder problems</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="thinking-content">
+                            <p class="card-summary">Thinking mode (some tools call it reasoning) makes the AI work through a problem step by step before it answers.</p>
+                            <p>Turn it on for planning, comparing options, or anything with numbers. Skip it for quick
+                                questions and brainstorming, where speed matters more. It takes longer and uses more of your
+                                limit.</p>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="thinking-content">
-                        <img src="../images/how-ai-works/cot-prompting.png"
-                            alt="Diagram showing an AI working through a problem step by step."
-                            style="max-width: 800px; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-
-                        <p>Sometimes you need AI to work through a problem carefully rather than respond instantly.
-                            <strong>Thinking models</strong> (also called reasoning models) take extra time to "think"
-                            before answering - breaking complex problems into steps, checking their logic, and
-                            considering alternatives.
-                        </p>
-                        <p>When you enable thinking mode:</p>
-                        <ul>
-                            <li>The AI pauses before responding (seconds to minutes)</li>
-                            <li>It works through the problem internally, similar to how you might talk yourself through a
-                                difficult decision</li>
-                            <li>You often get more accurate answers for complex tasks</li>
-                        </ul>
-                        <p><strong>When thinking helps most:</strong></p>
-                        <ul>
-                            <li>Math and logic problems</li>
-                            <li>Multi-step planning</li>
-                            <li>Analyzing tradeoffs</li>
-                            <li>Tasks where getting it right matters more than getting it fast</li>
-                        </ul>
-                        <p><strong>When to skip it:</strong></p>
-                        <ul>
-                            <li>Quick factual questions</li>
-                            <li>Creative brainstorming</li>
-                            <li>Simple tasks where speed matters</li>
-                        </ul>
-                        <p><strong>The tradeoff:</strong> Thinking takes longer and uses more resources. For
-                            straightforward questions, standard mode is faster and works fine. Save thinking mode for
-                            when you need the AI to really work through something.</p>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="tools-content">
+                            <h3><b>Web search</b> and tools<span class="card-hint">Current information, and math it can trust</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="tools-content">
+                            <p class="card-summary">Modern chatbots can search the web and run code, which fixes some of what they get wrong on their own.</p>
+                            <ul>
+                                <li><strong>Web search</strong> pulls in current pages, so the AI can answer about this
+                                    year's deadlines and cite where it found them. Some sites block AI, so it can still
+                                    miss things.</li>
+                                <li><strong>Code</strong> lets the AI do real math, analyze a spreadsheet, or make a chart
+                                    instead of guessing at numbers.</li>
+                            </ul>
+                            <p class="try-it"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span><strong>Try it:</strong> Ask for sources, then click a couple to check them.</span></p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="tools-content">
-                        <h2><b>Tools</b>: Extending AI's Capabilities</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="deep-research-content">
+                            <h3><b>Deep research</b><span class="card-hint">A research assistant that works for minutes, not seconds</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="deep-research-content">
+                            <p class="card-summary">Deep research runs dozens of web searches, reads the results, and writes you a report with citations.</p>
+                            <p>It takes 5 to 30 minutes and uses more of your limit, so save it for
+                                questions like "Which scholarships fit first-generation students going into nursing?"</p>
+                            <!-- Sources, checked November 2026: support.claude.com "Use research on Claude";
+                                 help.openai.com "Deep research in ChatGPT" and chatgpt.com/pricing ("Limited
+                                 deep research" on Free); support.google.com Gemini Deep Research help page;
+                                 perplexity.ai help center "What is Research mode?" and "What is Pro Search?". -->
+                            <h4>Where to find it</h4>
+                            <ul>
+                                <li><strong>Claude:</strong> "Research." Click + below the message box. Paid plans, with web search on.</li>
+                                <li><strong>ChatGPT:</strong> "Deep research" in the + menu, or type /Deepresearch. Limited on the free plan.</li>
+                                <li><strong>Gemini:</strong> "Deep Research." Limited for everyone, higher on paid plans.</li>
+                                <li><strong>Perplexity:</strong> "Research." Limited on the free plan.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="tools-content">
-                        <p>Remember those limitations? Modern AI solves them by connecting to external tools. When the AI
-                            recognizes it needs outside help, it uses a tool, gets the result back, and continues.</p>
-
-                        <p><strong>Web Search:</strong> Bridges both the knowledge cutoff and niche information gaps by
-                            searching the internet in real-time. The AI formulates queries, retrieves pages, and
-                            synthesizes answers from current sources. <em>Limitation:</em> Not all websites allow AI
-                            tools to access their content, so some information may be unavailable.</p>
-
-                        <p><strong>Code Execution:</strong> Some tasks require actual computation rather than language
-                            prediction. When needed, the AI writes and runs code to perform calculations, analyze data,
-                            or create visualizations - things a language model alone cannot reliably do.</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Tool</th>
-                                    <th>What It Does</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Tool"><strong>Web Search</strong></td>
-                                    <td data-label="What It Does">Searches internet for current information</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Tool"><strong>Code Execution</strong></td>
-                                    <td data-label="What It Does">Runs code for calculations, data analysis, charts</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
-                </div>
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="deep-research-content">
-                        <h2><b>Deep Research</b>: Your AI Research Assistant</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="section-header toc-group" id="features" data-toc-label="Features that save time">
+                        <h2>Features that <b>save time</b></h2>
+                        <p>Ways to stop starting from scratch every time.</p>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="deep-research-content">
-                        <img src="../images/how-ai-works/reasoning-models.png"
-                            alt="Diagram showing an AI running a multi-step research task."
-                            style="max-width: 75%; width: 100%; height: auto; margin: 1.5rem auto; border-radius: 0.5rem; display: block;">
-
-                        <p>Deep Research isn't just another tool - it's a full research workflow. Instead of a quick web
-                            search, the AI becomes a research assistant that works for you over 5-30 minutes, running
-                            dozens of searches, reading through sources, and synthesizing findings into a comprehensive
-                            report.</p>
-
-                        <p><strong>How it works:</strong></p>
-                        <ul>
-                            <li>You describe what you want to research</li>
-                            <li>The AI creates a research plan and asks clarifying questions</li>
-                            <li>It runs 20-50+ web searches, reading and analyzing pages</li>
-                            <li>It synthesizes everything into a structured report with citations</li>
-                        </ul>
-
-                        <p><strong>Best use cases for career services:</strong></p>
-                        <ul>
-                            <li><strong>Labor market research</strong> - "Research entry-level marketing salaries in the
-                                Boston area, including trends and top employers"</li>
-                            <li><strong>Industry analysis</strong> - "What skills are most in-demand for data analytics
-                                roles right now?"</li>
-                            <li><strong>Employer research</strong> - "Compile information about [Company]'s culture,
-                                interview process, and recent news"</li>
-                            <li><strong>Resource compilation</strong> - "Find scholarship opportunities for
-                                first-generation college students in STEM"</li>
-                        </ul>
-
-                        <p><strong>Where to find it:</strong></p>
-                        <ul>
-                            <li><strong>Claude:</strong> "Research" mode, alongside the model picker</li>
-                            <li><strong>ChatGPT:</strong> Look for "Deep Research" in the model selector (requires
-                                Plus/Pro)
-                            </li>
-                            <li><strong>Gemini:</strong> "Deep Research" option in Google's Gemini</li>
-                            <li><strong>Perplexity:</strong> "Pro Search" offers similar extended research</li>
-                        </ul>
-
-                        <p><strong>The tradeoff:</strong> Deep Research takes real time (minutes, not seconds) and
-                            typically counts against usage limits more heavily. Use it when you need comprehensive
-                            research, not for quick questions.</p>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="projects-content">
+                            <h3><b>Projects</b><span class="card-hint">Stop re-explaining yourself</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="projects-content">
+                            <p class="card-summary">A Project is a folder of files and standing instructions that every chat inside it already knows.</p>
+                            <p>Load it once with who you are, who you serve, and the files you keep re-pasting. Every new
+                                chat in that Project starts with all of it.</p>
+                            <ul>
+                                <li><strong>One per school year:</strong> deadlines, checklists, and last year's timeline.</li>
+                                <li><strong>One per employer partner:</strong> visit notes and what they offered.</li>
+                                <li><strong>One per newsletter or update:</strong> past issues and a short style note.</li>
+                            </ul>
+                            <!-- Sources, checked November 2026: support.claude.com "What are projects?";
+                                 help.openai.com "Projects in ChatGPT"; support.google.com "Organize your
+                                 projects with notebooks in Gemini Apps"; Google Workspace Updates, "Notebooks
+                                 in Gemini ... now for schools and organizations" (September 17, 2026) and
+                                 "NotebookLM now Gemini Notebook" (July 2026). -->
+                            <h4>Where to find it</h4>
+                            <ul>
+                                <li><strong>Claude:</strong> Projects, on every plan.</li>
+                                <li><strong>ChatGPT:</strong> Projects. Project instructions override your general ones.</li>
+                                <li><strong>Gemini:</strong> Notebooks, in the sidebar. They hold sources, instructions, and chats, and work on school Google accounts unless the school turns them off.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="projects-content">
-                        <h2><b>Projects</b>: Stop Re-Explaining Yourself</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="artifacts-content">
+                            <h3><b>Artifacts</b><span class="card-hint">Documents and tools that open beside the chat</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="artifacts-content">
+                            <p class="card-summary">When the AI makes something substantial, like a tracker or a handout, it can open it in a panel beside the chat.</p>
+                            <p>Ask for a change and the document updates in place. A FAFSA deadline tracker or a parent
+                                explainer takes a sentence and about a minute.</p>
+                            <p>It's a first draft. The dates and dollar amounts came from the AI, so check them before you
+                                use it.</p>
+                            <!-- Sources, checked November 2026: support.claude.com "What are artifacts and how
+                                 do I use them?"; help.openai.com model release notes (May 28, 2026: canvas no
+                                 longer available in GPT-5.5) and "Working with writing blocks and code blocks in
+                                 ChatGPT"; support.google.com Gemini Canvas help page. -->
+                            <h4>Where to find it</h4>
+                            <ul>
+                                <li><strong>Claude:</strong> Artifacts. Opens on its own when it fits.</li>
+                                <li><strong>ChatGPT:</strong> Writing blocks and code blocks, inside the reply. They replaced Canvas.</li>
+                                <li><strong>Gemini:</strong> Canvas. Click Add files, then Canvas.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="projects-content">
-                        <p>A Project is a folder of files plus standing instructions that every chat inside it already
-                            knows about. Instead of opening a blank chat and re-pasting who you are, which school you
-                            serve, and what you are working on, you open a chat that already has all of it.</p>
-
-                        <p><strong>Three things live in a Project, and only three:</strong></p>
-                        <ul>
-                            <li><strong>Files.</strong> The ICAP template, the FAFSA checklist, last year's senior
-                                timeline, the employer contact list. Anything you would otherwise re-upload or re-paste.
-                                The AI reads across all of them on demand, so you do not have to point at a specific file
-                                in each message.</li>
-                            <li><strong>Instructions.</strong> A short standing brief every chat inherits. Good
-                                instructions cover who you are (a rootEd advisor in a rural high school), who the
-                                audience is (seniors, families, employers), the voice to write in, any hard rules you
-                                want held to, and what to do when something is unclear.</li>
-                            <li><strong>Chats.</strong> Every conversation you start inside a Project stays grouped with
-                                it. Come back two weeks later and the thread from FAFSA night prep is right there,
-                                already scoped. No scrolling a global chat list to find it.</li>
-                        </ul>
-
-                        <p><strong>Three shapes that fit advisor work:</strong> Projects are flexible enough that the
-                            hard part is picking a shape and sticking with it. These three cover most of a year.</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Shape</th>
-                                    <th>What You Load Into It</th>
-                                    <th>Why It Pays Off</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Shape"><strong>One per school year or senior cohort</strong></td>
-                                    <td data-label="What You Load Into It">The ICAP template, the FAFSA checklist, last
-                                        year's timeline, the calendar of deadlines you are working against.</td>
-                                    <td data-label="Why It Pays Off">Every chat already knows which deadlines are live
-                                        and what the year looked like last time. You start from the work instead of from
-                                        the setup.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Shape"><strong>One per employer or partner relationship</strong>
-                                    </td>
-                                    <td data-label="What You Load Into It">Site-visit notes, the contact history, what
-                                        they offered last time (a job shadow, summer hires, a speaker for a career day).
-                                    </td>
-                                    <td data-label="Why It Pays Off">When you sit down to write the follow-up, the full
-                                        history of that relationship is already in the room. Over a year it becomes real
-                                        institutional memory for one partner.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Shape"><strong>One per recurring deliverable</strong></td>
-                                    <td data-label="What You Load Into It">The last few versions of the newsletter or the
-                                        counselor update, a short style note, anything the audience cares about.</td>
-                                    <td data-label="Why It Pays Off">Every new draft starts in the right voice and the
-                                        right structure instead of from a blank page.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p><strong>One thing to remember:</strong> Projects are the single biggest habit change between
-                            casual chatbot use and getting real leverage out of this. The trap is that they look
-                            optional, so most people never create one and spend the whole year re-pasting the same
-                            context into fresh chats. If a body of work is going to come up more than twice, it deserves
-                            a Project.</p>
-
-                        <p><strong>Where to find it:</strong></p>
-                        <ul>
-                            <li><strong>Claude:</strong> Projects</li>
-                            <li><strong>ChatGPT:</strong> Projects, at near parity with Claude's. Project instructions
-                                override your global custom instructions.</li>
-                            <li><strong>Gemini:</strong> No true equivalent. The two closest options each do half the
-                                job. A Gem carries instructions and files, but it is a persona you switch into, not a
-                                folder your chats live in. A Drive project groups files, but carries no standing
-                                instructions. Neither does both.</li>
-                        </ul>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="skills-content">
+                            <h3><b>Skills</b><span class="card-hint">Teach it your process once</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="skills-content">
+                            <p class="card-summary">A Skill is a saved set of instructions for one kind of task, which the AI uses whenever you ask for that task.</p>
+                            <p>If you've explained the same process twice, make it a Skill: your employer follow-up format,
+                                your rules for writing to families, or what to pull before a planning meeting. You can ask the
+                                AI to draft the Skill for you.</p>
+                            <!-- Sources, checked November 2026: support.claude.com "Use Skills in Claude";
+                                 help.openai.com "Skills in ChatGPT" and "Plugins in ChatGPT";
+                                 support.google.com "About the transition from Gems to skills". -->
+                            <h4>Where to find it</h4>
+                            <ul>
+                                <li><strong>Claude:</strong> Skills, on every plan. Used on their own when your request matches.</li>
+                                <li><strong>ChatGPT:</strong> Skills, under Plugins. Business, Enterprise, Healthcare, and Edu workspaces only.</li>
+                                <li><strong>Gemini:</strong> Gems for now, which you pick by hand. Google is switching Gems to skills, with school accounts in 2027.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="artifacts-content">
-                        <h2><b>Artifacts</b>: Things You Can Actually Use</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="connectors-content">
+                            <h3><b>Connectors</b><span class="card-hint">Let the AI read, and sometimes act in, your other apps</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="connectors-content">
+                            <p class="card-summary">A connector links the AI to an app you already use, like your email, calendar, or shared drive.</p>
+                            <p>Instead of pasting in an email thread, you can ask "What did the counselor team decide about
+                                FAFSA night?" and the AI looks for itself.</p>
+                            <p><strong>Some connectors can act for you.</strong> Claude's Google connectors can
+                                send email, change calendar events, and move files, and ask your approval first. ChatGPT's
+                                apps can take actions too. Read every approval request before you click it.</p>
+                            <p><strong>Check with your school first.</strong> Connectors touch school email and files, which
+                                can include student records. Ask whoever manages your school accounts before you connect
+                                one. Also check that the tool connects to the apps your school uses: the Gemini app, for
+                                example, has no Microsoft 365 connector.</p>
+                            <!-- Sources, checked November 2026: support.claude.com "Use Google Workspace
+                                 connectors" and "Set up the Microsoft 365 connector" ("Permissions are read-only
+                                 by default"); help.openai.com "Connected apps in ChatGPT" and "Admin controls,
+                                 security, and compliance for plugins and apps"; support.google.com Gemini
+                                 Connected Apps list. -->
+                            <h4>Where to find it</h4>
+                            <ul>
+                                <li><strong>Claude:</strong> Connectors. Microsoft 365 is read-only on school accounts unless an admin turns on more.</li>
+                                <li><strong>ChatGPT:</strong> Connected apps, added through Plugins. Older guides call them Connectors.</li>
+                                <li><strong>Gemini:</strong> Connected Apps. No Microsoft 365 connector.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="artifacts-content">
-                        <p>When the AI makes something substantial, it does not bury it in the middle of a chat reply. It
-                            opens a panel next to the conversation. You keep talking on the left, the thing you are
-                            building lives on the right, and the two stay in sync. Ask for a change and it updates in
-                            place instead of scrolling by as another wall of text.</p>
-
-                        <p>Documents, tables, and small working tools all land there the same way.</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>What You Ask For</th>
-                                    <th>What Lands in the Panel</th>
-                                    <th>Why It Beats a Chat Reply</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="What You Ask For"><strong>A one-page FAFSA deadline tracker for your
-                                            senior cohort</strong></td>
-                                    <td data-label="What Lands in the Panel">A working page listing each deadline and the
-                                        steps under it, that you can click through as students complete them.</td>
-                                    <td data-label="Why It Beats a Chat Reply">You can keep it open during a family night
-                                        instead of re-reading a chat log to find the answer.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="What You Ask For"><strong>A parent-facing explainer on what the FAFSA
-                                            asks for</strong></td>
-                                    <td data-label="What Lands in the Panel">A clean document you can edit line by line
-                                        and hand back for another pass.</td>
-                                    <td data-label="Why It Beats a Chat Reply">Revising is a conversation, not a
-                                        re-prompt. The document keeps its shape while the wording changes.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="What You Ask For"><strong>A comparison of three postsecondary
-                                            pathways for one student</strong></td>
-                                    <td data-label="What Lands in the Panel">A table you can adjust, add a column to, and
-                                        paste into your notes.</td>
-                                    <td data-label="Why It Beats a Chat Reply">It stays put while you talk through it, so
-                                        the student is looking at one thing instead of chasing a scroll.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p><strong>The point is the turnaround, not the artifact.</strong> A FAFSA deadline tracker is
-                            not a hard thing to want. It is a hard thing to get. "Can someone build me a simple tool for
-                            this" is normally a request that goes nowhere: no budget, no developer, no timeline, and by
-                            the time anyone could get to it the deadline has passed. Here it takes a sentence and about a
-                            minute. The bar for what is worth building drops to whatever is worth asking for.</p>
-
-                        <p><strong>The tradeoff:</strong> What comes back is a first draft, not a finished product. A
-                            generated tracker looks finished the moment it renders, and looking finished is not the same
-                            as being right. The dates and dollar figures inside it came from the model, not from your
-                            source, so check those against the real thing before you work from the tool.</p>
-
-                        <p><strong>Where to find it:</strong></p>
-                        <ul>
-                            <li><strong>Claude:</strong> Artifacts. Opens on its own when the output warrants it.</li>
-                            <li><strong>ChatGPT:</strong> Canvas, a document and code surface that opens beside the chat,
-                                for documents and code rather than click-through tools.</li>
-                            <li><strong>Gemini:</strong> Canvas, invoked manually. Use Add Files, then Canvas.</li>
-                        </ul>
                     </div>
-                </div>
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="skills-content">
-                        <h2><b>Skills</b>: Teach It Your Process Once</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="section-header toc-group" id="using-it-well" data-toc-label="Using it well">
+                        <h2>Using it <b>well</b></h2>
+                        <p>The habit that matters most.</p>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="skills-content">
-                        <p>A Skill is a packaged set of instructions that turns the AI into a specialist for one task.
-                            You write it once, name it, and it gets used automatically whenever you describe matching
-                            work, instead of digging up the same long prompt every week.</p>
-
-                        <p>Think of it as a folder the AI opens when the situation calls for it. Inside is a
-                            <code>SKILL.md</code> file: a short header naming the Skill and saying when to use it, then
-                            step-by-step instructions, the things you would tell a new colleague on day one. Reference
-                            material (a template, your deadline list, the format your counselor expects) goes in the same
-                            folder.</p>
-
-                        <p><strong>The part that surprises people:</strong> you do not have to invoke it. Once installed,
-                            the AI reads the description of every Skill you have and reaches for the matching one on its
-                            own. You describe the task out loud, "here are my notes from the hospital site visit, write
-                            the follow-up," and it runs your employer follow-up Skill.</p>
-
-                        <p><strong>Three worth building for advisor work.</strong> The test: if you have explained the
-                            same process twice, the third time should be a Skill.</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Skill</th>
-                                    <th>What You Write Into It</th>
-                                    <th>What Changes Day to Day</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Skill"><strong>Employer follow-up</strong></td>
-                                    <td data-label="What You Write Into It">Your structure after a site visit: thank
-                                        them, name what they offered, propose the next step, keep it short, and write to
-                                        a plant manager, not a parent.</td>
-                                    <td data-label="What Changes Day to Day">Hand over your notes, get a sendable draft in
-                                        your voice, and the follow-up goes out the same week.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Skill"><strong>Family-facing rewrite</strong></td>
-                                    <td data-label="What You Write Into It">The rules you already apply by instinct: no
-                                        acronyms on first use, name the deadline and the cost of missing it, plain
-                                        language, and what to do for a family that reads in Spanish.</td>
-                                    <td data-label="What Changes Day to Day">Any notice, email, or FAFSA night handout
-                                        gets the same treatment, consistent across the year, without rebuilding the
-                                        instructions each time.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Skill"><strong>ICAP conversation prep</strong></td>
-                                    <td data-label="What You Write Into It">What to pull from a student's file before a
-                                        planning meeting: where they are against the plan, what changed, the few
-                                        questions worth asking, and a note to flag anything it is inferring rather than
-                                        reading.</td>
-                                    <td data-label="What Changes Day to Day">Prep happens in the two minutes before the
-                                        meeting instead of the twenty you do not have.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p><strong>You do not have to write it from scratch.</strong> Describe the workflow and ask the
-                            AI to draft the <code>SKILL.md</code>; the first draft is usually close enough that you are
-                            correcting rather than composing. You install it through your tool's own settings, and since
-                            that location moves as vendors change their interfaces, search the tool's current docs if you
-                            cannot find it.</p>
-
-                        <p><strong>Where to find it:</strong></p>
-                        <ul>
-                            <li><strong>Claude:</strong> Skills. Auto-invoked when your request matches the Skill's
-                                description.</li>
-                            <li><strong>ChatGPT:</strong> Skills. Also auto-invoked on a description match, or selected
-                                explicitly from the composer. The catch is not capability, it is access: they are
-                                workspace and admin-gated.</li>
-                            <li><strong>Gemini:</strong> Gems. Manual only, so a Gem is a decision you make up front
-                                rather than something that fires when it fits, and a specialist you have to remember to
-                                switch into is one you will forget to use.</li>
-                        </ul>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="agreement-trap-content">
+                            <h3>The <b>agreement trap</b><span class="card-hint">When AI just agrees with you</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="agreement-trap-content">
+                            <p class="card-summary">Chatbots lean toward agreeing with you. Bring a half-formed opinion and they tend to back it up.</p>
+                            <p>That's risky in advising. If you describe a student and the option you're leaning toward,
+                                the answer will often agree with you, and it feels like confirmation. A 2026 paper by Chandra
+                                and colleagues, <a href="https://arxiv.org/html/2602.19141v1" target="_blank" rel="noopener noreferrer"><em>Sycophantic Chatbots
+                                Cause Delusional Spiraling, Even in Ideal Bayesians</em></a>, found that knowing about this
+                                bias doesn't stop it. Habits do.</p>
+                            <ul>
+                                <li><strong>Bring an idea, then ask for the other side.</strong> "I'm leaning toward the
+                                    welding program for this student. Argue against it."</li>
+                                <li><strong>Ask what's wrong.</strong> "Tell me the weak spots in this plan."</li>
+                                <li><strong>Test fast agreement.</strong> Ask the opposite question in a new chat. If it agrees
+                                    with both, you've learned something about the answer.</li>
+                            </ul>
+                            <p><strong>One hard rule:</strong> read everything before it goes to a student, a family, or an
+                                employer. AI can write the first draft. You write the last one.</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="connectors-content">
-                        <h2><b>Connectors</b>: Ask About the Real Thing</h2>
-                        <span class="section-toggle-icon"></span>
-                    </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="connectors-content">
-                        <p>A connector gives the AI authenticated access to an app your work already lives in. Once one
-                            is set up, you can ask questions about the actual source material instead of pasting
-                            screenshots, re-uploading a file you already have, or describing something from memory and
-                            hoping you got it right.</p>
-
-                        <p>Two of them cover most of an advisor's week.</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Connector</th>
-                                    <th>What It Reaches</th>
-                                    <th>What It Unlocks</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Connector"><strong>Google Drive</strong></td>
-                                    <td data-label="What It Reaches">Docs, sheets, and slides from your Google Drive.
-                                    </td>
-                                    <td data-label="What It Unlocks">The folders you do not own. A shared counselor
-                                        drive, a district folder, materials a partner organization hosts. Instead of
-                                        clicking through it the night before to work out what changed, you ask.</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Connector"><strong>Microsoft 365</strong></td>
-                                    <td data-label="What It Reaches">Outlook mail and calendar, OneDrive, and SharePoint,
-                                        from one setup.</td>
-                                    <td data-label="What It Unlocks">The day you are actually having. "What is on my
-                                        calendar tomorrow, and for each meeting, what was the last thing we said to each
-                                        other" is one question instead of twenty minutes of inbox archaeology.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p><strong>Read-only is a Claude promise, not an industry rule.</strong> Claude's connectors are
-                            read-only by design: it can see your inbox, your calendar, and your files, and it cannot send
-                            the mail, move the appointment, or edit the document. ChatGPT is different. Its Apps do have
-                            write actions, admin-gated and off by default rather than absent. So do not carry the
-                            read-only assumption from one tool to the other. Check what the connector you just turned on
-                            is actually allowed to do before you point it at anything that matters.</p>
-
-                        <p><strong>If your district runs Microsoft, this decides the tool.</strong> Gemini has no
-                            Microsoft 365 connector at all. Not a limited one: no Outlook, no OneDrive, no SharePoint.
-                            Claude and ChatGPT both reach Outlook and SharePoint. For an advisor whose mail, calendar,
-                            and every shared folder live in the Microsoft stack, that is not a feature-comparison
-                            footnote, it is most of the value of connectors disappearing. It is also the kind of thing
-                            you find out after you have committed, so find it out now.</p>
-
-                        <p><strong>This is a district IT decision, not a personal one.</strong> Connectors touch school
-                            email and school files, which means they touch student records. Whether you are allowed to
-                            turn one on is often settled by district policy and your IT administrator, and on a
-                            school-managed device the setting may not be yours to change. Ask before you connect, not
-                            after. The answer may be yes, and it is a much better conversation to have in advance than to
-                            explain afterward.</p>
-
-                        <p><strong>Where to find it:</strong></p>
-                        <ul>
-                            <li><strong>Claude:</strong> Connectors.</li>
-                            <li><strong>ChatGPT:</strong> Apps, renamed from Connectors in December 2025. Documentation
-                                and walkthroughs written before then still call them Connectors, so search both names.
-                            </li>
-                            <li><strong>Gemini:</strong> Connected Apps, renamed from Extensions. No Microsoft 365
-                                connector of any kind.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="agreement-trap-content">
-                        <h2>The <b>Agreement Trap</b>: When AI Just Agrees With You</h2>
-                        <span class="section-toggle-icon"></span>
-                    </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="agreement-trap-content">
-                        <p>Sycophancy is a failure mode of its own, separate from hallucination. A hallucination tells
-                            you something false about the world. Sycophancy tells you something flattering about your own
-                            thinking. These models have a built-in bias toward agreeing with whoever they are talking to.
-                            Come in with a half-formed opinion and it tends to validate it. Come in with a wrong one and
-                            it often validates that too.</p>
-
-                        <p>A recent paper from Chandra et al. (Feb 2026), <a href="https://arxiv.org/html/2602.19141v1"
-                                target="_blank" rel="noopener noreferrer"><em>Sycophantic Chatbots Cause Delusional
-                                    Spiraling, Even in Ideal Bayesians</em></a>, shows this pattern traps even a
-                            careful, rational person, not just a careless one. The most uncomfortable finding in the paper is
-                            that simply <em>knowing</em> about sycophancy is not enough to escape it. The authors expect
-                            awareness to reduce how often people spiral, but not to eliminate it: the users in their
-                            study who suspected they were being flattered kept spiraling anyway. Awareness alone is not
-                            the fix. Habit is.</p>
-
-                        <p><strong>This section is here because of the work you do.</strong> An advisor talking a student
-                            through a pathway decision is exactly the person who gets quietly validated by a model that
-                            agrees with whatever it is handed. You are already leaning somewhere. You describe the
-                            student, you describe the option you have in mind, and the answer comes back agreeing with
-                            you. Nothing about it feels wrong. It feels like confirmation. The cost of a validated bad
-                            plan is a student's year.</p>
-
-                        <p>Three habits do the work that awareness alone cannot.</p>
-
-                        <p><strong>Come in with an idea, not a blank question.</strong> Instead of "what should this
-                            student do?" try "I am leaning toward the welding program for this student for these reasons.
-                            Argue the other side." A blank question hands the model nothing to push against, so it fills
-                            the space by agreeing with the last thing you said. An idea gives it something to hit.</p>
-
-                        <p><strong>Ask for pushback explicitly.</strong> "Tell me what is wrong with this plan, not what
-                            is right about it." Flip the default orientation on the turns where it matters. You are not
-                            being rude to it, you are correcting for a bias you know is there.</p>
-
-                        <p><strong>Treat fast agreement as a signal to probe.</strong> If it agrees with you flatly and
-                            fast, ask it to argue the opposite view as strongly as it can, or paste the reversed question into a fresh chat
-                            and see whether it also agrees with that. If it agrees with both sides, you just learned
-                            something: not about the student, about the answer you were given.</p>
-
-                        <p><strong>The one hard rule:</strong> never send AI output to a student, a family, or an
-                            employer without reading it yourself. It can write the first draft. It cannot write the last
-                            one.</p>
-
-                        <p>Everything here applies to every large language model, not one product. Claude, ChatGPT,
-                            Gemini, and anything else trained the same way share this bias. It is a trait of how they are
-                            built, not a quirk of one tool, so the habits port over exactly as written.</p>
                     </div>
                 </div>
             </div>
@@ -780,6 +477,7 @@
       </div>
     </footer>
     <script src="../js/collapsible.js"></script>
+    <script src="../js/toc.js"></script>
 </body>
 
 </html>

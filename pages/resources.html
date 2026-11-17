@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Curated K-12 AI tools for teachers and students. LLMs, coding tools, and classroom resources with real education discounts.">
-    <title>AI Resources for K-12 - AI Training</title>
-    <meta name="theme-color" content="#243269">
+    <meta name="description" content="Free and discounted AI tools for school staff, who qualifies, how to sign up, and free courses and lessons.">
+    <title>AI Resources - AI Training</title>
+    <meta name="theme-color" content="#2d368f">
     <!-- Link previews. Crawlers do not run JS and need absolute URLs, so these
          are static. images/og.png is rendered from scripts/og/og-image.html. -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Heartland Forward">
-    <meta property="og:title" content="AI Resources for K-12 - AI Training">
-    <meta property="og:description" content="Curated K-12 AI tools for teachers and students. LLMs, coding tools, and classroom resources with real education discounts.">
+    <meta property="og:title" content="AI Resources - AI Training">
+    <meta property="og:description" content="Free and discounted AI tools for school staff, who qualifies, how to sign up, and free courses and lessons.">
     <meta property="og:url" content="https://heartland-forward.github.io/ai-training/pages/resources.html">
     <meta property="og:image" content="https://heartland-forward.github.io/ai-training/images/og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Best Practices for Using AI: AI training for rootEd advisors, from Heartland Forward">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Resources for K-12 - AI Training">
-    <meta name="twitter:description" content="Curated K-12 AI tools for teachers and students. LLMs, coding tools, and classroom resources with real education discounts.">
+    <meta name="twitter:title" content="AI Resources - AI Training">
+    <meta name="twitter:description" content="Free and discounted AI tools for school staff, who qualifies, how to sign up, and free courses and lessons.">
     <meta name="twitter:image" content="https://heartland-forward.github.io/ai-training/images/og.png">
     <link rel="stylesheet" href="../css/tokens.css">
     <link rel="stylesheet" href="../css/base.css">
@@ -28,329 +28,425 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../images/branding/hf-logo.svg" type="image/svg+xml">
     <script src="../js/header.js"></script>
+    <script src="../js/motion.js"></script>
 </head>
 <body>
     <main>
         <header class="page-masthead">
-            <h1>AI Resources for K-12</h1>
-            <p>Curated list of AI tools with real K-12 education pricing. No slop, no wrappers. Verified July 2026.</p>
+            <div class="page-masthead-inner">
+                <div class="page-masthead-text">
+                    <span class="masthead-eyebrow">Tools and training</span>
+                    <h1>AI Resources</h1>
+                    <p>Free and discounted AI tools for school staff, plus courses and lessons to go further.</p>
+                    <p class="masthead-updated">Updated November 2026</p>
+                </div>
+                <span class="masthead-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg></span>
+            </div>
         </header>
 
         <section class="summary-section">
-            <div class="container">
+            <div class="page-with-toc">
+                <nav class="toc" data-toc="#resources-content" aria-label="On this page"></nav>
+                <div class="container" id="resources-content">
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="tools-content">
-                        <h2><b>Free</b> Tools</h2>
-                        <span class="section-toggle-icon"></span>
+                    <div class="section-header toc-group" id="tools-and-pricing" data-toc-label="Tools and pricing">
+                        <h2>Tools and <b>pricing</b></h2>
+                        <p>Compare prices here. For who qualifies and how to sign up, see How to get access below.</p>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="tools-content">
-                <table>
-                    <colgroup>
-                        <col style="width: 25%;">
-                        <col style="width: 12%;">
-                        <col style="width: 15%;">
-                        <col style="width: 20%;">
-                        <col style="width: 28%;">
-                    </colgroup>
-                    <thead>
+
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="tools-content">
+                            <h3><b>Free</b> tools</h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="tools-content">
+                            <table>
+                                <colgroup>
+                                    <col style="width: 26%;">
+                                    <col style="width: 13%;">
+                                    <col style="width: 23%;">
+                                    <col style="width: 38%;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>Tool</th>
+                                        <th>Category</th>
+                                        <th>K-12 Price</th>
+                                        <th>Eligibility</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                            <!-- Free period: claude.com/solutions/teachers and support.claude.com "Claude for Teachers: your data and our terms" (free through July 30, 2028, extended November 13, 2026). Checked November 2026. -->
                         <tr>
-                            <th>Tool</th>
-                            <th>Category</th>
-                            <th>Standard Price</th>
-                            <th>K-12 Price</th>
-                            <th>Eligibility</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Tool"><strong><a href="https://claude.ai/teachers" target="_blank">Claude for Teachers</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://claude.ai/teachers" target="_blank" rel="noopener noreferrer">Claude for Teachers</a></strong></td>
                             <td data-label="Category">LLM</td>
-                            <!-- Anthropic describes the offer as "Claude Pro-level features", so
-                                 Pro is the stated comparison, not an equivalence. Pro price from
-                                 claude.com/pricing, checked November 2026. -->
-                            <td data-label="Standard Price">Not published (comparable: Claude Pro, $20/mo)</td>
-                            <td data-label="K-12 Price">FREE (1 year from signup)</td>
-                            <td data-label="Eligibility">Verified US K-12 educators</td>
+                            <td data-label="K-12 Price">Free through July 30, 2028</td>
+                            <td data-label="Eligibility">US K-12 teachers, counselors, and other certificated staff</td>
                         </tr>
+                            <!-- openai.com/index/chatgpt-for-teachers: "free for verified U.S. K-12 educators through June 2028". Checked November 2026. -->
                         <tr>
-                            <td data-label="Tool"><strong><a href="https://openai.com/index/chatgpt-for-teachers/" target="_blank">ChatGPT for Teachers</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://chatgpt.com/k12-verification" target="_blank" rel="noopener noreferrer">ChatGPT for Teachers</a></strong></td>
                             <td data-label="Category">LLM</td>
-                            <!-- OpenAI names no comparable plan for Teachers, so Plus is shown as
-                                 the usual individual price for context, not as an equivalence.
-                                 Plus price from help.openai.com "What is ChatGPT Plus?", November 2026. -->
-                            <td data-label="Standard Price">Not published (ChatGPT Plus, the usual individual plan, is $20/mo)</td>
-                            <td data-label="K-12 Price">FREE (through June 2027)</td>
-                            <td data-label="Eligibility">Verified U.S. K-12 teachers & staff</td>
+                            <td data-label="K-12 Price">Free through June 2028</td>
+                            <td data-label="Eligibility">US K-12 teachers and staff</td>
                         </tr>
+                            <!-- Microsoft Copilot in education page, checked November 2026. No sign-up: you sign in with a school account. -->
                         <tr>
-                            <td data-label="Tool"><strong><a href="https://www.microsoft.com/en-us/education/products/copilot-in-education" target="_blank">Microsoft 365 Copilot Chat</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://m365copilot.com" target="_blank" rel="noopener noreferrer">Microsoft 365 Copilot Chat</a></strong></td>
                             <td data-label="Category">LLM</td>
-                            <td data-label="Standard Price">~$20/mo</td>
-                            <td data-label="K-12 Price">FREE (with A1/A3/A5)</td>
-                            <!-- Microsoft's education page: faculty and staff with an A1/A3/A5 license;
-                                 students need the district to "first enable Microsoft Copilot for
-                                 eligible students in your tenant". Checked November 2026. -->
-                            <td data-label="Eligibility">K-12 faculty and staff. Students 13+ only if the district turns it on</td>
+                            <td data-label="K-12 Price">Included with A1/A3/A5</td>
+                            <td data-label="Eligibility">Staff at schools with those Microsoft licenses</td>
                         </tr>
+                            <!-- Google for Education Gemini page and Gemini app help, checked November 2026. No sign-up: you sign in with a school account. -->
                         <tr>
-                            <td data-label="Tool"><strong><a href="https://edu.google.com/ai/gemini-for-education/" target="_blank">Gemini for Education</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">Gemini for Education</a></strong></td>
                             <td data-label="Category">LLM</td>
-                            <td data-label="Standard Price">Not published</td>
-                            <td data-label="K-12 Price">FREE (Gemini in Classroom)</td>
-                            <td data-label="Eligibility">Admin-gated, but on by default for users 18+ in districts that have not opted out</td>
+                            <td data-label="K-12 Price">Included with school Google accounts</td>
+                            <td data-label="Eligibility">School Google accounts, 18+, unless the school turns it off</td>
                         </tr>
+                            <!-- Sign-up link from canva.com/education ("Teachers - Get verified"). Roles: Canva "About Canva Education". Checked November 2026. -->
                         <tr>
-                            <td data-label="Tool"><strong><a href="https://www.canva.com/education/" target="_blank">Canva for Education</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://www.canva.com/edu-signup/" target="_blank" rel="noopener noreferrer">Canva for Education</a></strong></td>
                             <td data-label="Category">Design</td>
-                            <td data-label="Standard Price">$12.99/mo</td>
-                            <td data-label="K-12 Price">FREE</td>
-                            <td data-label="Eligibility">US K-12 educators. A school-issued email verifies instantly</td>
+                            <td data-label="K-12 Price">Free</td>
+                            <td data-label="Eligibility">K-12 teachers, librarians, and curriculum specialists. Not counselors or advisors</td>
                         </tr>
+                            <!-- Sign-up link from the "Sign up for free" button on khanmigo.ai. Eligibility: Khanmigo Teacher Tools terms. Checked November 2026. -->
                         <tr>
-                            <td data-label="Tool"><strong><a href="https://www.khanmigo.ai/" target="_blank">Khanmigo for Teachers</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://www.khanacademy.org/khanmigo/teacher-tools" target="_blank" rel="noopener noreferrer">Khanmigo for Teachers</a></strong></td>
                             <td data-label="Category">Tutoring</td>
-                            <td data-label="Standard Price">$4/mo</td>
-                            <td data-label="K-12 Price">FREE (teacher tools)</td>
-                            <td data-label="Eligibility">Any educator 18+. No verification step</td>
+                            <td data-label="K-12 Price">Free</td>
+                            <td data-label="Eligibility">Adults who work for a school. No documents</td>
                         </tr>
+                            <!-- Application link from "Join GitHub Education" on github.com/education/teachers (needs a GitHub sign-in). Checked November 2026. -->
                         <tr>
-                            <td data-label="Tool"><strong><a href="https://github.com/education/teachers" target="_blank">GitHub Copilot Pro</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://github.com/settings/education/benefits" target="_blank" rel="noopener noreferrer">GitHub Copilot Pro</a></strong></td>
                             <td data-label="Category">Coding</td>
-                            <td data-label="Standard Price">$10/mo</td>
-                            <td data-label="K-12 Price">FREE</td>
-                            <td data-label="Eligibility">Verified teacher status, by document review</td>
+                            <td data-label="K-12 Price">Free</td>
+                            <td data-label="Eligibility">Educators at accredited schools. GitHub does not name K-12</td>
                         </tr>
-                    </tbody>
-                </table>
-                <p class="text-small text-muted"><strong>Note:</strong> "Free for K-12" does not always mean free for you.
-                    Claude, ChatGPT, Khanmigo, and Canva are the four on this list a rootEd advisor can sign up for on a
-                    school-issued email. Copilot Chat and Gemini come with your district's Microsoft or Google account
-                    if the district has them on. The How to Get Access section below covers all six. GitHub verifies
-                    teacher status by document review, so it is one to hand to a teacher rather than to attempt yourself.
-                    Read the eligibility column before spending time on a signup.</p>
+                                </tbody>
+                            </table>
+                            <p class="text-small text-muted">Most advisors qualify for Claude, ChatGPT, and Khanmigo.
+                                Copilot Chat and Gemini depend on your school's accounts. Canva and GitHub are for
+                                teachers.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="discounted-content">
-                        <h2><b>Discounted</b> Tools</h2>
-                        <span class="section-toggle-icon"></span>
-                    </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="discounted-content">
-                <table>
-                    <colgroup>
-                        <col style="width: 25%;">
-                        <col style="width: 12%;">
-                        <col style="width: 15%;">
-                        <col style="width: 20%;">
-                        <col style="width: 28%;">
-                    </colgroup>
-                    <thead>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="discounted-content">
+                            <h3><b>Discounted</b> tools</h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="discounted-content">
+                            <table>
+                                <colgroup>
+                                    <col style="width: 26%;">
+                                    <col style="width: 13%;">
+                                    <col style="width: 23%;">
+                                    <col style="width: 38%;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>Tool</th>
+                                        <th>Category</th>
+                                        <th>K-12 Price</th>
+                                        <th>Eligibility</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                            <!-- K-12 faculty verification link and terms from Grammarly support "Grammarly promo offers on SheerID", checked November 2026. -->
                         <tr>
-                            <th>Tool</th>
-                            <th>Category</th>
-                            <th>Standard Price</th>
-                            <th>K-12 Price</th>
-                            <th>Eligibility</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Tool"><strong><a href="https://www.grammarly.com/edu" target="_blank">Grammarly Pro</a></strong></td>
+                            <td data-label="Tool"><strong><a href="https://services.sheerid.com/verify/646a65e1b6459d31e91e4fed/" target="_blank" rel="noopener noreferrer">Grammarly Pro</a></strong></td>
                             <td data-label="Category">Writing</td>
-                            <td data-label="Standard Price">~$12/mo</td>
-                            <!-- Terms from Grammarly's "Grammarly promo offers on SheerID" support
-                                 article, checked November 2026. -->
-                            <td data-label="K-12 Price">50% off the first billing period, then full price</td>
-                            <td data-label="Eligibility">Students & K-12 faculty, verified by SheerID (may ask for a school document; up to 7 business days)</td>
+                            <td data-label="K-12 Price">50% off the first billing period</td>
+                            <td data-label="Eligibility">K-12 faculty, verified by SheerID (up to 7 business days)</td>
                         </tr>
-                        <!-- Otter.ai removed November 2026: Otter's own pages publish no
-                             individual teacher or student discount, and third-party listings
-                             disagree (20% vs 50%, .edu-only). Re-add only with an official source. -->
-                    </tbody>
-                </table>
+                            <!-- Otter.ai removed November 2026: Otter's own pages publish no
+                                 individual teacher or student discount, and third-party listings
+                                 disagree. Re-add only with an official source. -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="summary-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>How to <b>Get Access</b></h2>
-                    <p>The first four you sign up for yourself on your school-issued email, with no district approval needed. The last two come with your district's Microsoft or Google account, so there is nothing to sign up for: you only check whether your district has them turned on. <em>Verified against official sources in July 2026, and Copilot Chat and Gemini in November 2026. Terms, dates, and verification partners can change.</em></p>
-                </div>
-
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="claude-content">
-                        <h3><b>Claude</b> for Teachers</h3>
-                        <span class="section-toggle-icon"></span>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="claude-content">
 
-                        <p>Claude for Teachers is free for verified US K-12 educators and includes Pro-level features. It launched in July 2026.</p>
-
-                        <p><strong>Before you start:</strong> the Claude account you verify has to use your school-issued email, not a personal one. If your account currently uses a personal email, start a fresh one on your school address, since this cannot be fixed by editing an account later.</p>
-
-                        <p>Eligibility, quoted directly from Anthropic's support article:</p>
-                        <p>"Claude for Teachers is for individual educators working in US K-12 schools: Classroom teachers, in any subject and any grade from kindergarten through 12th; Instructional coaches, specialists, and interventionists; Librarians, counselors, and other certificated staff."</p>
-                        <p>"Important: Claude for Teachers is not for students. It's an educator-only offering."</p>
-
-                        <p>What to have ready, quoted directly from the verification modal at claude.ai/teachers:</p>
-                        <p>"Your school (US K-12, public or private). A Claude account that uses your school-issued email. One document showing your role, like a school ID, contract, pay stub, or certificate."</p>
-
-                        <p><strong>The steps:</strong></p>
-                        <ol>
-                            <li>Go to <a href="https://claude.ai/teachers" target="_blank" rel="noopener noreferrer">claude.ai/teachers</a>.</li>
-                            <li>Click Get started.</li>
-                            <li>Accept the K-12 Terms of Service and the Student Data Processing Addendum.</li>
-                            <li>Select your school.</li>
-                            <li>Upload one role document (school ID, contract, pay stub, or certificate).</li>
-                            <li>Wait for review.</li>
-                        </ol>
-
-                        <p><strong>About that review:</strong> Anthropic hands verification to a partner called Goodstack, so being sent to an unfamiliar site that asks for a pay stub is expected, not a phishing attempt. Quoted directly from the modal: "Reviews are handled by Anthropic's verification partner, Goodstack, and most finish within 24 hours, though they can take up to 3 days during busy periods." Start well before a date you actually need the account, not the night before.</p>
-
-                        <p>Cost, quoted directly and confirmed on three official Anthropic sources: "Sign up by June 30, 2027 for your full year of free access." Your free year runs one year from the day you sign up, so signing up early buys no extra free time: start when you are ready to use it, since the clock begins that day. Just be sure to sign up on or before June 30, 2027, which is the last day to start.</p>
-
-                        <p>Accepting the K-12 Terms of Service and Student Data Processing Addendum puts your account under a different agreement than consumer Claude, one written for work with student data. Training is off by default for every verified educator account.</p>
-
+                    <div class="section-header toc-group" id="get-access" data-toc-label="How to get access">
+                        <h2>How to <b>get access</b></h2>
+                        <p>Who qualifies, the steps, and the fine print for each tool.</p>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="chatgpt-content">
-                        <h3><b>ChatGPT</b> for Teachers</h3>
-                        <span class="section-toggle-icon"></span>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="claude-content">
+                            <h3><b>Claude</b> for Teachers<span class="card-hint">Free through July 2028 &middot; sign up yourself</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="claude-content">
+                            <!-- Sources, checked November 2026: claude.com/solutions/teachers; support.claude.com "Claude for Teachers: your data and our terms" (eligible roles, free through July 30, 2028, training off). The document step comes from the claude.ai/teachers verification flow as checked in July 2026; the signed-in flow was not re-checked. -->
+                            <p class="card-summary">Anthropic's free Claude plan for US K-12 educators, with higher limits than a free account.</p>
+                            <h4>Who qualifies</h4>
+                            <p>US K-12 teachers, instructional coaches, specialists, librarians, counselors, and other certificated staff. Students can't use it.</p>
+                            <h4>Steps</h4>
+                            <ol>
+                                <li>Sign in to Claude with your school email, or make a new account with it. A personal-email account won't work.</li>
+                                <li>Go to <a href="https://claude.ai/teachers" target="_blank" rel="noopener noreferrer">claude.ai/teachers</a> and click Get started.</li>
+                                <li>Accept the K-12 terms and pick your school.</li>
+                                <li>Verify your role. You may need to upload a school ID, contract, or pay stub, and review can take up to 3 days.</li>
+                            </ol>
+                            <h4>Good to know</h4>
+                            <ul>
+                                <li>Free through July 30, 2028.</li>
+                                <li>Anthropic doesn't train its models on your chats.</li>
+                                <li>Your school or district can also set it up for all staff at no cost.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="chatgpt-content">
-
-                        <p>Eligibility, quoted directly from OpenAI's help article: "You are eligible if you: Work for an accredited U.S. K–12 school or district, and Are a teacher, staff member, school leader, or district administrator".</p>
-
-                        <p>Verification for ChatGPT for Teachers is handled by a different partner than Claude's: SheerID.</p>
-
-                        <p><strong>The steps:</strong></p>
-                        <ol>
-                            <li>Go to <a href="https://chatgpt.com/k12-verification" target="_blank" rel="noopener noreferrer">chatgpt.com/k12-verification</a> and verify using your school or district email.</li>
-                            <li>Create or join a workspace tied to your district's domain.</li>
-                            <li>Set your role, subjects, and grade levels.</li>
-                        </ol>
-
-                        <p>Cost: free through June 2027. This is a fixed end date for everyone, not tied to your signup date. OpenAI has not published which day in June its free access ends, so no specific day is stated here.</p>
-
-                        <p>ChatGPT for Teachers is not ChatGPT Plus and not ChatGPT Pro. It is a distinct workspace product built for school and district use.</p>
-
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="chatgpt-content">
+                            <h3><b>ChatGPT</b> for Teachers<span class="card-hint">Free through June 2028 &middot; sign up yourself</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="chatgpt-content">
+                            <!-- Sources, checked November 2026: openai.com/index/chatgpt-for-teachers (free through June 2028, SheerID, advance notice of changes); help.openai.com eligibility and verification articles. -->
+                            <p class="card-summary">OpenAI's free ChatGPT workspace for US K-12 educators.</p>
+                            <h4>Who qualifies</h4>
+                            <p>Teachers, staff, school leaders, and district administrators at an accredited US K-12 school or district.</p>
+                            <h4>Steps</h4>
+                            <ol>
+                                <li>Go to <a href="https://chatgpt.com/k12-verification" target="_blank" rel="noopener noreferrer">chatgpt.com/k12-verification</a> and sign in with your school email.</li>
+                                <li>Verify your role through SheerID, OpenAI's verification partner.</li>
+                                <li>Join or create your district's workspace, then set your role, subjects, and grades.</li>
+                            </ol>
+                            <h4>Good to know</h4>
+                            <ul>
+                                <li>Free through June 2028. OpenAI says it will give notice before any price change.</li>
+                                <li>It's a separate product from ChatGPT Plus and Pro.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="khanmigo-content">
-                        <h3><b>Khanmigo</b> for Teachers</h3>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="khanmigo-content">
+                            <h3><b>Khanmigo</b> for Teachers<span class="card-hint">Free teacher tools &middot; sign up yourself</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="khanmigo-content">
+                            <!-- Sources, checked November 2026: khanmigo.ai FAQ and pricing; Khanmigo Teacher Tools terms (last updated February 18, 2025); Khan Academy help "How do I sign up for Khanmigo?". -->
+                            <p class="card-summary">Khan Academy's free AI tools for lesson planning and class prep.</p>
+                            <h4>Who qualifies</h4>
+                            <p>Adults who work for a school as a teacher or other staff. You confirm this yourself when you accept the terms.</p>
+                            <h4>Steps</h4>
+                            <ol>
+                                <li>Go to <a href="https://www.khanacademy.org/khanmigo/teacher-tools" target="_blank" rel="noopener noreferrer">Khanmigo teacher tools</a> and click Sign up for free.</li>
+                                <li>Create or log in to a Khan Academy account with its language set to English.</li>
+                                <li>Fill in your details and accept the terms.</li>
+                            </ol>
+                            <h4>Good to know</h4>
+                            <ul>
+                                <li>Free, with no end date announced.</li>
+                                <li>Students can only get Khanmigo through a school or district plan.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="khanmigo-content">
-
-                        <p>The lowest-friction option here. There is no verification step at all: no document, no school
-                            email requirement, no waiting on a review.</p>
-
-                        <p><strong>Who qualifies.</strong> Khan Academy's wording is broad: "To access Khanmigo for
-                            Teachers, you must be an educator who is 18 years or older and lives in one of these
-                            countries or territories." It never defines "educator," and asks for no proof of one.</p>
-
-                        <p><strong>The steps:</strong></p>
-                        <ol>
-                            <li>Create a free Khan Academy account, or sign in to one you already have.</li>
-                            <li>Go to <a href="https://www.khanmigo.ai/" target="_blank" rel="noopener noreferrer">khanmigo.ai</a> and choose the free teacher tools.</li>
-                            <li>That is the whole flow. There is nothing to verify and nobody to wait on.</li>
-                        </ol>
-
-                        <p>Cost: free, with no end date. Khanmigo costs $4/mo for learners and parents; the teacher tools
-                            are the free tier.</p>
-
-                        <p><strong>Two honest caveats.</strong> It is teacher-facing only: you cannot grant students
-                            access from a free account, since classroom access is available only through school or
-                            district implementations. And the free tools are built around lesson planning and
-                            classroom instruction, so how much of it earns its keep for pathway and FAFSA work is
-                            genuinely up to you.</p>
-
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="canva-content">
+                            <h3><b>Canva</b> Education<span class="card-hint">Free &middot; teaching roles only</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="canva-content">
+                            <!-- Sources, checked November 2026: Canva "About Canva Education" help article (roles, steps, US license rule); canva.com/education/eligibility-guidelines (48-hour review, re-verify every 3 years). -->
+                            <p class="card-summary">Free premium Canva for K-12 teaching staff.</p>
+                            <h4>Who qualifies</h4>
+                            <p>Certified K-12 teachers, school librarians, learning support staff, and curriculum specialists. Counselors and advisors aren't on Canva's list, so ask whether your school already has Canva for all staff.</p>
+                            <h4>Steps</h4>
+                            <ol>
+                                <li>Go to <a href="https://www.canva.com/edu-signup/" target="_blank" rel="noopener noreferrer">canva.com/edu-signup</a> and sign up with your school email, or your school's Google, Microsoft, or Clever account.</li>
+                                <li>Choose Teacher and enter your school details.</li>
+                                <li>If Canva doesn't recognize your school email, upload your teaching license. Canva reviews it within 48 hours.</li>
+                            </ol>
+                            <h4>Good to know</h4>
+                            <ul>
+                                <li>Free while you stay eligible.</li>
+                                <li>Canva asks you to re-verify every 3 years.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="canva-content">
-                        <h3><b>Canva</b> Education</h3>
-                        <span class="section-toggle-icon"></span>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="copilot-content">
+                            <h3><b>Microsoft 365</b> Copilot Chat<span class="card-hint">Included with some school Microsoft accounts</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="copilot-content">
+                            <!-- Sources, checked November 2026: Microsoft "Copilot in education" page (A1/A3/A5, students 13+ when enabled, $18 add-on); Microsoft support on the enterprise data protection shield. -->
+                            <p class="card-summary">Microsoft's AI chat, included with some schools' Microsoft 365 accounts.</p>
+                            <h4>Who qualifies</h4>
+                            <p>Staff at schools with a Microsoft 365 A1, A3, or A5 license. Students 13 and up get it only if the school turns it on.</p>
+                            <h4>Steps</h4>
+                            <ol>
+                                <li>Go to <a href="https://m365copilot.com" target="_blank" rel="noopener noreferrer">m365copilot.com</a> and sign in with your school email.</li>
+                                <li>Look for the green shield at the top of the chat. It means you're in your school account.</li>
+                                <li>No sign-in or no shield? Your school may not have it turned on. Ask whoever set up your school email.</li>
+                            </ol>
+                            <h4>Good to know</h4>
+                            <ul>
+                                <li>Free with your school's license.</li>
+                                <li>The full Microsoft 365 Copilot, inside Word and Outlook, is a paid add-on for schools ($18 per user per month).</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="canva-content">
-
-                        <p>Free premium Canva for K-12, and the quickest of any tool here if your school email domain is
-                            recognised: access is granted on the spot, with no document and no review.</p>
-
-                        <p><strong>The steps:</strong></p>
-                        <ol>
-                            <li>Go to <a href="https://www.canva.com/education/" target="_blank" rel="noopener noreferrer">canva.com/education</a> and sign up using your school-issued email.</li>
-                            <li>If your school's email domain is recognised, you are in immediately. Canva's wording: "If you sign up for Canva Education with a verified educational email domain, you'll get access right away."</li>
-                            <li>If it is not recognised, you upload one document and Canva reviews it within 48 hours.</li>
-                        </ol>
-
-                        <p>Cost: free, for as long as you stay eligible. Canva re-verifies every three years.</p>
-
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="gemini-content">
+                            <h3><b>Gemini</b> for Education<span class="card-hint">Included with some school Google accounts</span></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="gemini-content">
+                            <!-- Sources, checked November 2026: Google for Education Gemini page; Gemini Apps help for Workspace for Education ("By default, the Gemini app is available to all users over age 18"). -->
+                            <p class="card-summary">Google's AI chat, included with Google Workspace for Education accounts.</p>
+                            <h4>Who qualifies</h4>
+                            <p>Users 18 and over on a school Google account, unless the school turns it off.</p>
+                            <h4>Steps</h4>
+                            <ol>
+                                <li>Go to <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">gemini.google.com</a> and sign in with your school email.</li>
+                                <li>Check that the account in the top-right corner is your school one.</li>
+                                <li>Won't open? Your school may have it turned off. Ask whoever set up your school email.</li>
+                            </ol>
+                            <h4>Good to know</h4>
+                            <ul>
+                                <li>Free with your school's Google account.</li>
+                                <li>Gemini in Google Classroom follows the same rule.</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="copilot-content">
-                        <h3><b>Microsoft 365</b> Copilot Chat</h3>
-                        <span class="section-toggle-icon"></span>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="copilot-content">
 
-                        <p>If your school email is a Microsoft account (you sign in to Outlook or Teams with it), you
-                            may already have this. Microsoft's wording: "Use secure AI chat powered by GPT-5 at no
-                            additional cost when signed in with your school or work account," for schools on its A1,
-                            A3, or A5 licenses. There is nothing to sign up for.</p>
-
-                        <p><strong>How to check:</strong></p>
-                        <ol>
-                            <li>Go to <a href="https://m365copilot.com" target="_blank" rel="noopener noreferrer">m365copilot.com</a> and sign in with your school email, not a personal Microsoft account.</li>
-                            <li>Look for a green shield at the top of the chat, next to New Chat. Microsoft uses it to show that enterprise data protection applies, which means you are in your school account and not the consumer version.</li>
-                            <li>If you cannot sign in, or the shield is missing, your district may not have it set up. That is a district setting, so ask your district IT rather than trying to fix it yourself.</li>
-                        </ol>
-
-                        <p>Cost: free with your district's license. The full Microsoft 365 Copilot, which works inside
-                            Word, Outlook, and Teams, is a separate paid add-on that districts buy ($18 per user per
-                            month for schools).</p>
-
+                    <div class="section-header toc-group" id="keep-learning" data-toc-label="Keep learning">
+                        <h2>Keep <b>learning</b></h2>
+                        <p>Free courses for you and lessons for your students.</p>
                     </div>
-                </div>
 
-                <div class="metrics-section">
-                    <div class="metrics-section-header collapsible-header" data-target="gemini-content">
-                        <h3><b>Gemini</b> for Education</h3>
-                        <span class="section-toggle-icon"></span>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="free-courses-content">
+                            <h3>Courses <b>for educators</b></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="free-courses-content">
+                            <!-- Opened November 2026. Anthropic: course page says "Created in partnership with
+                                 Teach For America"; lessons open without an account. Microsoft Learn FAQ: "Microsoft
+                                 Learn training is free". Common Sense: AI PD page lists it among "three free
+                                 professional development courses", "designed in partnership with OpenAI". Google:
+                                 "this no cost course is built for teachers". Alphabetical by title. -->
+                            <ul class="resource-grid">
+                                <li class="resource-card">
+                                    <h4><a href="https://academy.claude.com/courses/ai-fluency-for-k-12-educators" target="_blank" rel="noopener noreferrer">AI Fluency for pK&ndash;12 Educators</a></h4>
+                                    <p class="resource-source">Anthropic &middot; Teach For America &middot; Free</p>
+                                    <p>Ten lessons, about 3 hours, on working with any AI tool, with examples from K&ndash;12 classrooms.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://learn.microsoft.com/en-us/training/paths/ai-education" target="_blank" rel="noopener noreferrer">AI for Educators Learning Path</a></h4>
+                                    <p class="resource-source">Microsoft &middot; Free</p>
+                                    <p>Four modules, about 4 hours, on using AI in teaching and school work.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://www.commonsense.org/education/training/chatgpt-k12-foundations" target="_blank" rel="noopener noreferrer">ChatGPT Foundations for K&ndash;12 Educators</a></h4>
+                                    <p class="resource-source">Common Sense Education &middot; OpenAI &middot; Free</p>
+                                    <p>A self-paced course on how ChatGPT works, safe use, and writing prompts.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://grow.google/ai-for-educators/" target="_blank" rel="noopener noreferrer">Generative AI for Educators</a></h4>
+                                    <p class="resource-source">Google &middot; Free</p>
+                                    <p>A hands-on course for teachers in any subject. You don't need any AI experience.</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="metrics-section-content collapsible-content prose-section" id="gemini-content">
 
-                        <p>If your school email is a Google account (you use Gmail, Drive, or Classroom with it), you
-                            may already have Gemini. Google includes the Gemini app as a core service in its Workspace
-                            for Education editions, including the free Education Fundamentals edition. Google's
-                            wording: "By default, the Gemini app is available to all users over age 18." Your district
-                            can turn it off.</p>
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="teaching-students-content">
+                            <h3>Lessons <b>for students</b></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="teaching-students-content">
+                            <!-- Opened November 2026. Anthropic: lessons open without an account. Code.org AI
+                                 Foundations: "100% free", grades 9-12, semester or school year. Day of AI curriculum:
+                                 "free, ready-to-teach", project course for grades 7-12. Alphabetical by title. -->
+                            <ul class="resource-grid">
+                                <li class="resource-card">
+                                    <h4><a href="https://academy.claude.com/courses/ai-fluency-for-students" target="_blank" rel="noopener noreferrer">AI Fluency for Students</a></h4>
+                                    <p class="resource-source">Anthropic &middot; Free</p>
+                                    <p>Five lessons on using AI for schoolwork and career planning.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://code.org/en-US/curriculum/artificial-intelligence-foundations" target="_blank" rel="noopener noreferrer">AI Foundations</a></h4>
+                                    <p class="resource-source">Code.org &middot; Free</p>
+                                    <p>A high school course, grades 9&ndash;12, on how AI works. Runs for a semester or a full year.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://dayofai.org/curriculum-resources" target="_blank" rel="noopener noreferrer">Day of AI Curriculum</a></h4>
+                                    <p class="resource-source">Day of AI &middot; Free</p>
+                                    <p>Ready-to-teach AI literacy lessons, including a project course for grades 7&ndash;12.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
 
-                        <p><strong>How to check:</strong></p>
-                        <ol>
-                            <li>Go to <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer">gemini.google.com</a> and sign in with your school email, not a personal Gmail.</li>
-                            <li>If a chat opens, you have it. Check that the account shown in the top-right corner is your school one.</li>
-                            <li>If Gemini will not open for that account, your district has either turned it off or not marked your account as 18 or older. Both are district settings, so ask your district IT.</li>
-                        </ol>
+                    <div class="section-header toc-group" id="check-and-protect" data-toc-label="Check and protect">
+                        <h2>Check and <b>protect</b></h2>
+                        <p>Where to confirm what AI tells you, and where to read up on student privacy.</p>
+                    </div>
 
-                        <p>Gemini in Classroom, the teacher tools inside Google Classroom, follows the same rule: on by
-                            default for users 18 and older unless the district switches it off.</p>
+                    <div class="card-stack">
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="check-answers-content">
+                            <h3>Where to check <b>AI&#39;s answers</b></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="check-answers-content">
+                            <!-- studentaid.gov, bls.gov/ooh, teachai.org/toolkit, and studentprivacy.ed.gov opened
+                                 November 2026. CareerOneStop left out: its site showed a bot check. -->
+                            <div class="callout callout-tip">
+                                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                                <div class="callout-body">
+                                    <p>Treat any date, dollar amount, or deadline from AI as a draft until you find it
+                                        on the official site.</p>
+                                </div>
+                            </div>
+                            <ul class="resource-grid">
+                                <li class="resource-card">
+                                    <h4><a href="https://studentaid.gov/" target="_blank" rel="noopener noreferrer">Federal Student Aid</a></h4>
+                                    <p class="resource-source">U.S. Department of Education &middot; Free</p>
+                                    <p>The official source for the FAFSA, deadlines, and federal aid amounts.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://www.bls.gov/ooh/" target="_blank" rel="noopener noreferrer">Occupational Outlook Handbook</a></h4>
+                                    <p class="resource-source">U.S. Bureau of Labor Statistics &middot; Free</p>
+                                    <p>Pay, job outlook, and required education for hundreds of careers.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-                        <p>Cost: free with your district's Google Workspace for Education account.</p>
-
+                    <div class="metrics-section collapsed">
+                        <div class="metrics-section-header collapsible-header" data-target="privacy-guidance-content">
+                            <h3>Privacy and <b>school AI guidance</b></h3>
+                            <span class="section-toggle-icon"></span>
+                        </div>
+                        <div class="metrics-section-content collapsible-content prose-section" id="privacy-guidance-content">
+                            <ul class="resource-grid">
+                                <li class="resource-card">
+                                    <h4><a href="https://www.teachai.org/toolkit" target="_blank" rel="noopener noreferrer">AI Guidance for Schools Toolkit</a></h4>
+                                    <p class="resource-source">TeachAI &middot; Free</p>
+                                    <p>A toolkit for school leaders and teachers writing AI guidance.</p>
+                                </li>
+                                <li class="resource-card">
+                                    <h4><a href="https://studentprivacy.ed.gov/" target="_blank" rel="noopener noreferrer">Protecting Student Privacy</a></h4>
+                                    <p class="resource-source">U.S. Department of Education &middot; Free</p>
+                                    <p>FERPA guidance, training, and webinars for school staff.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -358,6 +454,7 @@
     </main>
 
     <script src="../js/collapsible.js"></script>
+    <script src="../js/toc.js"></script>
     <footer class="dashboard-footer">
       <div class="footer-content">
         <span>Questions or feedback?</span>
